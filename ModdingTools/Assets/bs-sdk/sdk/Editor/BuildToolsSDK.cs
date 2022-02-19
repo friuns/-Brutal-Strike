@@ -156,7 +156,7 @@ public partial class BuildToolsSDK : EditorWindow
                 return BuildTargetGroup.Standalone;
         }
     }
-
+    [MenuItem("Tools/GenerateChecks", false)]
     public static void GenerateChecks()
     {
         foreach (var a in Directory.GetFiles(skinsDir))
