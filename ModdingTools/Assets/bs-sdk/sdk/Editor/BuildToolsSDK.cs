@@ -156,6 +156,20 @@ public partial class BuildToolsSDK : EditorWindow
                 return BuildTargetGroup.Standalone;
         }
     }
+
+    public static void GenerateChecks()
+    {
+        foreach (var a in Directory.GetFiles(skinsDir))
+        {
+            if (Path.GetExtension(a).Contains("unity3d"))
+            {
+                var hash = MD5.Create().ComputeHash(File.ReadAllBytes(a));
+                File.WriteAllBytes(a + ".check", hash);
+                Debug.Log(a);
+            }
+        }
+
+    }
     [MenuItem("Assets/Build Skin", false)]
     public static void BuildSkin()
     {
