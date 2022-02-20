@@ -34,6 +34,7 @@ public class HandsSkin : bs, ISkinBase, IPosRot, IOnLoadAsset
 
     [NonSerialized] private Renderer[] m_renderers;
     public float animationSpeed = 1;
+    public List<AnimationEvents> animationEvents = new List<AnimationEvents>();
 
 #if UNITY_EDITOR
     [ContextMenu("TPose")]

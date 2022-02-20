@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -98,7 +99,7 @@ public class FloorCell : BuildScript, IOnTriggerEnter
             // GetComponentInChildren<BuildScript>(true).Break();
             var pl = ToObject<Player>(pv);
             if(pl!=null)
-                foreach(var a in gunsDict)
+                foreach(var a in pl.gunsDict)
                     if (a.Value is Hammer h)
                         h.info.secondaryCount++;
         }
@@ -164,5 +165,14 @@ public class FloorCell : BuildScript, IOnTriggerEnter
         if (IsMine)
             Destroy();
     }
+    public override void RPCDamageAddLife(float damage, int pv = -1, int weapon = -1, HumanBodyBones collId = 0, Vector3 hitPos = default)
+    {
+        var knife = _Game.playerPrefab.guns.FirstOrDefault(a=>a is Knife);
+        if (weapon == knife.id)
+            damage *= 10;
+
+        base.RPCDamageAddLife(damage, pv, weapon, collId, hitPos);
+    }
+    
 #endif
 }

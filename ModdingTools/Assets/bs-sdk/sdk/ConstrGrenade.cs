@@ -11,8 +11,8 @@ public class ConstrGrenade : GrenadeBullet
         if (exploded)
             return;
         exploded = true;
-        
-        StartCoroutine(AddMethod(delegate { explosion.GetComponent<Destructable>().Instantiate(pos+Vector3.down,Quaternion.identity,pernament:false); }, new WaitUntil(() => rigidbody.IsSleeping())));
+        if (wep.IsMine)
+            StartCoroutine(AddMethod(delegate { explosion.GetComponent<Destructable>().Instantiate(pos + Vector3.down, Quaternion.identity, pernament: false); }, new WaitUntil(() => rigidbody.IsSleeping())));
         
     }
 #endif

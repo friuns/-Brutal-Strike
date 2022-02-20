@@ -132,7 +132,7 @@ public class GunBase : bsNetwork, IOnLoadAsset, IOnLevelEditorGUI,IDontDisable, 
 #if game
     internal new bool selected; //same as pl.curGun==this
     public Sprite weaponIcon { get { return weaponPickable != null ? weaponPickable.icon : this is Knife ? gameRes.knifeIcon : null; } }
-    public int price { get { return roomSettings.randomPrice ? (int) ( m_price * (MyRandom.PerlinNoise(_Game.seed*0.000001f+id*0.000001f) + .5f)) : (int) m_price; } }
+    public int price { get { return roomSettings.randomPrice ? new MyRandom(unchecked(_Game.seed+round+id)).Range(m_price/2,m_price*6/4) : (int) m_price; } }
 
     public bool hide { get { return this is Ammo && roomSettings.unlimitedAmmo; } }
 
@@ -558,12 +558,12 @@ public class GunBase : bsNetwork, IOnLoadAsset, IOnLevelEditorGUI,IDontDisable, 
         pl.animator.Play(anim.ToStringC(), -1, 0);
 //        pl.Fade(anim, trans, playFromBegining);
 
-        foreach (var e in animationEvents)
+        foreach (var e in pl.observing && Hands.animationEvents.Count > 0 ? Hands.animationEvents : animationEvents)
             if (e.anim == anim /*&& Magnitude(pl.hpos - mainCameraPos) < 20*/)
-                MyTimer.DelayCall(ref timer,(e, pl,this), _ =>
+                MyTimer.DelayCall(ref timer,(e, pl,this), this_ =>
                 {
-                    if (_.Item3.selected && !pl.deadOrKnocked)
-                        _.pl.weaponAnimationEventsAudio.PlayOneShot(_.e.audioClip);
+                    if (this_.Item3.selected && !pl.deadOrKnocked)
+                        this_.pl.weaponAnimationEventsAudio.PlayOneShot(this_.e.audioClip);
                 }, e.time / Hands.animationSpeed);
                 // StartCoroutine(PlayDelayed(a.time / Hands.animationSpeed, a.audioClip));
     }

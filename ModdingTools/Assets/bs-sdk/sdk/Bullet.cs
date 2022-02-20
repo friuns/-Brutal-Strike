@@ -211,6 +211,8 @@ public class Bullet : BulletBase,IOnLoadAsset
                 if (firstHit ==null)
                     firstHit = h;
                 // continue;
+                if (!roomSettings.ShootThroughWalls)
+                    return;
             }
             ISetLife isetlife = h.transform.GetComponentInParent<ISetLife>();
 
@@ -220,6 +222,8 @@ public class Bullet : BulletBase,IOnLoadAsset
                 
                 destructable.RPCDamageAddLife(-damage, shooter.viewId, wep.id, hitPos: h.point);
                 oldDesctructable = destructable;
+                if (!roomSettings.ShootThroughWalls)
+                    return;
             }
             else if (layer == Layer.ragdoll || isetlife is Player)
             {
@@ -235,7 +239,7 @@ public class Bullet : BulletBase,IOnLoadAsset
                         // Debug.DrawLine(firstHit.Value.point, h2.point, Color.red, 10);
                     }
 
-                if (WallScore > wep.bulletPass * gameSettings.bulletPassFactor * 10 || !(roomSettings.ShootThroughWalls||wep.explodeOnCollision))
+                if (WallScore > wep.bulletPass * gameSettings.bulletPassFactor * 10 )
                     return;
                 if (layer == Layer.ragdoll)
                     if (damage > 5 || WallScore == 0)
