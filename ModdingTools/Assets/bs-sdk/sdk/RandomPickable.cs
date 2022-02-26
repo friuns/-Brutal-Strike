@@ -10,6 +10,7 @@ public class RandomPickable : ObjectBase, IOnPoolDestroy, IOnPreMatch
     public RandomPickableSkin skin;
     public float probabilityFactor = 1;
     public RespawnableBase pickable;
+    public string[] weaponIds = new String[0];
     bool inited;
     
 #if game
@@ -26,10 +27,19 @@ public class RandomPickable : ObjectBase, IOnPoolDestroy, IOnPreMatch
         if (!gameLoaded) return;
         cell = Vector3Int.CeilToInt(tr.position / 100);
         _Game.density[cell] += 1;
-        Game.RegisterOnGameEnabled(Init);
+        // Game.RegisterOnGameEnabled(Init);
+        var bx = gameObject.AddComponent<BoxCollider>();
+        bx.isTrigger = true;
     }
     private Vector3Int cell;
-
+    public override void OnStartGame()
+    {
+        if (pickable)
+            Destroy(pickable.gameObject);
+        Init();
+        base.OnStartGame();
+    }
+    [ContextMenu("Init")]
     public void Init()
     {
         if (roomSettings.disableLoot) return;
@@ -39,8 +49,7 @@ public class RandomPickable : ObjectBase, IOnPoolDestroy, IOnPreMatch
             skin = Instantiate(RandomPickableSkin.prefab, transform, false);
             skin.localPosition = Vector3.zero;
         }
-        var bx = gameObject.AddComponent<BoxCollider>();
-        bx.isTrigger = true;
+
         
         // Debug.Log("room.sets.seed:"+room.sets.seed);
         MyRandom random = new MyRandom(viewId+room.sets.seed);
@@ -50,7 +59,7 @@ public class RandomPickable : ObjectBase, IOnPoolDestroy, IOnPreMatch
 
         var prefab =
             // random.value > .3f ? 
-            assetPrefabs.WhereNonAlloc2((WeaponPickable a) => a.gun.canBuy).WeightedRandom(a => a.Probability + Mathf.Max(0, 1f -density)*10, random);
+            assetPrefabs.WhereNonAlloc2((WeaponPickable a) => !a.gun.Disabled && (weaponIds.Length==0|| weaponIds.Contains(a.gun.gunName)) ).WeightedRandom(a => a.Probability + Mathf.Max(0, 1f -density)*10, random);
             // : assetPrefabs.Random(a => a is LootBox,random);
             if (!prefab)
                 throw new MyException("coud not find weapon for random pickable");

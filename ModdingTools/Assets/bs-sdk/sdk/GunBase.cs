@@ -79,11 +79,9 @@ public class GunBase : bsNetwork, IOnLoadAsset, IOnLevelEditorGUI,IDontDisable, 
     public ObscuredInt dropAmmount = 1;
     public ObscuredFloat m_aimSpeed = 16.5f;
     public float gravityFactor=1;
-    
-        
-    
     //public Slot slot = new Slot();
     [FieldAtrEnd]
+    public bool allowFriendlyFire;
 
     [Header("       audio")]
     public AudioClip2 draw;

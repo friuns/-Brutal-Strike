@@ -458,7 +458,7 @@ public class Bullet : BulletBase,IOnLoadAsset
         
         
         
-        if (!shooter.IsEnemyOrBot(enemy) || shooter.SpawnProtection(enemy) || enemy.dead)
+        if (!shooter.IsEnemyOrBot(enemy) && !wep.allowFriendlyFire || shooter.SpawnProtection(enemy) || enemy.dead)
             return false;
 
         wep.lastHit = h;
@@ -469,7 +469,7 @@ public class Bullet : BulletBase,IOnLoadAsset
             float damage = (float)this.damage/wep.bulletsPerShoot;
 
           
-            if (!enemy.dead && !(enemy.knocked && roomSettings.dontKillKnocked) && damage > 0)
+            if (!enemy.dead && !(enemy.knocked && roomSettings.dontKillKnocked) && damage !=0)
             {
                 HumanBodyBones bp = enemy.skin.GetBodyPart(h.transform);
                 var head = bp == HumanBodyBones.Head;

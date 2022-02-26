@@ -126,7 +126,7 @@ public class Knife : GunBase,IMeleeWeapon
                     if (pl.zombie) damage = (int)(damage * (1f - pl.zombiePowerUp / 2));
                     if (enemy != null)
                     {
-                        if (!pl.IsEnemyOrBot(enemy))
+                        if (!pl.IsEnemyOrBot(enemy) && !allowFriendlyFire)
                             continue;
 
                         lastHit = h;

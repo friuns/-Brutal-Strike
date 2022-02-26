@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2869,11 +2869,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1085600610225568, guid: 526ceb4b06feda84d9733a0a4bcce1b0, type: 3}
       propertyPath: m_Name
-      value: m4a1-pickable
+      value: physxGun-pickable
       objectReference: {fileID: 0}
     - target: {fileID: 1085600610225568, guid: 526ceb4b06feda84d9733a0a4bcce1b0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4045055515192354, guid: 526ceb4b06feda84d9733a0a4bcce1b0, type: 3}
       propertyPath: m_RootOrder
@@ -2911,7 +2911,7 @@ PrefabInstance:
         type: 3}
       propertyPath: icon
       value: 
-      objectReference: {fileID: 21300000, guid: f8ffe9566b0261047815bda9685b39ff,
+      objectReference: {fileID: 21300000, guid: cbc9352c4fa4a0e4196b3fff251218a1,
         type: 3}
     - target: {fileID: 114347457915970146, guid: 526ceb4b06feda84d9733a0a4bcce1b0,
         type: 3}
@@ -4754,6 +4754,75 @@ MonoBehaviour:
   rg: {fileID: 618056659}
   lastAttack: 0
   createTime: 0
+--- !u!1001 &674200602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.17430386
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.28506565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.452414
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821512, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8853415545987821519, guid: 0381539164984dc4ca193f001869c526,
+        type: 3}
+      propertyPath: m_Name
+      value: Environment
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0381539164984dc4ca193f001869c526, type: 3}
 --- !u!1 &690610656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,8 +5990,8 @@ GameObject:
   - component: {fileID: 770791512}
   - component: {fileID: 770791516}
   - component: {fileID: 770791515}
-  - component: {fileID: 770791514}
   - component: {fileID: 770791513}
+  - component: {fileID: 770791514}
   m_Layer: 11
   m_Name: w_rif_m4a1
   m_TagString: Untagged
@@ -5937,13 +6006,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770791511}
-  m_LocalRotation: {x: -0.7071068, y: 0.00000021073427, z: -0.00000037932168, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.97740227, y: 0.0000003826046, z: -0.00000020471336, w: 0.21138796}
+  m_LocalPosition: {x: 0, y: -0.407, z: 1.397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 345752624}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -155.593, y: 0, z: -0.000015258789}
 --- !u!114 &770791513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5969,8 +6038,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08010129, y: 0.94850004, z: 0.31065953}
-  m_Center: {x: -0.014698141, y: -0.2578144, z: 0.042735446}
+  m_Size: {x: 1.3872654, y: 0.312112, z: 0.6350964}
+  m_Center: {x: -6.033359e-14, y: 0.03356978, z: 1.2492657}
 --- !u!23 &770791515
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6017,7 +6086,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770791511}
-  m_Mesh: {fileID: 4300000, guid: 84a99ae6b7db8e54088260d32d82d998, type: 3}
+  m_Mesh: {fileID: 2702949604755831319, guid: 4694e7ec13f372e4db2cfd039b9e671c, type: 3}
 --- !u!1 &796857834
 GameObject:
   m_ObjectHideFlags: 0
@@ -19471,7 +19540,7 @@ GameObject:
   - component: {fileID: 4986837237897510}
   - component: {fileID: 114972639340772164}
   m_Layer: 13
-  m_Name: m4a1-hands
+  m_Name: physxGun-hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19489,12 +19558,12 @@ GameObject:
   - component: {fileID: 114531990778086873}
   - component: {fileID: 1968578019}
   m_Layer: 0
-  m_Name: m4a1-gunskin
+  m_Name: physxGun-gunskin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1906232593402101
 GameObject:
   m_ObjectHideFlags: 0
@@ -19921,8 +19990,8 @@ MonoBehaviour:
   vrHands:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  vrForward: {fileID: 0}
   crosshair: {fileID: 0}
-  handsFov: 60
   attachments:
   - {fileID: 0}
   - {fileID: 0}
@@ -19930,3 +19999,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animationSpeed: 1
+  animationEvents: []
