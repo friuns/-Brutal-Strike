@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PhysxGunObj:bs,IOnStartGame,ITriggerEvent
+public class PhysxGunObj:bs,IOnStartGame,IOnPlayerEnter
 {
     public PhysxGun gun;
     
@@ -58,6 +58,13 @@ public class PhysxGunObj:bs,IOnStartGame,ITriggerEvent
                 break;
             }
     }
+     public void OnPlayerEnter(Player pl, Trigger other, bool b)
+    {
+        
+        if(gun.pl.IsEnemyOrBot(pl) && pl.IsMine && rg.velocity.magnitude>5)
+            pl.RPCDamageAddLife(-30, gun.pl.viewId, gun.id, HumanBodyBones.Chest);
+    }
 #endif
 
+   
 }

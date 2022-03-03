@@ -72,7 +72,7 @@ public static class ext3
     {
         return target.IsValid(pl) ? target : null;
     }
-    public static T WeightedRandom<T>(this List<T> GunBases,Func<T,float> f,MyRandom random=null)
+    public static T WeightedRandom<T>(this List<T> GunBases,Func<T,float> f,MyRandom random=null) //bigger value bigger probability
     {
         if (random == null) random = bs.random;
         float randomNumber = random.Range(0, GunBases.Sum(a => f(a)));
@@ -162,7 +162,8 @@ public static class ext3
 
 
 
-
+public class LockAttribute : Attribute
+{}
 public class CacheAttribute : Attribute
 {
     public int minutes;
