@@ -92,8 +92,8 @@ public class PhysxGun : GunBase
                 if (pl.observing)
                 {
                     handsAnimation.Play();
-                    pl.HitTime = TimeCached.time;
-                    _ObsCamera.PlayDamageAnim();
+                    // pl.HitTime = TimeCached.time;
+                    // _ObsCamera.PlayDamageAnim();
 
                 }
             }
@@ -109,6 +109,7 @@ public class PhysxGun : GunBase
                 var cube = Instantiate(trs.Random(), plPos, Random.rotation);
                 cube.createTime = TimeCached.time;
                 cube.gun = this;
+                pl.triggerNearby.triggers.Add(cube.GetComponent<Trigger>());
                 Debug.DrawRay(pl.pos, plPos, Color.red, 10);
                 if (randomScale > 0)
                     cube.transform.localScale = Random.insideUnitSphere * randomScale;
@@ -137,7 +138,8 @@ public class PhysxGun : GunBase
                     var sqrMagnitude = v.sqrMagnitude;
                     var magnitude = Mathf.Sqrt(sqrMagnitude);
 
-                    if (TimeCached.time - o.lastAttack < 2 || magnitude > 25) continue;
+                    var old = TimeCached.time - o.createTime > 3;
+                    if (TimeCached.time - o.lastAttack < 2 || magnitude > 25 && old) continue;
                     o.lastTime = TimeCached.time;
                     if (magnitude < 5)
                     {
@@ -160,7 +162,7 @@ public class PhysxGun : GunBase
                     else
                     {
                         r.velocity = Vector3.ClampMagnitude(r.velocity, 1 + magnitude + sqrMagnitude * 5);
-                        r.AddForce(v.normalized * (Mathf.Max(200 - (sqrMagnitude * sqrMagnitude) * .1f, 50) * Time.deltaTime * 50));
+                        r.AddForce(v.normalized * ((!old ? 300 : Mathf.Max(200 - (sqrMagnitude * sqrMagnitude) * .1f, 50)) * Time.deltaTime * 50));
                     }
                     // a.AddExplosionForce(explosionForce, transform.forward*10, radius);
                 }

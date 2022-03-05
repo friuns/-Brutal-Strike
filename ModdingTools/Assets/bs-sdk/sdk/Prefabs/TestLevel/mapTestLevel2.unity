@@ -4561,7 +4561,7 @@ MonoBehaviour:
     randomPrice: 0
     disableShadowSampling: 0
     disableTreesAndGrass: 0
-    playerSpeedFactor: 1
+    playerSpeedFactor: 4
     playerHorizontalMove: 0.7
     playerHealthFactor: 1
     zombieHealthFactor: 3
