@@ -4510,10 +4510,10 @@ MonoBehaviour:
     updateNavMesh: 0
     botDificulty: 1
     dynamicBotDificulty: 1
-    botTeamCount: 0
+    botTeamCount: 2
     botsPerTeam: 2
     alliedBots: 0
-    StartAlone: 0
+    StartAlone: 1
     hardBots: 0
     botNonAccuracy: 6
     botScream: 1
@@ -4582,6 +4582,7 @@ MonoBehaviour:
     hostUserID: -1
     seed: 0
     autoAim_Y: 0
+    androidInertia: 0
     specialGun: 0
     enableShooting: 1
     searchEnemy: 1

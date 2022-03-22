@@ -19667,6 +19667,7 @@ MonoBehaviour:
   dropAmmount: 1
   m_aimSpeed: 16.5
   gravityFactor: 0.3
+  allowFriendlyFire: 0
   draw:
     playInSequence: 0
     volume: 1
@@ -19748,7 +19749,7 @@ MonoBehaviour:
     - {fileID: 8993902097722301239, guid: 100c512c4e29ebf46859dbdc4bff3748, type: 3}
     - {fileID: 8993902097722301239, guid: 63528c2d7b0a7d744bf71f232c976e60, type: 3}
   id: 11226551
-  groupNumber: 1
+  groupNumber: 2
   WeaponArmorRatio: 1.4
   special: 0
   zoomSound:

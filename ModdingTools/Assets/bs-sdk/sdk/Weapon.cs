@@ -699,7 +699,7 @@ public partial class Weapon : WeaponBase
     internal bool attachmentUi;
     
 
-    private void RPCShowAttachmentUI(bool value)
+    public void RPCShowAttachmentUI(bool value)
     {
         if (value != attachmentUi)
             CallRPC(ShowAttachmentUI, value);

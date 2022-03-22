@@ -109,26 +109,21 @@ public class PhysxGun : GunBase
                 var cube = Instantiate(trs.Random(), plPos, Random.rotation);
                 cube.createTime = TimeCached.time;
                 cube.gun = this;
-                pl.triggerNearby.triggers.Add(cube.GetComponent<Trigger>());
+
+                var component = cube.GetComponent<Trigger>();
+                if (!pl.triggerNearby.triggers.Contains(component))
+                {
+                    component.triggers.Add(pl.triggerNearby);
+                    pl.triggerNearby.triggers.Add(component);
+                }
+
                 Debug.DrawRay(pl.pos, plPos, Color.red, 10);
                 if (randomScale > 0)
                     cube.transform.localScale = Random.insideUnitSphere * randomScale;
             }
             
             int cnt = 1;
-            // foreach (var a in GetInstances<PlayerSkin>())
-            // {
-            //     if (a.isRagdoll)
-            //     {
-            //         foreach (var r in a.rigidbodies)
-            //         {
-            //             var v = pl.hpos + pl.Cam.forward * Mathf.Sqrt(lastCnt) - r.position; //ragdpöö
-            //             var sqrMagnitude = v.sqrMagnitude;
-            //             // var magnitude = Mathf.Sqrt(sqrMagnitude);        
-            //             r.AddForce(v.normalized * (Mathf.Max(200 - (sqrMagnitude * sqrMagnitude) * .1f, 50) * TimeCached.deltaTime * 10));
-            //         }
-            //     }
-            // }
+     
 
             foreach (var a in pl.triggerNearby.triggers)
                 if (a.handler is PhysxGunObj o)
@@ -138,7 +133,7 @@ public class PhysxGun : GunBase
                     var sqrMagnitude = v.sqrMagnitude;
                     var magnitude = Mathf.Sqrt(sqrMagnitude);
 
-                    var old = TimeCached.time - o.createTime > 3;
+                    var old = TimeCached.time - o.createTime > 3 || o.gun != this;
                     if (TimeCached.time - o.lastAttack < 2 || magnitude > 25 && old) continue;
                     o.lastTime = TimeCached.time;
                     if (magnitude < 5)

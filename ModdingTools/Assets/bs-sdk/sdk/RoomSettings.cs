@@ -189,6 +189,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public int seed;
    
     public  float autoAim_Y = 0;
+    public bool androidInertia;
     [FieldAtrEnd]
     public ObscuredBool specialGun = false;
     

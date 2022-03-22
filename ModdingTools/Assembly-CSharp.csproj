@@ -211,6 +211,7 @@
      <Compile Include="Assets\bs-sdk\sdk\SwordParticles.cs" />
      <Compile Include="Assets\bs-sdk\sdk\SyncronizePhysics.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Trigger.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\TriggerEvent.cs" />
      <Compile Include="Assets\bs-sdk\sdk\TriggerReceiver.cs" />
      <Compile Include="Assets\bs-sdk\sdk\UnbiasLodGroup.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Vodka.cs" />

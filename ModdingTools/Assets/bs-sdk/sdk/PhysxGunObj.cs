@@ -60,8 +60,7 @@ public class PhysxGunObj:bs,IOnStartGame,IOnPlayerEnter
     }
      public void OnPlayerEnter(Player pl, Trigger other, bool b)
     {
-        
-        if(gun.pl.IsEnemyOrBot(pl) && pl.IsMine && rg.velocity.magnitude>5)
+        if (gun.pl.IsEnemyOrBot(pl) && pl.IsMine && Mathf.Min((rg.velocity - pl.controller.velocity).magnitude, rg.velocity.magnitude) > 5 && _Game.started)
             pl.RPCDamageAddLife(-30, gun.pl.viewId, gun.id, HumanBodyBones.Chest);
     }
 #endif

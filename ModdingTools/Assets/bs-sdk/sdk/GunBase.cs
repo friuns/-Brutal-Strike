@@ -558,7 +558,7 @@ public class GunBase : bsNetwork, IOnLoadAsset, IOnLevelEditorGUI,IDontDisable, 
 
         foreach (var e in pl.observing && Hands.animationEvents.Count > 0 ? Hands.animationEvents : animationEvents)
             if (e.anim == anim /*&& Magnitude(pl.hpos - mainCameraPos) < 20*/)
-                MyTimer.DelayCall(ref timer,(e, pl,this), this_ =>
+                MyTimer.DelayCallP(ref timer,(e, pl,this), this_ =>
                 {
                     if (this_.Item3.selected && !pl.deadOrKnocked)
                         this_.pl.weaponAnimationEventsAudio.PlayOneShot(this_.e.audioClip);

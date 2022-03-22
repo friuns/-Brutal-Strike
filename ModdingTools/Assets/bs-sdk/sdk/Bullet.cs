@@ -435,7 +435,7 @@ public class Bullet : BulletBase,IOnLoadAsset
     {
         if (!userSettings.disableRagdoll)
         {
-            MyTimer.DelayCall((h.rigidbody, velocity), t =>
+            MyTimer.DelayCallP((h.rigidbody, velocity), t =>
             {
                 var r = t.rigidbody;
                 r.AddForce(500 * r.mass * t.velocity.normalized);
@@ -469,7 +469,7 @@ public class Bullet : BulletBase,IOnLoadAsset
             float damage = (float)this.damage/wep.bulletsPerShoot;
 
           
-            if (!enemy.dead && !(enemy.knocked && roomSettings.dontKillKnocked) && damage !=0)
+            if (!enemy.dead && !(enemy.knocked && roomSettings.dontKillKnocked) && damage > 0)
             {
                 HumanBodyBones bp = enemy.skin.GetBodyPart(h.transform);
                 var head = bp == HumanBodyBones.Head;
