@@ -31,7 +31,7 @@ public class Trigger : TriggerBase
         (handler as IOnTriggerInit)?.InitTrigger(this);
     }
     
-    public void OnValidate()
+    public virtual void OnValidate()
     {
         if (Application.isPlaying || string.IsNullOrEmpty(gameObject.scene.name)) return;
         if (!(handler is ITriggerEvent) && !bs.isGame)

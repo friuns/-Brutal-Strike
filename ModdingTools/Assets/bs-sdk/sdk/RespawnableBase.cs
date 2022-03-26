@@ -16,7 +16,10 @@ public class RespawnableBase : ItemBaseVarParse,IOnTriggerInit
     protected void InitRespawn()
     {
         if (timeToRespawn > 0 && IsMine)
-            DelayCall(timeToRespawn, () => CallRPC(OnReset));
+            DelayCall(timeToRespawn, () =>
+            {
+                CallRPC(OnReset);
+            });
     }
     public TransformCache transformCache;
     public override void OnLoadAsset()
@@ -41,8 +44,9 @@ public class RespawnableBase : ItemBaseVarParse,IOnTriggerInit
 
     public bool hideWhenFarAway = true;
     public void InitTrigger(Trigger t)
-    { if(hideWhenFarAway  && transformCache ) //should be rendered at near
-        transformCache.visible = false;
+    { 
+        if(hideWhenFarAway  && transformCache ) //should be rendered at near
+            transformCache.visible = false;
     }
 #endif
 
