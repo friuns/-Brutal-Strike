@@ -29,7 +29,10 @@ public static List<Transform> GetTransforms(this Transform t)
         v.y = a;
         return v;
     }
-
+    public static T Get<T>(this IList<T> a, int i)
+    {
+        return a.Count <= i || i < 0 ? default : a[i];
+    }
 public static T Component<T>(this Component a) where T : Component
     {
         return Component<T>(a.gameObject);

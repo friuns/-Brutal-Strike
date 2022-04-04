@@ -21,6 +21,14 @@ public partial class PlayerClass
     public float TargetSpeed = 1;
 }
 
+public class Hud : bs
+{
+    
+}
+public class Game : bs
+{
+    
+}
 public partial class Player:bs
 {
     public void Start()

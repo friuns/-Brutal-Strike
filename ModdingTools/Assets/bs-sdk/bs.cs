@@ -1,11 +1,55 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
+public class Expose : Attribute
+{
+    
+}
 [SelectionBase]
 public class bs : Base,IOnInspectorGUI
 {
+    public static bool HasChanged<T>(Func<T, T> f, T a)
+    {
+        return !EqualityComparer<T>.Default.Equals(a, f(a));
+    }
     
+    public static bool HasChanged<T>(T a,ref T b)
+    {
+        if (!EqualityComparer<T>.Default.Equals(a, b))
+        {
+            b = a;
+            return true;
+        }
+        return false;
+    }
+    public static object DrawObject(object v2, string name)
+    {
+#if UNITY_EDITOR
+        if (v2 is Enum e)
+            v2 = EditorGUILayout.EnumPopup(name, e);
+        else if (v2 is int)
+            v2 = EditorGUILayout.IntField(name, (int)v2);
+        else if (v2 is double)
+            v2 = EditorGUILayout.FloatField(name, (float)(double)v2);
+        else if (v2 is float)
+            v2 = EditorGUILayout.FloatField(name, (float)v2);
+        else if (v2 is bool)
+            v2 = EditorGUILayout.Toggle((bool)v2, name);
+        else if (v2 is string)
+            v2 = EditorGUILayout.TextField(name, (string)v2);
+        else if (v2 is Vector3)
+            v2 = EditorGUILayout.Vector3Field(name, (Vector3)v2);
+        else if (v2 is Vector2)
+            v2 = EditorGUILayout.Vector2Field(name, (Vector2)v2);
+#endif
+        return v2;
+    }
+    public virtual void OnValidate()
+    {
+    }
     protected ObsCamera _ObsCamera; 
     protected Animator m_Animator;
     protected  Animator animator { get { return m_Animator ?? (m_Animator = GetComponentInChildren<Animator>()); } set { m_Animator = value; } }
@@ -24,7 +68,9 @@ public class bs : Base,IOnInspectorGUI
     {
     }
     public static RoomSettings roomSettings=new RoomSettings();
-    protected static Player _Game;
+    protected static Player _Player;
+    protected static Game _Game;
+    protected static Hud _Hud;
     internal List<Collider> levelColliders;
     
     public virtual void OnEditorGUI()
