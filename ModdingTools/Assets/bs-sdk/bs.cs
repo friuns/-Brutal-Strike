@@ -8,6 +8,10 @@ public class Expose : Attribute
 {
     
 }
+public interface ISerializableDictionary2
+{
+        
+}
 [SelectionBase]
 public class bs : Base,IOnInspectorGUI
 {
@@ -47,6 +51,12 @@ public class bs : Base,IOnInspectorGUI
 #endif
         return v2;
     }
+    public const bool sdk =
+#if game
+        false;
+#else
+        true;
+#endif
     public virtual void OnValidate()
     {
     }

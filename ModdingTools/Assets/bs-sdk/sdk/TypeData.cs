@@ -12,11 +12,47 @@ using UnityEngine;
  
 public class TypeData : ScriptableObject
 {
+    public TypeDict triggers = new TypeDict();
+    
+    public List<SerializedMember> GetMethodInfos(object[] obs)
+    {
+        // var list = staticTriggers.ToList();
+        List<SerializedMember> list = new List<SerializedMember>();
+        foreach (object comp in obs.Concat(new[] { typeof(Player), typeof(Game) }))
+        {
+            var key = (comp is Type) ? comp.ToString() : "inst_"+comp.GetType();
+            if (!triggers.TryGetValue(key, out var l))
+            {
+                triggers[key] = l = new ListSerializedMember();
+                MemberInfo[] ms = (comp is Type t ? t : comp.GetType()).GetMembers(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
+                foreach (var m in ms)
+                {
+                    if (m is FieldInfo f && f.FieldType == typeof(Hook) && Math2.XAnd(f.IsStatic, comp is Type))
+                    {
+                        var s = f.Name.Substring(1);
+                        var method = (MethodInfo)ms.FirstOrDefault(a => a.Name == s);
+                        if (method == null) throw new Exception("not found " + s);
+                        l.list.Add(new SerializedMember(method, ""));
+                    }
+                }
+            }
+            list.AddRange(l.list);
+            // bs.GetMethods(comp.GetType(), m_methodInfos);
+        }
+        return list;
+
+    }
+
+    
+    
+    
     [Serializable]
     public class ListSerializedMember
     {
         public List<SerializedMember> list = new List<SerializedMember>();
     }
+    
+    
     [Serializable]
     public class TypeDict:SerializableDictionary<string,ListSerializedMember>
     {}
@@ -24,20 +60,17 @@ public class TypeData : ScriptableObject
     private HashSet<Type> handled = new HashSet<Type>();
     public List<SerializedMember> Get(Type type)
     {
-        #if game
-        if (!types.TryGetValue(type.Name, out var actions) || handled.Add(type))
+        if (!types.TryGetValue(type.Name, out var actions) || !bs.sdk && handled.Add(type))
         {
             actions = types[type.Name] = new ListSerializedMember();
             Fill(type, new List<SerializedType>(), actions.list);
             SetDirty();
         }
-        #endif
         if(types.TryGetValue(type.Name,out var o))
             return o.list;
         throw new Exception("key not found " + type.Name);
     }
     public TypeDict types = new TypeDict();
-    #if game 
     private void Fill(Type type, List<SerializedType> extraParams, List<SerializedMember> actions, string path = "", string code = "")
     {
         
@@ -108,11 +141,10 @@ public class TypeData : ScriptableObject
         list.AddRange(methodInfos.OrderBy(a => a.Name));
         
     }
- #endif   
 }
 
 [Serializable]
-public class SerializedMember:IEquatable<SerializedMember>
+public class SerializedMember:SerializedType, IEquatable<SerializedMember>
 {
     [Serializable]
     public class ParameterInfo:SerializedType
@@ -123,7 +155,7 @@ public class SerializedMember:IEquatable<SerializedMember>
     public SerializedMember()
     {
     }
-    
+    public Type DeclaringType => type;
     public bool exposed;
     public List<SerializedType> indexes = new List<SerializedType>();
     public string fullName;
@@ -139,11 +171,12 @@ public class SerializedMember:IEquatable<SerializedMember>
 
         foreach (var a in method.GetParameters())
             parameters.Add(new ParameterInfo() { ParameterType = a.ParameterType, Name = a.Name });
-        fullName = TriggerEvent.MethodName(method);
         name = method.Name;
+        fullName = TriggerEvent.MethodName(this);
+        type = method.DeclaringType;
         path = $"{Path}{fullName} {postFix}";
     }
-    public Type targetType;
+    public Type targetType; //target gameobjectonly
     public SerializedMember Clone(string c, Type t)
     {
         var clone = (SerializedMember)base.MemberwiseClone();
@@ -176,5 +209,9 @@ public class SerializedMember:IEquatable<SerializedMember>
     public override int GetHashCode()
     {
         return (path != null ? path.GetHashCode() : 0);
+    }
+    public IEnumerable<ParameterInfo> GetParameters()
+    {
+        return parameters;
     }
 }

@@ -132,6 +132,7 @@
      <Compile Include="Assets\bs-sdk\sdk\EasyIK.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Event2.cs" />
      <Compile Include="Assets\bs-sdk\sdk\EventMachineBehaviour.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\FasterStringOperations.cs" />
      <Compile Include="Assets\bs-sdk\sdk\FlashGrenadeBullet.cs" />
      <Compile Include="Assets\bs-sdk\sdk\FloorCell.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Fortnite\BuildScript.cs" />

@@ -19,42 +19,11 @@ using Object = UnityEngine.Object;
 public class TriggerEvent : bs
 {
     public bool showAll;
-    private List<MethodInfo> m_methodInfos;
-    private List<MethodInfo> methodInfos
-    {
-        get
-        {
-            if (m_methodInfos == null)
-            {
-                m_methodInfos = new List<MethodInfo>();
-                foreach (object comp in GetComponents<Base>().Concat<object>(new[] { typeof(Player),typeof(Game) }))
-                {
-                    MemberInfo[] ms = (comp is Type t ? t : comp.GetType()).GetMembers(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
-                    foreach (var m in ms)
-                    {
-                        if (m is FieldInfo f && f.FieldType == typeof(Hook) && Math2.XAnd(f.IsStatic, comp is Type))
-                        {
-                            var s = f.Name.Substring(1);
-
-                            var method = (MethodInfo)ms.FirstOrDefault(a => a.Name == s);
-
-
-                            if (method == null) throw new Exception("not found " + s);
-                            m_methodInfos.Add(method);
-                        }
-                    }
-                    // bs.GetMethods(comp.GetType(), m_methodInfos);
-                }
-            }
-            return m_methodInfos;
-        }
-    }
-
     
     public int triggerIndex = -1;
-    public MethodInfo triggerMethod { get { return triggerIndex == -1 ? null : methodInfos.Get(triggerIndex); } set { triggerIndex = methodInfos.IndexOf(value); } }
+    public SerializedMember triggerMethod { get { return triggerIndex == -1 ? null : methodInfos.Get(triggerIndex); } set { triggerIndex = methodInfos.IndexOf(value); } }
 
-
+    public List<SerializedMember> methodInfos => typeData.GetMethodInfos(GetComponents<Base>());
     
 #if UNITY_EDITOR
     
@@ -74,7 +43,7 @@ public class TriggerEvent : bs
         typeData.types.Clear();
     }
     public static int ToolBar<T>(IList<T> ts, int t, string label, Func<T, string> @select = null, string def = "None", params GUILayoutOption[] prms)
-    {
+    { 
         return ts.IndexOf(ToolBar(ts, t == -1 ? default : ts.Get(t), label, select, def, prms));
     }
     static class Cache<T>
@@ -83,7 +52,7 @@ public class TriggerEvent : bs
     }
     public static T ToolBar<T>(IList<T> ts, T t, string label, Func<T, string> select = null, string def = "None", params GUILayoutOption[] prms)
     {
-        if (!Cache<T>.cache.TryGetValue(ts, out string[] enumerable))
+        if (!Cache<T>.cache.TryGetValue(ts, out string[] enumerable) ||true)
             Cache<T>.cache[ts] = enumerable = new[] { def }.Concat(ts.Select(select ?? (a => a.ToString()))).ToArray();
         
         var index = EditorGUILayout.Popup(label, ts.IndexOf(t) + 1, enumerable, prms) - 1;
@@ -107,7 +76,7 @@ public class TriggerEvent : bs
         if (Application.isPlaying) return;
         // var d = new DropdownItem<int>(4,"");
 
-        if (bs.HasChanged(ToolBar(methodInfos, triggerIndex, "Trigger", a => a.DeclaringType + "/" + MethodName(a)), ref triggerIndex) || /*(action?.name == null || action.name =="target") &&*/  HasChanged(EditorGUILayout.ObjectField("target", target, typeof(Object)), ref target))
+        if (bs.HasChanged(ToolBar(methodInfos, triggerIndex, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref triggerIndex) || /*(action?.name == null || action.name =="target") &&*/  HasChanged(EditorGUILayout.ObjectField("target", target, typeof(Object)), ref target))
         {
             actions = new List<SerializedMember>();
             
@@ -117,7 +86,7 @@ public class TriggerEvent : bs
             else if(target !=null) 
                 actionsAddRange(typeData.Get(target.GetType()).Select(a => a.Clone("target")));
             
-            foreach (ParameterInfo p in triggerMethod.GetParameters()) 
+            foreach (var p in triggerMethod.GetParameters()) 
                 if (!p.ParameterType.IsValueType)
                     actionsAddRange(typeData.Get(p.ParameterType).Select(a => a.Clone(p.Name)));
             actionsAddRange(typeData.Get(triggerMethod.DeclaringType).Select(a => a.Clone("this")));
@@ -207,23 +176,23 @@ public class TriggerEvent : bs
     }
 
 
-    public MethodInfo trigger;
+    public SerializedMember trigger;
 
     public static string cast(string name)
     {
         return name == "String" ? "string" : name == "Int32" ? "int" : name == "Single" ? "float" : name;
     }
 
-    public static string MethodName(MethodInfo info)
+    public static string MethodName(SerializedMember info)
     {
-        var p = info.Name + "(";
+        var p = info.name + "(";
         var parameters = info.GetParameters();
-        foreach (ParameterInfo item in parameters)
+        foreach (var item in parameters)
             p += $"{cast(item.ParameterType.Name)} {item.Name}, ";
         return p.Trim(' ', ',') + ")"; 
     }
 #if game
-    public CScript cs;
+    private CScript cs;
 
     [ContextMenu("Start")]
     public void Start()
@@ -262,9 +231,8 @@ public class TriggerEvent : bs
             var p = string.Join(",", actionParameters.Take(actionParameters.Length - expCount).Select((a, i) => !string.IsNullOrEmpty(a.reference) ? a.reference : (a.value is Object ? $"prms[{i}]" : a.ToString())));
             var path = string.Format(action.code, actionParameters.Skip(expCount).ToArray());
             if (triggerMethod == null) return;
-            var returnType = triggerMethod.ReturnType.Name.Replace("Void", "void");
             code = $@"
-{returnType} {MethodName(triggerMethod)}
+void {MethodName(triggerMethod)}
 {{
     {path}.{action.name}({p});
 }}
