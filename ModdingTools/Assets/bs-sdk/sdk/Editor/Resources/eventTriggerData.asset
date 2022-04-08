@@ -15,7 +15,6 @@ MonoBehaviour:
   triggers:
     m_keys:
     - SkyButton (TriggerHelper)
-    - 
     - TakeWeapon (TriggerHelper)
     - Player
     - Game
@@ -86,7 +85,6 @@ MonoBehaviour:
           Name: other
         path: 'OnPlayerExit(Player pl, Trigger other) '
         code: 
-    - list: []
     - list:
       - m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null

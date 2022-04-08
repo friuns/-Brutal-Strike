@@ -114,7 +114,13 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     //}
     //[HideInInspector]
     //public ItemBase m_prefab;
-    public ItemBase prefab { get { return Resources2.Load<ItemBase>(path); } }
+    public ItemBase prefab
+    {
+        get
+        {
+            return Resources2.Load<ItemBase>(path);
+        }
+    }
     public virtual ItemBase CreateOrPlace(Vector3 pos, Quaternion rot,bool create,bool localOnly)
     {
         if (create) 
@@ -317,6 +323,7 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
         if (old != offset)
             pos += offset - old;
         alignToGround = Toggle(alignToGround, "Align To Ground");
+        dragScale = Toggle(dragScale, "scale");
 
         //if (isDebug)
         //    foreach (var a in customDict)

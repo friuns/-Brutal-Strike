@@ -10,11 +10,13 @@ public class BulletBase : ObjectBase
     internal Vector3 normal = Vector3.up;
     internal RaycastHit hit;
 
-    [PunRPC]
+    public Hook _Explode;
+    [PunRPC] 
     public virtual void Explode() //Explode setlife happens on enemy side, unlike bullets 
     {
         try
         {
+            _Explode?.Invoke();
             var pos = this.pos;
             foreach (var pl in _Game.playersAll)
             {

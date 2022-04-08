@@ -32,7 +32,7 @@ namespace uSource
     //TODO: Fix Window
     public class uLoaderWindow : EditorWindow
     {
-        [MenuItem("uSource/Loader")]
+        [MenuItem("Window/uSource/Loader")]
         static void Init()
         {
             uLoaderWindow window = (uLoaderWindow)EditorWindow.GetWindow(typeof(uLoaderWindow));

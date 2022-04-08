@@ -16,17 +16,37 @@ using Object = UnityEngine.Object;
 #pragma warning disable 618
 
 // [ExecuteInEditMode]
-public class TriggerEvent : bs
+public class TriggerEvent : ItemBase,IOnLevelEditorGUI
 {
-    public bool showAll;
     
     public int triggerIndex = -1;
     public SerializedMember triggerMethod { get { return triggerIndex == -1 ? null : methodInfos.Get(triggerIndex); } set { triggerIndex = methodInfos.IndexOf(value); } }
-
     public List<SerializedMember> methodInfos => typeData.GetMethodInfos(GetComponents<Base>());
+    public static TypeData m_typeData;
+    public static TypeData typeData
+    {
+        get
+        {
+            if (m_typeData == null)
+            {
+                m_typeData = Resources.Load<TypeData>("eventTriggerData");
+                if (m_typeData== null)
+                {
+                    m_typeData= TypeData.CreateInstance<TypeData>();
+#if UNITY_EDITOR
+                    AssetDatabase.CreateAsset(m_typeData, "Assets/scripts/sdk/Editor/Resources/eventTriggerData.asset");
+#endif
+                }
+            }
+            return m_typeData;
+        }
+    }
     
 #if UNITY_EDITOR
+    public bool showAll;
     
+    
+
     private void actionsAddRange(IEnumerable<SerializedMember> list)
     {
         if (!showAll)
@@ -52,7 +72,7 @@ public class TriggerEvent : bs
     }
     public static T ToolBar<T>(IList<T> ts, T t, string label, Func<T, string> select = null, string def = "None", params GUILayoutOption[] prms)
     {
-        if (!Cache<T>.cache.TryGetValue(ts, out string[] enumerable) ||true)
+        if (!Cache<T>.cache.TryGetValue(ts, out string[] enumerable))
             Cache<T>.cache[ts] = enumerable = new[] { def }.Concat(ts.Select(select ?? (a => a.ToString()))).ToArray();
         
         var index = EditorGUILayout.Popup(label, ts.IndexOf(t) + 1, enumerable, prms) - 1;
@@ -141,19 +161,7 @@ public class TriggerEvent : bs
         code = GUILayout.TextArea(code);
         
     }
-    public static TypeData typeData
-    {
-        get
-        {
-            TypeData data = Resources.Load<TypeData>("eventTriggerData");
-            if (data == null)
-            {
-                data = TypeData.CreateInstance<TypeData>();
-                AssetDatabase.CreateAsset(data, "Assets/scripts/sdk/Editor/Resources/eventTriggerData.asset");
-            }
-            return data;
-        }
-    }
+ 
     [HideInInspector]
     public List<SerializedMember> actions = new List<SerializedMember>();
     
@@ -172,6 +180,7 @@ public class TriggerEvent : bs
 
     public static object DefaultValue(Type t)
     {
+        
         return t == typeof(string) ? "" : t.IsValueType ? Activator.CreateInstance(t) : null;
     }
 
@@ -191,36 +200,8 @@ public class TriggerEvent : bs
             p += $"{cast(item.ParameterType.Name)} {item.Name}, ";
         return p.Trim(' ', ',') + ")"; 
     }
-#if game
-    private CScript cs;
-
-    [ContextMenu("Start")]
-    public void Start()
-    {
-        cs = CScript.CreateRunner("class cs{ public static Object target;public static Object[] prms; " + code + "}", new ScriptConfig() { DefaultUsings = new[] { "UnityEngine" } });
-        foreach (HybType Class in cs.GetTypes())
-        {
-            var methods = Class.GetMethods();
-            foreach (var m in methods)
-            {
-                foreach (var comp in GetComponents<MonoBehaviour>())
-                {
-                    var f = comp.GetType().GetField("_" + m.Id, BindingFlags.Instance | BindingFlags.NonPublic);
-                    f?.SetValue(comp, new Hook(delegate(object[] a)
-                    {
-                        Class.SetStaticPropertyOrField("target", HybInstance.Object(target));
-                        Class.SetStaticPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray()));
-
-                        m.Invoke(HybInstance.Object(comp), a.Select(HybInstance.Object).ToArray());
-                    }));
-                }
-                // var d = (Delegate)act;
-                // d+= Delegate.CreateDelegate();
-            }
-        }
-    }
-#endif
-    public string code;
+    public bool masterOnly;
+    
     private void UpdateCode()
     {
         try
@@ -230,6 +211,7 @@ public class TriggerEvent : bs
             var expCount = action.indexes.Count;
             var p = string.Join(",", actionParameters.Take(actionParameters.Length - expCount).Select((a, i) => !string.IsNullOrEmpty(a.reference) ? a.reference : (a.value is Object ? $"prms[{i}]" : a.ToString())));
             var path = string.Format(action.code, actionParameters.Skip(expCount).ToArray());
+            
             if (triggerMethod == null) return;
             code = $@"
 void {MethodName(triggerMethod)}
@@ -243,6 +225,52 @@ void {MethodName(triggerMethod)}
             Debug.LogException(e);
         }
     }
+    
+#if game
+    private CScript cs;
+    
+    [ContextMenu("Start")]
+    public override void Start()
+    {
+        base.Start();
+        
+        cs = CScript.CreateRunner("class cs:bs{ public static Object target;public static Object[] prms; " + code + "}", new ScriptConfig() { DefaultUsings = new[] { "UnityEngine" } });
+        foreach (HybType Class in cs.GetTypes())
+        {
+            var methods = Class.GetMethods();
+            foreach (var m in methods)
+            {
+                foreach (var comp in GetComponents<MonoBehaviour>())
+                {
+                    if (!masterOnly || bs.isMaster)
+                    {
+                        var f = comp.GetType().GetField("_" + m.Id, BindingFlags.Instance | BindingFlags.NonPublic);
+                        f?.SetValue(comp, new Hook(delegate(object[] a)
+                        {
+                            Class.SetStaticPropertyOrField("target", HybInstance.Object(target));
+                            Class.SetStaticPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray()));
+
+                            var d = m.Invoke(HybInstance.Object(comp), a.Select(HybInstance.Object).ToArray());
+                            if(d?.InnerObject is SSEnumerator ss)
+                                StartCoroutine(ss);
+                        }));
+                    }
+                }
+                // var d = (Delegate)act;
+                // d+= Delegate.CreateDelegate();
+            }
+        }
+    }
    
+    public override void OnLevelEditorGUI()
+    {
+        base.OnLevelEditorGUI();
+        code = GUILayout.TextArea(code);
+    }
+#endif
+    public string code;
+
+
+  
 }
 

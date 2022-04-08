@@ -16,17 +16,17 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     
     
     protected Hook _OnPlayerStay;
-    
     public void OnPlayerStay(Player pl, Trigger other)
     {
         _OnPlayerStay?.Invoke(pl);
         #if game
-        if (_OnActionKey != null && pl.Input2.GetKeyDown(KeyCode.F, name))
+        if (_OnActionKey != null && (!minePlayerOnly || pl.IsMine) && pl.Input2.GetKeyDown(KeyCode.F, name))
             OnActionKey(pl);
         #endif
     }
-    
 
+
+    public bool minePlayerOnly; 
     protected Hook _OnActionKey;
     public void OnActionKey(Player pl)
     {
