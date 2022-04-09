@@ -94,7 +94,7 @@ public class Door : Destructable, IOnPlayerStay
         DelayCall(delegate
         {
             if (!targetDoor && !string.IsNullOrEmpty(target))
-                buttonTarget = _Game.baseItems.FirstOrDefault(a => (string.IsNullOrEmpty(a.targetName) ? a.name : a.targetName) == target);
+                buttonTarget = _Game.baseItems.FirstOrDefault(a => (string.IsNullOrEmpty(a.itemName) ? a.name : a.itemName) == target);
             if (targetDoor)
                 targetDoor.controlledBy = this;
         });
@@ -155,7 +155,7 @@ public class Door : Destructable, IOnPlayerStay
     public override void Save(BinaryWriter bw)
     {
         bw.Write(target);
-        bw.Write(targetName);
+        bw.Write(itemName);
         bw.Write(move);
         bw.Write(rotate);
         base.Save(bw);
@@ -163,7 +163,7 @@ public class Door : Destructable, IOnPlayerStay
     public override void Load(BinaryReader br)
     {
         target = br.ReadString();
-        targetName = br.ReadString();
+        itemName = br.ReadString();
         move = br.ReadVector3();
         rotate = br.ReadVector3();
         base.Load(br);
@@ -268,7 +268,7 @@ public class Door : Destructable, IOnPlayerStay
         Door door = this;
         door.rotate = Vector3.zero;
         door.twoSideOpen = false;
-        door.targetName = vdf["targetname"] ?? "";
+        door.itemName = vdf["targetname"] ?? "";
         door.target = vdf["target"] ?? "";
         door.teleport = vdf.className == "trigger_teleport";
         door.physics = false;

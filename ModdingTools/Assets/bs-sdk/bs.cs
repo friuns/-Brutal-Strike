@@ -15,6 +15,7 @@ public interface ISerializableDictionary2
 [SelectionBase]
 public class bs : Base,IOnInspectorGUI
 {
+    public static bool insideGUI;
     public static bool HasChanged<T>(Func<T, T> f, T a)
     {
         return !EqualityComparer<T>.Default.Equals(a, f(a));
@@ -28,6 +29,12 @@ public class bs : Base,IOnInspectorGUI
             return true;
         }
         return false;
+    }
+    public static void LabelError(string s)
+    {
+        var guiStyle = new GUIStyle(GUI.skin.label);
+        guiStyle.normal.textColor = Color.red;
+        GUILayout.Label(s, guiStyle);
     }
     public static object DrawObject(object v2, string name)
     {
@@ -86,6 +93,9 @@ public class bs : Base,IOnInspectorGUI
     public virtual void OnEditorGUI()
     {
 
+    }
+    public virtual void OnEditorSelected()
+    {
     }
 }
 // public class RoomSettings

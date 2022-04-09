@@ -88,7 +88,11 @@ public class GameTypes
 {
     public const GameType noRespawnTypes =  GameType.Classic | GameType.Survival | GameType.Mission | GameType.zombieMode ;
 }
-
+public interface IOnInspectorGUIHide
+{
+    void OnInspectorGUI();
+}
+public interface IOnInspectorGUISearch{}
 public interface IOnInspectorGUI
 {
     void OnInspectorGUI();

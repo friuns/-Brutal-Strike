@@ -16,7 +16,6 @@ public class TypeData : ScriptableObject
     
     public List<SerializedMember> GetMethodInfos(object[] obs)
     {
-        // var list = staticTriggers.ToList();
         List<SerializedMember> list = new List<SerializedMember>();
         foreach (object comp in obs.Concat(new[] { typeof(Player), typeof(Game) }))
         {

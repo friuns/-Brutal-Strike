@@ -12,16 +12,19 @@ using UnityEditor;
 #endif
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using EditorRuntime;
+using EditorGUILayout = EditorRuntime.EditorGUILayout;
 using Object = UnityEngine.Object;
 #pragma warning disable 618
 
 // [ExecuteInEditMode]
-public class TriggerEvent : ItemBase,IOnLevelEditorGUI
+public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnInspectorGUI
 {
     
     public int triggerIndex = -1;
     public SerializedMember triggerMethod { get { return triggerIndex == -1 ? null : methodInfos.Get(triggerIndex); } set { triggerIndex = methodInfos.IndexOf(value); } }
-    public List<SerializedMember> methodInfos => typeData.GetMethodInfos(GetComponents<Base>());
+    private List<SerializedMember> m_methodInfos;
+    public List<SerializedMember> methodInfos => m_methodInfos ?? (m_methodInfos = typeData.GetMethodInfos(GetComponents<Base>()));
     public static TypeData m_typeData;
     public static TypeData typeData
     {
@@ -90,10 +93,33 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI
         }
         return bs.DrawObject(value, name);
     }
-    
+    public override void Awake()
+    {
+        base.Awake();
+        LevelEditor._OpenShowAdminWindow+= delegate(object[] objects)
+        {
+            CompileCode();  
+        };
+    }
+    public override void Save(BinaryWriter bw)
+    {
+        bw.Write(_LevelEditor.GetPath((target as Component)?.transform, out int i));
+        bw.Write(i);
+        bw.Write(itemName);
+        base.Save(bw);
+    }
+    public override void Load(BinaryReader br)
+    {
+        var path = br.ReadString();
+        var i = br.ReadInt32();
+        target = _LevelEditor.FindAtPath(path, i);
+        itemName=br.ReadString();
+        base.Load(br);
+    }
     public override void OnInspectorGUI()
     {
-        if (Application.isPlaying) return;
+        
+        // if (Application.isPlaying) return;
         // var d = new DropdownItem<int>(4,"");
 
         if (bs.HasChanged(ToolBar(methodInfos, triggerIndex, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref triggerIndex) || /*(action?.name == null || action.name =="target") &&*/  HasChanged(EditorGUILayout.ObjectField("target", target, typeof(Object)), ref target))
@@ -113,16 +139,11 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI
             actionsAddRange(typeData.Get(typeof(Game)).Select(a => a.Clone("bs._Game")));
             actionsAddRange(typeData.Get(typeof(Player)).Select(a => a.Clone("bs._Player")));
             actionsAddRange(typeData.Get(typeof(Hud)).Select(a => a.Clone("bs._Hud")));
-
-
-            
-
         }
 
-        if (action != null)
+        // if (action != null)
         {
             trigger = triggerMethod;
-            Action updateCode = UpdateCode;
             if (bs.HasChanged(ToolBar( actions , action, "Action", a => a.path), ref action)) //Refresh aciton parameters
             {
                 if (action == null)
@@ -134,7 +155,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI
                     
                     actionParameters = action.parameters.Select(a => a.ParameterType).Concat(action.indexes.Select(a => a.type)).Select(type => new SerializedValue(DefaultValue(type), type)).ToArray();
                 }
-                updateCode();
+                UpdateCode();
             }
 
             if (action != null)
@@ -146,12 +167,12 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI
                     using (new GUILayout.HorizontalScope())
                     {
                         if (bs.HasChanged(a => actionParameters[i].value = DrawObject(a, parameterInfos.Get(i)?.Name ?? "index", parameterInfos.Get(i)?.ParameterType), actionParameters[i].value))
-                            updateCode();
+                            UpdateCode();
                         if (trigger != null)
                         {
                             var prms = trigger.GetParameters().Where(a => actionParameters[i].type.IsAssignableFrom(a.ParameterType)).Select(a => a.Name).ToArray();
                             if (prms.Length > 0 && bs.HasChanged(TriggerEvent.ToolBar(prms, actionParameters[i].reference, "", null, "None", GUILayout.Width(100)), ref actionParameters[i].reference))
-                                updateCode();
+                                UpdateCode();
                         }
                     }
                 }
@@ -227,45 +248,50 @@ void {MethodName(triggerMethod)}
     }
     
 #if game
-    private CScript cs;
     
     [ContextMenu("Start")]
     public override void Start()
     {
         base.Start();
         
-        cs = CScript.CreateRunner("class cs:bs{ public static Object target;public static Object[] prms; " + code + "}", new ScriptConfig() { DefaultUsings = new[] { "UnityEngine" } });
-        foreach (HybType Class in cs.GetTypes())
-        {
-            var methods = Class.GetMethods();
-            foreach (var m in methods)
-            {
-                foreach (var comp in GetComponents<MonoBehaviour>())
-                {
-                    if (!masterOnly || bs.isMaster)
-                    {
-                        var f = comp.GetType().GetField("_" + m.Id, BindingFlags.Instance | BindingFlags.NonPublic);
-                        f?.SetValue(comp, new Hook(delegate(object[] a)
-                        {
-                            Class.SetStaticPropertyOrField("target", HybInstance.Object(target));
-                            Class.SetStaticPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray()));
+         
+        CompileCode();
+    }
+    private void CompileCode() //2do optimize - script storage, returns non static class 
+    {
+        var Runner = ScriptPool.GetClass("class cs:bs{ public  Object target;public  Object[] prms; " + code + "}");
 
-                            var d = m.Invoke(HybInstance.Object(comp), a.Select(HybInstance.Object).ToArray());
-                            if(d?.InnerObject is SSEnumerator ss)
+        var methods = Runner.GetTypes()[0].GetMethods();
+        foreach (var m in methods)
+        {
+            foreach (var comp in GetComponents<MonoBehaviour>())
+            {
+                if (!masterOnly || bs.isMaster)
+                {
+                    var f = comp.GetType().GetField("_" + m.Id, BindingFlags.Instance | BindingFlags.NonPublic);
+                    f?.SetValue(comp, new Hook(
+                        delegate(object[] a)
+                        {
+
+                            var instance = Runner.GetTypes()[0].Override(Runner.Runner, new HybInstance[0], comp);
+                            instance.SetPropertyOrField("target", HybInstance.Object(target));
+                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray()));
+                            var d = m.Invoke(instance, a.Select(HybInstance.Object).ToArray());
+                            if (d?.InnerObject is SSEnumerator ss)
                                 StartCoroutine(ss);
                         }));
-                    }
                 }
-                // var d = (Delegate)act;
-                // d+= Delegate.CreateDelegate();
             }
+            // var d = (Delegate)act;
+            // d+= Delegate.CreateDelegate();
         }
     }
-   
+
     public override void OnLevelEditorGUI()
     {
+        OnInspectorGUI();
         base.OnLevelEditorGUI();
-        code = GUILayout.TextArea(code);
+        // code = GUILayout.TextArea(code);
     }
 #endif
     public string code;
@@ -274,3 +300,15 @@ void {MethodName(triggerMethod)}
   
 }
 
+public static class ScriptPool
+{
+    private static Dictionary<string, CScript> cache = new Dictionary<string, CScript>();
+    public static CScript GetClass(string s)
+    {
+        if (cache.TryGetValue(s, out var o))
+            return o;
+
+        return cache[s] = CScript.CreateRunner(s, new ScriptConfig() { DefaultUsings = new[] { "UnityEngine", "System.Collections", "System.Collections.Generic", "System.Linq" } });
+    }
+    
+}

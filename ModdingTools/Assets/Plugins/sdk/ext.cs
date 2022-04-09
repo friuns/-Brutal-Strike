@@ -24,11 +24,63 @@ public static List<Transform> GetTransforms(this Transform t)
         return GraphicsFormatUtility.HasAlphaChannel(txt.graphicsFormat);
         // return txt.format == TextureFormat.Alpha8 || txt.format == TextureFormat.ARGB4444 || txt.format == TextureFormat.RGBA32|| txt.format == TextureFormat.ARGB32 || txt.format == TextureFormat.DXT5 || txt.format == TextureFormat.PVRTC_RGBA2 || txt.format == TextureFormat.PVRTC_RGBA4 || txt.format == TextureFormat.ETC2_RGBA8 || txt.format == TextureFormat.ETC2_RGBA1 || txt.format == TextureFormat.ETC2_RGBA8;
     }
+       
+    
+    public static List<T> ToListNonAlloc<T>(this IList<T> ie)
+    {
+        var linqList = TempList<T>.GetTempList();
+        for (var i = 0; i < ie.Count; i++)
+            linqList.Add(ie[i]);
+        return linqList;
+    }
+    
+    public static List<T> ToListNonAlloc<T>(this IEnumerable<T> ie)
+    {
+        var linqList = TempList<T>.GetTempList();
+        linqList.AddRange(ie);
+        return linqList;
+    }
+    public static List<T> GetComponentsNonAlloc<T>(this Component t) where T : class
+    {
+        List<T> components = TempList<T>.list;
+        t.GetComponents(components);
+        return components;
+    }
+    public static List<T> GetComponentsInChildrenNonAlloc<T>(this Component t, bool b = false) where T : class
+    {
+        List<T> components = TempList<T>.list;
+        t.GetComponentsInChildren(b, components);
+        return components;
+    }
+    
+    public static T GetComponentNonAlloc<T>(this GameObject t) where T : class
+    {
+#if UNITY_EDITOR
+        var components = TempList<T>.list;
+        t.GetComponents(components);
+        return components.Count > 0 ? components[0] : null;
+#else
+        return t.GetComponent<T>();
+#endif
+    }
+    
+    public static T GetComponentNonAlloc<T>(this Component t) where T : class
+    {
+#if UNITY_EDITOR
+        var components = TempList<T>.list;
+        t.GetComponents(components);
+        return components.Count > 0 ? components[0] : null;
+#else
+        return t.GetComponent<T>();
+#endif
+    }
+    
     public static Vector3 SetY(this Vector3 v, float a)
     {
         v.y = a;
         return v;
     }
+    public static string search="";
     public static T Get<T>(this IList<T> a, int i)
     {
         return a.Count <= i || i < 0 ? default : a[i];
@@ -116,4 +168,25 @@ public static T Component<T>(this Component a) where T : Component
         return ar;
     }
    
+}
+public static class TempList<T>
+{
+    public static readonly List<T> empty = new List<T>();
+    public static readonly List<T> list = new List<T>();
+    public static readonly Queue<T> queue = new Queue<T>();
+    public static readonly List<T>[] lists = new List<T>[3];
+    private static int index;
+
+    static TempList()
+    {
+        
+        for (int i = 0; i < lists.Length; i++)
+            lists[i] = new List<T>();
+    }
+    public static List<T> GetTempList() //make per Time.frame
+    {
+        var i = index++ % lists.Length;
+        lists[i].Clear();
+        return lists[i];
+    }
 }

@@ -21,14 +21,17 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
 
 //    public List<kv> sceneMeshes = new List<kv>();
     //public Dictionary<string, object> customDict = new Dictionary<string, object>();
+    public enum DragType{rotate,rotateAlignToGround,scale,scaleRect}
     [FieldAtrStart] 
     public float probabilityFactor=1;
-    public bool dragScale;
-    public bool alignToGround;
+    public DragType dragType;
     [FieldAtrEnd]
-    public string targetName = "";
     protected int tmp;
-
+    [FormerlySerializedAs("targetName")] 
+    public string itemName = "";
+    public bool dragScale { get { return dragType == DragType.scale; } }
+    public bool dragScaleRect { get { return dragType == DragType.scaleRect; } }
+    public bool alignToGround { get { return dragType == DragType.rotateAlignToGround; } }
     // [FormerlySerializedAs("assetPreview")] 
     // public Texture2D icon;
     public Sprite icon;
@@ -38,8 +41,15 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     {
         if (!GetComponent<PhotonView>())
             gameObject.AddComponent<PhotonView>();
-        targetName = name;
+        itemName = name;
     }
+    public override void Awake()
+    {
+        if (string.IsNullOrEmpty(itemName))
+            itemName = name;
+        base.Awake();
+    }
+
 #if UNITY_EDITOR
     public void OnDrawGizmosSelected()
     {
@@ -274,7 +284,7 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
 
     public override string ToString()
     {
-        return name;
+        return string.IsNullOrEmpty(itemName) ? name : itemName;
     }
     public override void OnLoadAsset()
     {
@@ -318,12 +328,14 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
 
     public virtual void OnLevelEditorGUI()
     {
+        itemName = TextField("name", itemName);
         var old = offset;
         offset.y = FloatField("height offset", offset.y);
         if (old != offset)
             pos += offset - old;
-        alignToGround = Toggle(alignToGround, "Align To Ground");
-        dragScale = Toggle(dragScale, "scale");
+        dragType = Toolbar2("drag type", dragType);
+        // alignToGround = Toggle(alignToGround, "Align To Ground");
+        // dragScale = Toggle(dragScale, "scale");
 
         //if (isDebug)
         //    foreach (var a in customDict)
@@ -340,7 +352,7 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     public virtual void CopyFrom(ItemBase b)
     {
         SetBytes(b.GetBytes());
-        alignToGround = b.alignToGround;
+        dragType = b.dragType;
     }
 
 
