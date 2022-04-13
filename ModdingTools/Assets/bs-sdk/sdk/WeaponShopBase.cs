@@ -90,12 +90,7 @@ public class WeaponShopBase :Pickable , IBotPickable,IOnStartGame
         }
         base.Load();
     }
-    [ContextMenu("sync")]
-    public void Sync()
-    {
-        ArraySegment<byte> bytes = GetBytes();
-        CallRPC(SetBytes, bytes, true);
-    }
+    
 
     public override void Save(BinaryWriter bw)
     {

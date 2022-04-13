@@ -67,6 +67,18 @@ public class BodyDamage : SerializableDictionary<HumanBodyBones, float> { }
 #if game
 public static class ext3
 {
+    public static void InvokeSafe(this Hook a,params object[] o)
+    {
+        try
+        {
+            a.Invoke(o);
+        }
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+            throw;
+        }
+    }
 
     public static T Validate<T>(this T target,PlayerBot pl) where T : Target
     {

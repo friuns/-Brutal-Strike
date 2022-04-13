@@ -70,6 +70,7 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
                 return m_boundsTr;
             }
             m_boundsTr = transform.Find("bounds");
+            m_boundsTr.hideFlags = HideFlags.HideInHierarchy;
             if (m_boundsTr) return boundsTr;
             m_boundsTr = new GameObject("bounds").transform;
             m_boundsTr.SetParent(transform, false);
@@ -81,7 +82,7 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     public Vector3 size { get { return boundsTr.lossyScale; } }
     
     public new virtual string name { get { return base.name; } set { base.name = value; } }
-    internal bool draggable { get { return !isStatic && pernament; } }
+    internal bool draggable { get { return /*!isStatic &&*/ pernament; } }
     internal bool isStatic { get { return m_isStatic; } set { gameObject.isStatic = m_isStatic = value; } }
     public new Transform transform { get { return base.transform; } }
 
@@ -154,12 +155,11 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
         itemBase.name = name ?? this.name;
         itemBase.levelEditorCreated = pernament;
         itemBase.OnInstanciate(this);
-        
         return itemBase;
     }
     public virtual void OnInstanciate(ItemBase prefab)
     {
-        
+        SceneFinder.Add(transform);
     }
 
 
@@ -227,6 +227,14 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     //public static MemoryStream ms = new MemoryStream();
     //public static BinaryReader br = new BinaryReader(ms);
     //public static BinaryWriter bw = new BinaryWriter(ms);
+    
+    [ContextMenu("sync")]
+    public void Sync()
+    {
+        ArraySegment<byte> bytes = GetBytes();
+        CallRPC(SetBytes, bytes, true);
+    }
+    
     public System.ArraySegment<byte> GetBytes(bool fast = false)
     {
         Temp.ms.SetLength(0);

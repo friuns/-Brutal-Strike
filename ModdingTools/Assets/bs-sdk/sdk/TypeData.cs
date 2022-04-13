@@ -14,10 +14,10 @@ public class TypeData : ScriptableObject
 {
     public TypeDict triggers = new TypeDict();
     
-    public List<SerializedMember> GetMethodInfos(object[] obs)
+    public List<SerializedMember> GetMethodInfos(IEnumerable obs)
     {
         List<SerializedMember> list = new List<SerializedMember>();
-        foreach (object comp in obs.Concat(new[] { typeof(Player), typeof(Game) }))
+        foreach (object comp in obs)
         {
             var key = (comp is Type) ? comp.ToString() : "inst_"+comp.GetType();
             if (!triggers.TryGetValue(key, out var l))
@@ -41,10 +41,9 @@ public class TypeData : ScriptableObject
         return list;
 
     }
+    
 
-    
-    
-    
+
     [Serializable]
     public class ListSerializedMember
     {
@@ -192,11 +191,16 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
         return clone;
 
     }
+    
+    public IEnumerable<ParameterInfo> GetParameters()
+    {
+        return parameters;
+    }
     public bool Equals(SerializedMember other)
     {
         if (ReferenceEquals(null, other)) return false;
         if (ReferenceEquals(this, other)) return true;
-        return path == other.path;
+        return name == other.name && code == other.code;
     }
     public override bool Equals(object obj)
     {
@@ -207,10 +211,9 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
     }
     public override int GetHashCode()
     {
-        return (path != null ? path.GetHashCode() : 0);
-    }
-    public IEnumerable<ParameterInfo> GetParameters()
-    {
-        return parameters;
+        unchecked
+        {
+            return ((name != null ? name.GetHashCode() : 0) * 397) ^ (code != null ? code.GetHashCode() : 0);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class ResourceBundle : bs
     {
         base.Awake();
         print("ResourceBundle Awake " + gameObject.scene.name);
-        _Game.resourceBundles.Add(this);
+        _Game.resources.Add(this);
         if(!dontDeactive)
             gameObject.SetActive(false);
 

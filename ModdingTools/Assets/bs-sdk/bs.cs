@@ -89,7 +89,8 @@ public class bs : Base,IOnInspectorGUI
     protected static Game _Game;
     protected static Hud _Hud;
     internal List<Collider> levelColliders;
-    
+    public static bool insideEditor;
+
     public virtual void OnEditorGUI()
     {
 

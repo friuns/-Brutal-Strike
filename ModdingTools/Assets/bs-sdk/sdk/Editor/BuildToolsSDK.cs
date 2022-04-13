@@ -187,7 +187,7 @@ public partial class BuildToolsSDK : EditorWindow
             RenameFile(skinsDir + path, skinsDir + path2);
             var hash = MD5.Create().ComputeHash(File.ReadAllBytes(skinsDir + path2));
             File.WriteAllBytes(skinsDir + path2+".check",hash);
-            Debug.Log(man.name);
+            Debug.Log("success");
         }
         
         CleanupDir(skinsDir);

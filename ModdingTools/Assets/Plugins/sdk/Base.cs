@@ -7,10 +7,12 @@ public class Base : MonoBehaviour
     {
         
     }
+    #if UNITY_EDITOR
     public void OnSceneGui(SceneView scene)
     {
     }
     public void OnSceneUpdate(SceneView scene)
     {
     }
+    #endif
 }

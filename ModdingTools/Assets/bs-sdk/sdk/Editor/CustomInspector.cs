@@ -174,7 +174,9 @@ public partial class CustomInspector : Editor
                     }
                 }
         }
+        #if !game
         if (!(target is IOnInspectorGUIHide))
+        #endif
             DoDrawDefaultInspector(serializedObject);
         bs.insideGUI = false;
         bs.insideEditor = false;

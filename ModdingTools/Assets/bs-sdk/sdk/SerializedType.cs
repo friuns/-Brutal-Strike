@@ -31,7 +31,13 @@ public class SerializedType:ISerializationCallbackReceiver
     public void OnAfterDeserialize()
     {
         if (!string.IsNullOrEmpty(m_type))
-            type = System.Type.GetType(m_type, null,(assembly, typeName, arg3) => assembly.GetType(typeName) ?? (Assembly.GetAssembly(typeof(TeamEnum)).GetType(typeName) ?? typeof(Object)));
+            try
+            {
+                type = System.Type.GetType(m_type, null, (assembly, typeName, arg3) => assembly.GetType(typeName) ?? (Assembly.GetAssembly(typeof(TeamEnum)).GetType(typeName) ?? typeof(Object)));
+            }
+            catch (Exception)
+            {
+            }
         // System.AppDomain.CurrentDomain.GetAssemblies();
     }
     

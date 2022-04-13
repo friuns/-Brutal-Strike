@@ -5,7 +5,7 @@ using UnityEngine;
 using ExitGames.Client.Photon;
 #endif
 [DefaultExecutionOrder(ExecutionOrder.Default)]
-public class GameSettingsInGame:bs
+public class GameSettingsInGame:bs,IOnLoadAsset
 {
     public new RoomSettings gameSettings = new RoomSettings (); //gamesettings are set onJoinRoom
     // public void Update()
@@ -32,5 +32,17 @@ public class GameSettingsInGame:bs
     }
     
     #endif
-    
+#if game
+    public void OnLoadAsset()
+    {
+        // var gameSettingsInGame = FindObjectOfType<GameSettingsInGame>();
+        // if (gameSettingsInGame && room.sets.version >= 2512)
+        // {
+        Serializer.DeepCopy(gameSettings, room.sets);
+        gameSettings = room.sets; //for inspector
+        room.varParse.UpdateValues(ForceRead: true);
+        //     // refreshGameValues?.Invoke();
+        // }
+    }
+    #endif
 }

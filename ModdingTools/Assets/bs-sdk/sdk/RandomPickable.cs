@@ -32,6 +32,10 @@ public class RandomPickable : ObjectBase, IOnPoolDestroy, IOnPreMatch
         bx.isTrigger = true;
     }
     private Vector3Int cell;
+    public override void Awake()
+    {
+        base.Awake();
+    }
     public override void OnStartGame()
     {
         if (pickable)

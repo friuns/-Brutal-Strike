@@ -62,7 +62,7 @@ public class LightSun : ItemBase //,ItemBaseVarParseEnable
         set
         {
             if (light) light.intensity = value;
-            RenderSettings.skybox.SetFloat("_Exposure", value);
+            RenderSettings.skybox?.SetFloat("_Exposure", value);
         }
     }
     public float reflectionsAmbient { get { return RenderSettings.reflectionIntensity; } set { RenderSettings.reflectionIntensity = value; } }

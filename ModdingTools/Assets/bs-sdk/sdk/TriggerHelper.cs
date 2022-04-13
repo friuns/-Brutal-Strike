@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public delegate void Hook(params object[] objects);
-[RequireComponent(typeof(TriggerEvent))]
+public delegate void Hook(params object[] args);
+
 public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
 {
 [Expose]
