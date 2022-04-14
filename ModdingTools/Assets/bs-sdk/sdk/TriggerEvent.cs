@@ -39,12 +39,12 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         {
             if (m_typeData == null)
             {
-                m_typeData = Resources.Load<TypeData>("eventTriggerData");
+                var path = "Assets/scripts/sdk/eventTriggerData.asset";
+                m_typeData = AssetDatabase.LoadAssetAtPath<TypeData>(path);
                 if (m_typeData== null)
                 {
                     m_typeData= TypeData.CreateInstance<TypeData>();
 #if UNITY_EDITOR
-                    var path = "Assets/scripts/sdk/Editor/Resources/eventTriggerData.asset";
                     AssetDatabase.CreateAsset(m_typeData, path);
                     // File.Move(path,@"../builds/brutalStrike/ModdingTools/Assets/eventTriggerData.asset");
 #endif
@@ -56,7 +56,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     public bool showAll;
     private void actionsAddRange(IEnumerable<SerializedMember> list)
     {
-        if (!showAll && !Application.isPlaying)
+        if (!showAll)
         {
             var d = list.Where(a => a.exposed).ToList();
             if (d.Count > 0)
@@ -223,6 +223,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         }
 
         code = GUILayout.TextArea(code);
+        if(!Application.isPlaying)
+            if (HasChanged(GUILayout.Toggle(showAll, "Show all functions"), ref showAll))
+                actions = new List<SerializedMember>();
         masterOnly = GUILayout.Toggle(masterOnly, "Execute Host Only");
 
     }

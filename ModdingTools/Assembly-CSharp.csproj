@@ -193,6 +193,7 @@
      <Compile Include="Assets\bs-sdk\sdk\RespawnableBase.cs" />
      <Compile Include="Assets\bs-sdk\sdk\RigVec.cs" />
      <Compile Include="Assets\bs-sdk\sdk\RoomSettings.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\SerializedMember.cs" />
      <Compile Include="Assets\bs-sdk\sdk\SerializedType.cs" />
      <Compile Include="Assets\bs-sdk\sdk\SerializedValue.cs" />
      <Compile Include="Assets\bs-sdk\sdk\SetupAudio.cs" />
