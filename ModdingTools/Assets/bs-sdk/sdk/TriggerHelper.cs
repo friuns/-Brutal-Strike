@@ -20,7 +20,7 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     {
         _OnPlayerStay?.Invoke(pl);
         #if game
-        if (_OnActionKey != null && (!minePlayerOnly || pl.IsMine) && pl.Input2.GetKeyDown(KeyCode.F, name))
+        if (_OnActionKey != null && (!minePlayerOnly || pl.IsMine) && pl.Input2.GetKeyDown(KeyCode.F, GetComponentInParent<TriggerEvent>().itemName))
             OnActionKey(pl);
         #endif
     }

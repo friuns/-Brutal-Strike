@@ -1,4 +1,3 @@
-#if game
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +14,7 @@ public class EditorGUILayout : bs
         if (bs.insideEditor)
             return UnityEditor.EditorGUILayout.Popup(label, index, paths, prms);
         #endif
-        
+        #if game
         RootFolder data = GetControlUIData<RootFolder>(paths);
         data.index = data.setIndex ??index;
         data.setIndex = null;
@@ -75,6 +74,9 @@ public class EditorGUILayout : bs
         }
 
         return data.index;
+        #else
+        return 0;
+#endif
     }
     public class RootFolder
     {
@@ -100,23 +102,25 @@ public class EditorGUILayout : bs
         if (bs.insideEditor)
             return UnityEditor.EditorGUILayout.ObjectField(label, value, type, allowSceneObjects);
         #endif
+        #if game
         var d = bs.GetControlUIData<ObjectFieldData>(label);
         if (d.o != null)
             value = d.o;
         d.o = null;
+        
         if (GUILayout.Button(label + ":" + value))
         {
-            var list = Resources.FindObjectsOfTypeAll(type.IsSubclassOf(typeof(ItemBase)) ? type : typeof(ItemBase));
+            var list = Resources.FindObjectsOfTypeAll<ItemBase>().Where(a => a.GetComponent(type));
             string search = "";
             ShowWindow(delegate
             {
                 win.isEditorSkin = true;
                 search = TextField("search", search);
-                foreach (Object a in list.Where(a => string.IsNullOrEmpty(search) || (a.ToString().ContainsFastIc(search))).Take(20))
+                foreach (var a in list.Where(a => string.IsNullOrEmpty(search) || (a.ToString().ContainsFastIc(search))).Take(20))
                 {
                     if (Button(a.ToString()))
                     {
-                        d.o = a;
+                        d.o = a.GetComponent(type);
                         Back();
                     }
                 }
@@ -125,6 +129,9 @@ public class EditorGUILayout : bs
             
         }
         return value;
+#else
+        return null;
+        #endif
     }
     public static object EnumPopup(string label, Enum e)
     {
@@ -132,7 +139,10 @@ public class EditorGUILayout : bs
         if (bs.insideEditor)
             return UnityEditor.EditorGUILayout.EnumPopup(label,e);
         #endif
+        #if game
         return bs.Toolbar2(label, e);
+#else
+        return null;
     }
 }
 }

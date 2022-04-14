@@ -287,6 +287,7 @@ MonoBehaviour:
     - RectTransform
     - SpriteRenderer
     - AudioSource
+    - WeaponPickable
     m_values:
     - list:
       - m_type: CustomTextureManager, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
@@ -56764,7 +56765,7 @@ MonoBehaviour:
         path: '/Reset() '
         code: 
     - list:
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Clone()
@@ -56772,7 +56773,7 @@ MonoBehaviour:
         parameters: []
         path: '/Clone() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CompareTo(Object value)
@@ -56782,7 +56783,7 @@ MonoBehaviour:
           Name: value
         path: '/CompareTo(Object value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CompareTo(string strB)
@@ -56792,7 +56793,7 @@ MonoBehaviour:
           Name: strB
         path: '/CompareTo(string strB) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Contains(string value)
@@ -56802,7 +56803,7 @@ MonoBehaviour:
           Name: value
         path: '/Contains(string value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CopyTo(int sourceIndex, Char[] destination, int destinationIndex,
@@ -56820,7 +56821,7 @@ MonoBehaviour:
         path: '/CopyTo(int sourceIndex, Char[] destination, int destinationIndex,
           int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(SByte* value)
@@ -56830,7 +56831,7 @@ MonoBehaviour:
           Name: value
         path: '/CreateString(SByte* value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(SByte* value, int startIndex, int length)
@@ -56844,7 +56845,7 @@ MonoBehaviour:
           Name: length
         path: '/CreateString(SByte* value, int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(Char* value)
@@ -56854,7 +56855,7 @@ MonoBehaviour:
           Name: value
         path: '/CreateString(Char* value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(Char* value, int startIndex, int length)
@@ -56868,7 +56869,7 @@ MonoBehaviour:
           Name: length
         path: '/CreateString(Char* value, int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(Char[] val, int startIndex, int length)
@@ -56882,7 +56883,7 @@ MonoBehaviour:
           Name: length
         path: '/CreateString(Char[] val, int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(Char[] val)
@@ -56892,7 +56893,7 @@ MonoBehaviour:
           Name: val
         path: '/CreateString(Char[] val) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(Char c, int count)
@@ -56904,7 +56905,7 @@ MonoBehaviour:
           Name: count
         path: '/CreateString(Char c, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateString(SByte* value, int startIndex, int length, Encoding
@@ -56922,7 +56923,7 @@ MonoBehaviour:
           Name: enc
         path: '/CreateString(SByte* value, int startIndex, int length, Encoding enc) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CreateTrimmedString(int start, int end)
@@ -56934,7 +56935,7 @@ MonoBehaviour:
           Name: end
         path: '/CreateTrimmedString(int start, int end) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CtorCharArray(Char[] value)
@@ -56944,7 +56945,7 @@ MonoBehaviour:
           Name: value
         path: '/CtorCharArray(Char[] value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CtorCharArrayStartLength(Char[] value, int startIndex, int length)
@@ -56958,7 +56959,7 @@ MonoBehaviour:
           Name: length
         path: '/CtorCharArrayStartLength(Char[] value, int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CtorCharCount(Char c, int count)
@@ -56970,7 +56971,7 @@ MonoBehaviour:
           Name: count
         path: '/CtorCharCount(Char c, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CtorCharPtr(Char* ptr)
@@ -56980,7 +56981,7 @@ MonoBehaviour:
           Name: ptr
         path: '/CtorCharPtr(Char* ptr) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: CtorCharPtrStartLength(Char* ptr, int startIndex, int length)
@@ -56994,7 +56995,7 @@ MonoBehaviour:
           Name: length
         path: '/CtorCharPtrStartLength(Char* ptr, int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: EndsWith(string value)
@@ -57004,7 +57005,7 @@ MonoBehaviour:
           Name: value
         path: '/EndsWith(string value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: EndsWith(string value, StringComparison comparisonType)
@@ -57017,10 +57018,10 @@ MonoBehaviour:
           Name: comparisonType
         path: '/EndsWith(string value, StringComparison comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
-        fullName: EndsWith(string value, Boolean ignoreCase, CultureInfo culture)
+        fullName: EndsWith(string value, bool ignoreCase, CultureInfo culture)
         name: EndsWith
         parameters:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -57030,9 +57031,9 @@ MonoBehaviour:
         - m_type: System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
           Name: culture
-        path: '/EndsWith(string value, Boolean ignoreCase, CultureInfo culture) '
+        path: '/EndsWith(string value, bool ignoreCase, CultureInfo culture) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: EndsWith(Char value)
@@ -57042,7 +57043,7 @@ MonoBehaviour:
           Name: value
         path: '/EndsWith(Char value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Equals(Object obj)
@@ -57052,7 +57053,7 @@ MonoBehaviour:
           Name: obj
         path: '/Equals(Object obj) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Equals(string value)
@@ -57062,7 +57063,7 @@ MonoBehaviour:
           Name: value
         path: '/Equals(string value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Equals(string value, StringComparison comparisonType)
@@ -57075,7 +57076,7 @@ MonoBehaviour:
           Name: comparisonType
         path: '/Equals(string value, StringComparison comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: GetBytesFromEncoding(Byte* pbNativeBuffer, int cbNativeBuffer,
@@ -57092,7 +57093,7 @@ MonoBehaviour:
         path: '/GetBytesFromEncoding(Byte* pbNativeBuffer, int cbNativeBuffer, Encoding
           encoding) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: GetEnumerator()
@@ -57100,7 +57101,7 @@ MonoBehaviour:
         parameters: []
         path: '/GetEnumerator() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: GetHashCode()
@@ -57108,7 +57109,7 @@ MonoBehaviour:
         parameters: []
         path: '/GetHashCode() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: GetLegacyNonRandomizedHashCode()
@@ -57116,7 +57117,7 @@ MonoBehaviour:
         parameters: []
         path: '/GetLegacyNonRandomizedHashCode() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: GetTypeCode()
@@ -57124,7 +57125,7 @@ MonoBehaviour:
         parameters: []
         path: '/GetTypeCode() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(Char value)
@@ -57134,7 +57135,7 @@ MonoBehaviour:
           Name: value
         path: '/IndexOf(Char value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(Char value, int startIndex)
@@ -57146,7 +57147,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/IndexOf(Char value, int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(string value)
@@ -57156,7 +57157,7 @@ MonoBehaviour:
           Name: value
         path: '/IndexOf(string value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(string value, int startIndex)
@@ -57168,7 +57169,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/IndexOf(string value, int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(string value, int startIndex, int count)
@@ -57182,7 +57183,7 @@ MonoBehaviour:
           Name: count
         path: '/IndexOf(string value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(string value, StringComparison comparisonType)
@@ -57195,7 +57196,7 @@ MonoBehaviour:
           Name: comparisonType
         path: '/IndexOf(string value, StringComparison comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(string value, int startIndex, StringComparison comparisonType)
@@ -57210,7 +57211,7 @@ MonoBehaviour:
           Name: comparisonType
         path: '/IndexOf(string value, int startIndex, StringComparison comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(string value, int startIndex, int count, StringComparison
@@ -57229,7 +57230,7 @@ MonoBehaviour:
         path: '/IndexOf(string value, int startIndex, int count, StringComparison
           comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOf(Char value, int startIndex, int count)
@@ -57243,7 +57244,7 @@ MonoBehaviour:
           Name: count
         path: '/IndexOf(Char value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOfAny(Char[] anyOf)
@@ -57253,7 +57254,7 @@ MonoBehaviour:
           Name: anyOf
         path: '/IndexOfAny(Char[] anyOf) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOfAny(Char[] anyOf, int startIndex)
@@ -57265,7 +57266,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/IndexOfAny(Char[] anyOf, int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOfAny(Char[] anyOf, int startIndex, int count)
@@ -57279,7 +57280,7 @@ MonoBehaviour:
           Name: count
         path: '/IndexOfAny(Char[] anyOf, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOfAnyUnchecked(Char[] anyOf, int startIndex, int count)
@@ -57293,7 +57294,7 @@ MonoBehaviour:
           Name: count
         path: '/IndexOfAnyUnchecked(Char[] anyOf, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOfUnchecked(Char value, int startIndex, int count)
@@ -57307,7 +57308,7 @@ MonoBehaviour:
           Name: count
         path: '/IndexOfUnchecked(Char value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IndexOfUnchecked(string value, int startIndex, int count)
@@ -57321,7 +57322,7 @@ MonoBehaviour:
           Name: count
         path: '/IndexOfUnchecked(string value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Insert(int startIndex, string value)
@@ -57333,7 +57334,7 @@ MonoBehaviour:
           Name: value
         path: '/Insert(int startIndex, string value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: InternalSplitKeepEmptyEntries(Int32[] sepList, Int32[] lengthList,
@@ -57351,7 +57352,7 @@ MonoBehaviour:
         path: '/InternalSplitKeepEmptyEntries(Int32[] sepList, Int32[] lengthList,
           int numReplaces, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: InternalSplitOmitEmptyEntries(Int32[] sepList, Int32[] lengthList,
@@ -57369,7 +57370,7 @@ MonoBehaviour:
         path: '/InternalSplitOmitEmptyEntries(Int32[] sepList, Int32[] lengthList,
           int numReplaces, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: InternalSubString(int startIndex, int length)
@@ -57381,7 +57382,7 @@ MonoBehaviour:
           Name: length
         path: '/InternalSubString(int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IsAscii()
@@ -57389,7 +57390,7 @@ MonoBehaviour:
         parameters: []
         path: '/IsAscii() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IsFastSort()
@@ -57397,7 +57398,7 @@ MonoBehaviour:
         parameters: []
         path: '/IsFastSort() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IsNormalized()
@@ -57405,7 +57406,7 @@ MonoBehaviour:
         parameters: []
         path: '/IsNormalized() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: IsNormalized(NormalizationForm normalizationForm)
@@ -57416,7 +57417,7 @@ MonoBehaviour:
           Name: normalizationForm
         path: '/IsNormalized(NormalizationForm normalizationForm) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(Char value)
@@ -57426,7 +57427,7 @@ MonoBehaviour:
           Name: value
         path: '/LastIndexOf(Char value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(Char value, int startIndex)
@@ -57438,7 +57439,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/LastIndexOf(Char value, int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(string value)
@@ -57448,7 +57449,7 @@ MonoBehaviour:
           Name: value
         path: '/LastIndexOf(string value) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(string value, int startIndex)
@@ -57460,7 +57461,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/LastIndexOf(string value, int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(string value, int startIndex, int count)
@@ -57474,7 +57475,7 @@ MonoBehaviour:
           Name: count
         path: '/LastIndexOf(string value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(string value, StringComparison comparisonType)
@@ -57487,7 +57488,7 @@ MonoBehaviour:
           Name: comparisonType
         path: '/LastIndexOf(string value, StringComparison comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(string value, int startIndex, StringComparison comparisonType)
@@ -57502,7 +57503,7 @@ MonoBehaviour:
           Name: comparisonType
         path: '/LastIndexOf(string value, int startIndex, StringComparison comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(string value, int startIndex, int count, StringComparison
@@ -57521,7 +57522,7 @@ MonoBehaviour:
         path: '/LastIndexOf(string value, int startIndex, int count, StringComparison
           comparisonType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOf(Char value, int startIndex, int count)
@@ -57535,7 +57536,7 @@ MonoBehaviour:
           Name: count
         path: '/LastIndexOf(Char value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOfAny(Char[] anyOf)
@@ -57545,7 +57546,7 @@ MonoBehaviour:
           Name: anyOf
         path: '/LastIndexOfAny(Char[] anyOf) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOfAny(Char[] anyOf, int startIndex)
@@ -57557,7 +57558,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/LastIndexOfAny(Char[] anyOf, int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOfAny(Char[] anyOf, int startIndex, int count)
@@ -57571,7 +57572,7 @@ MonoBehaviour:
           Name: count
         path: '/LastIndexOfAny(Char[] anyOf, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOfAnyUnchecked(Char[] anyOf, int startIndex, int count)
@@ -57585,7 +57586,7 @@ MonoBehaviour:
           Name: count
         path: '/LastIndexOfAnyUnchecked(Char[] anyOf, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: LastIndexOfUnchecked(Char value, int startIndex, int count)
@@ -57599,7 +57600,7 @@ MonoBehaviour:
           Name: count
         path: '/LastIndexOfUnchecked(Char value, int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: MakeSeparatorList(Char[] separator, Int32[]& sepList)
@@ -57611,7 +57612,7 @@ MonoBehaviour:
           Name: sepList
         path: '/MakeSeparatorList(Char[] separator, Int32[]& sepList) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: MakeSeparatorList(String[] separators, Int32[]& sepList, Int32[]&
@@ -57627,7 +57628,7 @@ MonoBehaviour:
         path: '/MakeSeparatorList(String[] separators, Int32[]& sepList, Int32[]&
           lengthList) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Normalize()
@@ -57635,7 +57636,7 @@ MonoBehaviour:
         parameters: []
         path: '/Normalize() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Normalize(NormalizationForm normalizationForm)
@@ -57646,10 +57647,10 @@ MonoBehaviour:
           Name: normalizationForm
         path: '/Normalize(NormalizationForm normalizationForm) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
-        fullName: PadHelper(int totalWidth, Char paddingChar, Boolean isRightPadded)
+        fullName: PadHelper(int totalWidth, Char paddingChar, bool isRightPadded)
         name: PadHelper
         parameters:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -57658,9 +57659,9 @@ MonoBehaviour:
           Name: paddingChar
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: isRightPadded
-        path: '/PadHelper(int totalWidth, Char paddingChar, Boolean isRightPadded) '
+        path: '/PadHelper(int totalWidth, Char paddingChar, bool isRightPadded) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: PadLeft(int totalWidth)
@@ -57670,7 +57671,7 @@ MonoBehaviour:
           Name: totalWidth
         path: '/PadLeft(int totalWidth) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: PadLeft(int totalWidth, Char paddingChar)
@@ -57682,7 +57683,7 @@ MonoBehaviour:
           Name: paddingChar
         path: '/PadLeft(int totalWidth, Char paddingChar) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: PadRight(int totalWidth)
@@ -57692,7 +57693,7 @@ MonoBehaviour:
           Name: totalWidth
         path: '/PadRight(int totalWidth) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: PadRight(int totalWidth, Char paddingChar)
@@ -57704,7 +57705,7 @@ MonoBehaviour:
           Name: paddingChar
         path: '/PadRight(int totalWidth, Char paddingChar) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Remove(int startIndex, int count)
@@ -57716,7 +57717,7 @@ MonoBehaviour:
           Name: count
         path: '/Remove(int startIndex, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Remove(int startIndex)
@@ -57726,7 +57727,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/Remove(int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Replace(Char oldChar, Char newChar)
@@ -57738,7 +57739,7 @@ MonoBehaviour:
           Name: newChar
         path: '/Replace(Char oldChar, Char newChar) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Replace(string oldValue, string newValue)
@@ -57750,7 +57751,7 @@ MonoBehaviour:
           Name: newValue
         path: '/Replace(string oldValue, string newValue) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ReplaceFallback(string oldValue, string newValue, int testedCount)
@@ -57764,7 +57765,7 @@ MonoBehaviour:
           Name: testedCount
         path: '/ReplaceFallback(string oldValue, string newValue, int testedCount) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ReplaceInternal(Char oldChar, Char newChar)
@@ -57776,7 +57777,7 @@ MonoBehaviour:
           Name: newChar
         path: '/ReplaceInternal(Char oldChar, Char newChar) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ReplaceInternal(string oldValue, string newValue)
@@ -57788,7 +57789,7 @@ MonoBehaviour:
           Name: newValue
         path: '/ReplaceInternal(string oldValue, string newValue) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ReplaceUnchecked(string oldValue, string newValue)
@@ -57800,7 +57801,7 @@ MonoBehaviour:
           Name: newValue
         path: '/ReplaceUnchecked(string oldValue, string newValue) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Split(Char[] separator)
@@ -57810,7 +57811,7 @@ MonoBehaviour:
           Name: separator
         path: '/Split(Char[] separator) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Split(Char[] separator, int count)
@@ -57822,7 +57823,7 @@ MonoBehaviour:
           Name: count
         path: '/Split(Char[] separator, int count) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Split(Char[] separator, StringSplitOptions options)
@@ -57835,7 +57836,7 @@ MonoBehaviour:
           Name: options
         path: '/Split(Char[] separator, StringSplitOptions options) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Split(Char[] separator, int count, StringSplitOptions options)
@@ -57850,7 +57851,7 @@ MonoBehaviour:
           Name: options
         path: '/Split(Char[] separator, int count, StringSplitOptions options) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Split(String[] separator, StringSplitOptions options)
@@ -57863,7 +57864,7 @@ MonoBehaviour:
           Name: options
         path: '/Split(String[] separator, StringSplitOptions options) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Split(String[] separator, int count, StringSplitOptions options)
@@ -57878,7 +57879,7 @@ MonoBehaviour:
           Name: options
         path: '/Split(String[] separator, int count, StringSplitOptions options) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: SplitInternal(Char[] separator, int count, StringSplitOptions options)
@@ -57893,7 +57894,7 @@ MonoBehaviour:
           Name: options
         path: '/SplitInternal(Char[] separator, int count, StringSplitOptions options) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Substring(int startIndex)
@@ -57903,7 +57904,7 @@ MonoBehaviour:
           Name: startIndex
         path: '/Substring(int startIndex) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Substring(int startIndex, int length)
@@ -57915,7 +57916,7 @@ MonoBehaviour:
           Name: length
         path: '/Substring(int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.Collections.Generic.IEnumerable<System.Char>.GetEnumerator()
@@ -57923,7 +57924,7 @@ MonoBehaviour:
         parameters: []
         path: '/System.Collections.Generic.IEnumerable<System.Char>.GetEnumerator() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.Collections.IEnumerable.GetEnumerator()
@@ -57931,7 +57932,7 @@ MonoBehaviour:
         parameters: []
         path: '/System.Collections.IEnumerable.GetEnumerator() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToBoolean(IFormatProvider provider)
@@ -57942,7 +57943,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToBoolean(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToByte(IFormatProvider provider)
@@ -57953,7 +57954,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToByte(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToChar(IFormatProvider provider)
@@ -57964,7 +57965,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToChar(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToDateTime(IFormatProvider provider)
@@ -57975,7 +57976,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToDateTime(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToDecimal(IFormatProvider provider)
@@ -57986,7 +57987,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToDecimal(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToDouble(IFormatProvider provider)
@@ -57997,7 +57998,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToDouble(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToInt16(IFormatProvider provider)
@@ -58008,7 +58009,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToInt16(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToInt32(IFormatProvider provider)
@@ -58019,7 +58020,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToInt32(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToInt64(IFormatProvider provider)
@@ -58030,7 +58031,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToInt64(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToSByte(IFormatProvider provider)
@@ -58041,7 +58042,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToSByte(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToSingle(IFormatProvider provider)
@@ -58052,7 +58053,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToSingle(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToType(Type type, IFormatProvider provider)
@@ -58065,7 +58066,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToType(Type type, IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToUInt16(IFormatProvider provider)
@@ -58076,7 +58077,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToUInt16(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToUInt32(IFormatProvider provider)
@@ -58087,7 +58088,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToUInt32(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: System.IConvertible.ToUInt64(IFormatProvider provider)
@@ -58098,7 +58099,7 @@ MonoBehaviour:
           Name: provider
         path: '/System.IConvertible.ToUInt64(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToCharArray()
@@ -58106,7 +58107,7 @@ MonoBehaviour:
         parameters: []
         path: '/ToCharArray() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToCharArray(int startIndex, int length)
@@ -58118,7 +58119,7 @@ MonoBehaviour:
           Name: length
         path: '/ToCharArray(int startIndex, int length) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToLower()
@@ -58126,7 +58127,7 @@ MonoBehaviour:
         parameters: []
         path: '/ToLower() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToLower(CultureInfo culture)
@@ -58137,7 +58138,7 @@ MonoBehaviour:
           Name: culture
         path: '/ToLower(CultureInfo culture) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToLowerInvariant()
@@ -58145,7 +58146,7 @@ MonoBehaviour:
         parameters: []
         path: '/ToLowerInvariant() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToString()
@@ -58153,7 +58154,7 @@ MonoBehaviour:
         parameters: []
         path: '/ToString() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToString(IFormatProvider provider)
@@ -58164,7 +58165,7 @@ MonoBehaviour:
           Name: provider
         path: '/ToString(IFormatProvider provider) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToUpper()
@@ -58172,7 +58173,7 @@ MonoBehaviour:
         parameters: []
         path: '/ToUpper() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToUpper(CultureInfo culture)
@@ -58183,7 +58184,7 @@ MonoBehaviour:
           Name: culture
         path: '/ToUpper(CultureInfo culture) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: ToUpperInvariant()
@@ -58191,7 +58192,7 @@ MonoBehaviour:
         parameters: []
         path: '/ToUpperInvariant() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Trim(Char[] trimChars)
@@ -58201,7 +58202,7 @@ MonoBehaviour:
           Name: trimChars
         path: '/Trim(Char[] trimChars) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: Trim()
@@ -58209,7 +58210,7 @@ MonoBehaviour:
         parameters: []
         path: '/Trim() '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: TrimEnd(Char[] trimChars)
@@ -58219,7 +58220,7 @@ MonoBehaviour:
           Name: trimChars
         path: '/TrimEnd(Char[] trimChars) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: TrimHelper(int trimType)
@@ -58229,7 +58230,7 @@ MonoBehaviour:
           Name: trimType
         path: '/TrimHelper(int trimType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: TrimHelper(Char[] trimChars, int trimType)
@@ -58241,7 +58242,7 @@ MonoBehaviour:
           Name: trimType
         path: '/TrimHelper(Char[] trimChars, int trimType) '
         code: 
-      - m_type: 
+      - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         exposed: 0
         indexes: []
         fullName: TrimStart(Char[] trimChars)
@@ -69678,4 +69679,201 @@ MonoBehaviour:
         name: UnPause
         parameters: []
         path: '/UnPause() '
+        code: 
+    - list:
+      - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: ApplyToTransform(Transform t)
+        name: ApplyToTransform
+        parameters:
+        - m_type: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          Name: t
+        path: '/initPos PosRot/ApplyToTransform(Transform t) '
+        code: .initPos
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: AutoTake(Player pl)
+        name: AutoTake
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        path: '/AutoTake(Player pl) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 1
+        indexes: []
+        fullName: Buy(int plid, int gunId, int take)
+        name: Buy
+        parameters:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: gunId
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: take
+        path: '/Buy(int plid, int gunId, int take) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: CanTake(Player pl)
+        name: CanTake
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        path: '/CanTake(Player pl) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: Check()
+        name: Check
+        parameters: []
+        path: '/Check() '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: Draw()
+        name: Draw
+        parameters: []
+        path: '/Draw() '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 1
+        indexes: []
+        fullName: InitDrop(bool Enabled, GunInfo info, bool IsKinematic)
+        name: InitDrop
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: Enabled
+        - m_type: GunInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: info
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: IsKinematic
+        path: '/InitDrop(bool Enabled, GunInfo info, bool IsKinematic) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 1
+        indexes: []
+        fullName: InitDrop2(bool Enabled, GunInfo info, bool IsKinematic, Vector3
+          pos, Vector3 rot)
+        name: InitDrop2
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: Enabled
+        - m_type: GunInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: info
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: IsKinematic
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: pos
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: rot
+        path: '/InitDrop2(bool Enabled, GunInfo info, bool IsKinematic, Vector3 pos,
+          Vector3 rot) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnCreate(bool b)
+        name: OnCreate
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        path: '/OnCreate(bool b) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnDrawGizmos()
+        name: OnDrawGizmos
+        parameters: []
+        path: '/OnDrawGizmos() '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnLevelEditorGUI()
+        name: OnLevelEditorGUI
+        parameters: []
+        path: '/OnLevelEditorGUI() '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnLoadAsset()
+        name: OnLoadAsset
+        parameters: []
+        path: '/OnLoadAsset() '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnPlayerStay(Player pl, Trigger other)
+        name: OnPlayerStay
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: other
+        path: '/OnPlayerStay(Player pl, Trigger other) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnPlConnected(PhotonPlayer photonPlayer)
+        name: OnPlConnected
+        parameters:
+        - m_type: PhotonPlayer, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: photonPlayer
+        path: '/OnPlConnected(PhotonPlayer photonPlayer) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: OnPoint(Player pl)
+        name: OnPoint
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        path: '/OnPoint(Player pl) '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 1
+        indexes: []
+        fullName: OnReset()
+        name: OnReset
+        parameters: []
+        path: '/OnReset() '
+        code: 
+      - m_type: WeaponPickable, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        exposed: 0
+        indexes: []
+        fullName: Reset()
+        name: Reset
+        parameters: []
+        path: '/Reset() '
         code: 

@@ -144,6 +144,10 @@ public class TypeData : ScriptableObject
 [Serializable]
 public class SerializedMember:SerializedType, IEquatable<SerializedMember>
 {
+    public override string ToString()
+    {
+        return path;
+    }
     [Serializable]
     public class ParameterInfo:SerializedType
     {
@@ -161,7 +165,7 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
     // public MemberInfo info;
     public List<ParameterInfo> parameters = new List<ParameterInfo>();
     public string path;
-    public string code;
+    public string code="";
     public SerializedMember(MethodInfo method, string Path, string postFix = "")
     {
         exposed = method.GetCustomAttributes(typeof(Expose)).Any();

@@ -6,9 +6,9 @@ using System.Linq.Expressions;
 using System.Reflection;
 #if game
 using Slowsharp;
+#endif
 using EditorRuntime;
 using EditorGUILayout = EditorRuntime.EditorGUILayout;
-#endif
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -22,10 +22,11 @@ using Object = UnityEngine.Object;
 // [ExecuteInEditMode]
 public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnInspectorGUI,IOnLoadAsset
 {
+
+
     
-        
-    public int triggerIndex = -1;
-    public SerializedMember triggerMethod { get { return triggerIndex == -1 ? null : methodInfos.Get(triggerIndex); } set { triggerIndex = methodInfos.IndexOf(value); } }
+    // public int triggerIndex = -1;
+    
     private List<SerializedMember> m_methodInfos= new List<SerializedMember>();
     public List<SerializedMember> methodInfos => m_methodInfos.Count ==0 ? m_methodInfos = typeData.GetMethodInfos(trigableObjects):m_methodInfos;
     private object[] trigableObjects => GetComponentsInChildren<Base>().Cast<object>().Concat(new[] { typeof(Player), typeof(Game) }).ToArray();
@@ -49,22 +50,21 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             return m_typeData;
         }
     }
-    
-#if UNITY_EDITOR
     public bool showAll;
-    
-    
-
     private void actionsAddRange(IEnumerable<SerializedMember> list)
     {
-        if (!showAll)
+        if (!showAll && !Application.isPlaying)
         {
             var d = list.Where(a => a.exposed).ToList();
             if (d.Count > 0)
                 list = d;
+            actions.AddRange(list);
         }
-        actions.AddRange(list);
+        else
+            actions.AddRange(list.OrderByDescending(a => a.exposed));
     }
+
+
     [ContextMenu("Clear")]
     public void Clear()
     {
@@ -98,7 +98,10 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         }
         return bs.DrawObject(value, name);
     }
-    #if game
+
+
+    
+#if game
     public override void OnLoadAsset()
     {
         base.OnLoadAsset();
@@ -116,6 +119,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     }
     public override void Save(BinaryWriter bw)
     {
+        base.Save(bw);
         int i;
         bw.Write(SceneFinder.GetPath((target as Component)?.transform, out i));
         bw.Write(i);
@@ -125,10 +129,12 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         {
             bw.WriteValue(a.value);
         }
-        base.Save(bw);
+        bw.Write(Serializer.Serialize(trigger));
+        bw.Write(Serializer.Serialize(action));
     }
     public override void Load(BinaryReader br)
     {
+        base.Load(br);
         var path = br.ReadString();
         var i2 = br.ReadInt32();
         target = SceneFinder.FindAtPath(path, i2);
@@ -141,8 +147,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             var v = br.ReadValue();
             actionParameters.Add(new SerializedValue(v));
         }
-        
-        base.Load(br);
+        trigger = Serializer.Deserialize<SerializedMember>(br.ReadString());
+        action = Serializer.Deserialize<SerializedMember>(br.ReadString());
+        CompileCode(enabled);
     }
 #endif
     public override void OnInspectorGUI()
@@ -151,7 +158,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         // if (Application.isPlaying) return;
         // var d = new DropdownItem<int>(4,"");
 
-        if (bs.HasChanged(ToolBar(methodInfos, triggerIndex, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref triggerIndex) || actions.Count ==0|| /*(action?.name == null || action.name =="target") &&*/  HasChanged(EditorGUILayout.ObjectField("target", target, typeof(Object)), ref target) )
+        if (bs.HasChanged(ToolBar(methodInfos, trigger, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref trigger) || actions.Count ==0|| trigger != null && HasChanged(EditorGUILayout.ObjectField("target", target, typeof(Transform)), ref target))
         {
             actions = new List<SerializedMember>();
             
@@ -161,22 +168,23 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             else if(target !=null) 
                 actionsAddRange(typeData.Get(target.GetType()).Select(a => a.Clone("target")));
 
-            if (triggerMethod != null)
+            if (trigger != null)
             {
-                foreach (var p in triggerMethod.GetParameters())
+                foreach (var p in trigger.GetParameters())
                     if (!p.ParameterType.IsValueType)
                         actionsAddRange(typeData.Get(p.ParameterType).Select(a => a.Clone(p.Name)));
-                actionsAddRange(typeData.Get(triggerMethod.DeclaringType).Select(a => a.Clone("this")));
+                actionsAddRange(typeData.Get(trigger.DeclaringType).Select(a => a.Clone("this")));
             }
             actionsAddRange(typeData.Get(typeof(Game)).Select(a => a.Clone("bs._Game")));
             actionsAddRange(typeData.Get(typeof(Player)).Select(a => a.Clone("bs._Player")));
             actionsAddRange(typeData.Get(typeof(Hud)).Select(a => a.Clone("bs._Hud")));
+            GenerateCode();
         }
 
         // if (action != null)
         {
-            trigger = triggerMethod;
-            if (bs.HasChanged(ToolBar( actions , action, "Action", a => a.path), ref action)) //Refresh aciton parameters
+            
+            if (trigger != null && bs.HasChanged(ToolBar(actions, action, "Action", a => a.path), ref action)) //Refresh aciton parameters
             {
                 if (action == null)
                     actionParameters.Clear();
@@ -215,15 +223,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         masterOnly = GUILayout.Toggle(masterOnly, "Execute Host Only");
 
     }
- 
+    public SerializedMember trigger;
     [HideInInspector]
-    public List<SerializedMember> actions = new List<SerializedMember>();
-    
-    #endif
-    
-
-    
-
+    private List<SerializedMember> actions = new List<SerializedMember>();
     public Object target;
 
     public List<SerializedValue> actionParameters = new  List<SerializedValue>();
@@ -239,7 +241,6 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     }
 
 
-    public SerializedMember trigger;
 
     public static string cast(string name)
     {
@@ -266,9 +267,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             var p = string.Join(",", actionParameters.Take(actionParameters.Count - expCount).Select((a, i) => !string.IsNullOrEmpty(a.reference) ? a.reference : (a.value is Object ? $"prms[{i}]" : a.ToString())));
             var path = string.Format(action.code, actionParameters.Skip(expCount).ToArray());
             
-            if (triggerMethod == null) return;
+            if (trigger == null) return;
             code = $@"
-void {MethodName(triggerMethod)}
+void {MethodName(trigger)}
 {{
     {path}.{action.name}({p});
 }}
@@ -294,7 +295,7 @@ void {MethodName(triggerMethod)}
             CompileCode(false);
     }
     
-    private void CompileCode(bool hook=true) //2do optimize - script storage, returns non static class 
+    private void CompileCode(bool hook) //2do optimize - script storage, returns non static class 
     {
         var Runner = ScriptPool.GetClass("class cs:bs{ public  Object target;public  object[] prms; " + code + "}");
 
