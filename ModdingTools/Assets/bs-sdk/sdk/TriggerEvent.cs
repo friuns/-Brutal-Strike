@@ -10,6 +10,7 @@ using Slowsharp;
 using EditorRuntime;
 using EditorGUILayout = EditorRuntime.EditorGUILayout;
 #if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 #endif
 using UnityEngine;
@@ -43,7 +44,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
                 {
                     m_typeData= TypeData.CreateInstance<TypeData>();
 #if UNITY_EDITOR
-                    AssetDatabase.CreateAsset(m_typeData, "Assets/scripts/sdk/Editor/Resources/eventTriggerData.asset");
+                    var path = "Assets/scripts/sdk/Editor/Resources/eventTriggerData.asset";
+                    AssetDatabase.CreateAsset(m_typeData, path);
+                    // File.Move(path,@"../builds/brutalStrike/ModdingTools/Assets/eventTriggerData.asset");
 #endif
                 }
             }

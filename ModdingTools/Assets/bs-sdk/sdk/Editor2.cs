@@ -108,15 +108,15 @@ public class EditorGUILayout : bs
             value = d.o;
         d.o = null;
         
-        if (GUILayout.Button(label + ":" + value))
+        if (GUILayout.Button(label + ":" + ((value as Component)?.GetComponent<ItemBase>()??value)))
         {
-            var list = Resources.FindObjectsOfTypeAll<ItemBase>().Where(a => a.GetComponent(type));
+            var list = Resources.FindObjectsOfTypeAll<ItemBase>().Where(a => a.GetComponent(type) && a.pernament);
             string search = "";
             ShowWindow(delegate
             {
                 win.isEditorSkin = true;
                 search = TextField("search", search);
-                foreach (var a in list.Where(a => string.IsNullOrEmpty(search) || (a.ToString().ContainsFastIc(search))).Take(20))
+                foreach (ItemBase a in list.Where(a => string.IsNullOrEmpty(search) || (a.ToString().ContainsFastIc(search))).Take(20))
                 {
                     if (Button(a.ToString()))
                     {
@@ -143,7 +143,7 @@ public class EditorGUILayout : bs
         return bs.Toolbar2(label, e);
 #else
         return null;
+#endif
     }
 }
 }
-#endif
