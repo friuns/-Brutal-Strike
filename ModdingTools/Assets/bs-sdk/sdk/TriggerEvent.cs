@@ -39,7 +39,10 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         {
             if (m_typeData == null)
             {
-                var path = "Assets/scripts/sdk/eventTriggerData.asset";
+                
+
+                var path = sdk?"Assets/bs-sdk/sdk/eventTriggerData.asset":"Assets/scripts/sdk/eventTriggerData.asset";
+
                 m_typeData = AssetDatabase.LoadAssetAtPath<TypeData>(path);
                 if (m_typeData== null)
                 {
