@@ -110,7 +110,7 @@ public class EditorGUILayout : bs
         
         if (GUILayout.Button(label + ":" + ((value as Component)?.GetComponent<ItemBase>()??value)))
         {
-            var list = Resources.FindObjectsOfTypeAll<ItemBase>().Where(a => a.GetComponent(type) && a.pernament);
+            var list = GameObject.FindObjectsOfType<ItemBase>().Where(a => a.GetComponent(type) && a.pernament);
             string search = "";
             ShowWindow(delegate
             {

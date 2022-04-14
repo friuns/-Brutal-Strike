@@ -43,7 +43,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
 
                 var path = sdk?"Assets/bs-sdk/sdk/eventTriggerData.asset":"Assets/scripts/sdk/eventTriggerData.asset";
 
+#if UNITY_EDITOR
                 m_typeData = AssetDatabase.LoadAssetAtPath<TypeData>(path);
+#endif
                 if (m_typeData== null)
                 {
                     m_typeData= TypeData.CreateInstance<TypeData>();
