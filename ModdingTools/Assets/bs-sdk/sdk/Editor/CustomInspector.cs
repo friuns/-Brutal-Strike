@@ -174,14 +174,19 @@ public partial class CustomInspector : Editor
                     }
                 }
         }
-        #if !game
-        if (!(target is IOnInspectorGUIHide))
-        #endif
+
+        var hide = target is IOnInspectorGUIHide;
+        if (hide)
+            showAllFields = GUILayout.Toggle(showAllFields, "Show All fields");
+
+        if (showAllFields || !hide)
             DoDrawDefaultInspector(serializedObject);
+        
         bs.insideGUI = false;
         bs.insideEditor = false;
         // base.OnInspectorGUI();
     }
+    public static bool showAllFields;
 
     public static Dictionary<string, Object> modified = new Dictionary<string, object>();
 

@@ -66,7 +66,7 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
     {
         if (ReferenceEquals(null, other)) return false;
         if (ReferenceEquals(this, other)) return true;
-        return name == other.name && code == other.code;
+        return fullName == other.fullName && code == other.code;
     }
     public override bool Equals(object obj)
     {
@@ -79,7 +79,7 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
     {
         unchecked
         {
-            return ((name != null ? name.GetHashCode() : 0) * 397) ^ (code != null ? code.GetHashCode() : 0);
+            return ((fullName != null ? fullName.GetHashCode() : 0) * 397) ^ (code != null ? code.GetHashCode() : 0);
         }
     }
 }

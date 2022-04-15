@@ -18,8 +18,10 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     protected Hook _OnPlayerStay;
     public void OnPlayerStay(Player pl, Trigger other)
     {
-        _OnPlayerStay?.Invoke(pl);
-        #if game
+#if game
+        if (TimeElapsed(updateInterval))
+            _OnPlayerStay?.Invoke(pl);
+        
         if (_OnActionKey != null && (!minePlayerOnly || pl.IsMine) && pl.Input2.GetKeyDown(KeyCode.F, GetComponentInParent<TriggerEvent>().itemName))
             OnActionKey(pl);
         #endif
@@ -32,7 +34,15 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     {
         _OnActionKey?.Invoke(pl);
     }
-    
+    public float updateInterval = 1;
+    protected Hook _Update;
+    public void Update()
+    {
+        #if game
+        if (TimeElapsed(updateInterval))
+            _Update?.Invoke();
+        #endif
+    }
     protected Hook _AnimationEvent;
     public void AnimationEvent(string s)
     {

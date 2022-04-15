@@ -50,6 +50,8 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Plugins\Base.cs" />
+     <Compile Include="Assets\Plugins\MyLinq.cs" />
      <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGBrush.cs" />
      <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGModel.cs" />
      <Compile Include="Assets\Plugins\RealtimeCSG\API\Components\Runtime\CSGNode.cs" />
@@ -84,12 +86,21 @@
      <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Managers\CSGSceneManagerRedirector.cs" />
      <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Utility\GameObjectExtensions.cs" />
      <Compile Include="Assets\Plugins\RealtimeCSG\Runtime\Scripts\Utility\MeshUtility.cs" />
+     <Compile Include="Assets\Plugins\bs.cs" />
+     <Compile Include="Assets\Plugins\ext.cs" />
      <Compile Include="Assets\Plugins\sdk\AudioClip2.cs" />
-     <Compile Include="Assets\Plugins\sdk\Base.cs" />
      <Compile Include="Assets\Plugins\sdk\Database1Plugins.cs" />
      <Compile Include="Assets\Plugins\sdk\Database4PluginsMods.cs" />
      <Compile Include="Assets\Plugins\sdk\Enum.cs" />
      <Compile Include="Assets\Plugins\sdk\EnumFlagAttribute.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\Formatter.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\Getters.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\JSON.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\JsonParser.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\JsonSerializer.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\Reflection.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\SafeDictionary.cs" />
+     <Compile Include="Assets\Plugins\sdk\FastJson\dynamic.cs" />
      <Compile Include="Assets\Plugins\sdk\Layer.cs" />
      <Compile Include="Assets\Plugins\sdk\Math2.cs" />
      <Compile Include="Assets\Plugins\sdk\MeshCombineStudio\Scripts\LODGroups\DisabledLODGroup.cs" />
@@ -121,15 +132,12 @@
      <Compile Include="Assets\Plugins\sdk\MeshCombineStudio\Scripts\Octree\BaseOctree.cs" />
      <Compile Include="Assets\Plugins\sdk\MeshCombineStudio\Scripts\Octree\ObjectOctree.cs" />
      <Compile Include="Assets\Plugins\sdk\MyDictionary.cs" />
-     <Compile Include="Assets\Plugins\sdk\MyLinq.cs" />
      <Compile Include="Assets\Plugins\sdk\RootDir.cs" />
      <Compile Include="Assets\Plugins\sdk\SerializableDictionary\Dictionary.cs" />
      <Compile Include="Assets\Plugins\sdk\SerializableDictionary\SerializableDictionary.cs" />
      <Compile Include="Assets\Plugins\sdk\SerializableDictionary\SerializableDictionary2.cs" />
      <Compile Include="Assets\Plugins\sdk\SubsetList.cs" />
      <Compile Include="Assets\Plugins\sdk\TransformCache.cs" />
-     <Compile Include="Assets\Plugins\sdk\bs.cs" />
-     <Compile Include="Assets\Plugins\sdk\ext.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\Database3SharedPlugins.cs" />
      <None Include="Assets\Plugins\XRLineRenderer-master\Shaders\MeshChainAlpha.shader" />
      <None Include="Assets\Plugins\sdk\MeshCombineStudio\ReadMe.txt" />
@@ -376,7 +384,7 @@
  <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/bs-sdk/Unity-Source-Engine-Importer/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
  <Reference Include="Enums.NET">
- <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/Plugins/sdk/Enums.NET.dll</HintPath>
+ <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/Plugins/Enums.NET.dll</HintPath>
  </Reference>
  <Reference Include="MeshExtension">
  <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/Plugins/sdk/MeshCombineStudio/Plugins/MeshExtension.dll</HintPath>

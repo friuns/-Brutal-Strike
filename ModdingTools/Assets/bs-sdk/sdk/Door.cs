@@ -155,6 +155,7 @@ public class Door : Destructable, IOnPlayerStay
     public override void Save(BinaryWriter bw)
     {
         bw.Write(target);
+        bw.Write(itemName);
         bw.Write(move);
         bw.Write(rotate);
         base.Save(bw);
@@ -162,6 +163,7 @@ public class Door : Destructable, IOnPlayerStay
     public override void Load(BinaryReader br)
     {
         target = br.ReadString();
+        itemName = br.ReadString();
         move = br.ReadVector3();
         rotate = br.ReadVector3();
         base.Load(br);

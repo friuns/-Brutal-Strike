@@ -24,7 +24,7 @@ using Object = UnityEngine.Object;
 public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnInspectorGUI,IOnLoadAsset
 {
 
-
+    
     
     // public int triggerIndex = -1;
     
@@ -179,7 +179,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             if (trigger != null)
             {
                 foreach (var p in trigger.GetParameters())
-                    if (!p.ParameterType.IsValueType)
+                    if (!p.ParameterType.IsValueType && !p.ParameterType.IsPrimitive && !p.ParameterType.IsEnum)
                         actionsAddRange(typeData.Get(p.ParameterType).Select(a => a.Clone(p.Name)));
                 actionsAddRange(typeData.Get(trigger.DeclaringType).Select(a => a.Clone("this")));
             }
@@ -218,8 +218,8 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
                             GenerateCode();
                         if (trigger != null)
                         {
-                            var prms = trigger.GetParameters().Where(a => actionParameters[i].type.IsAssignableFrom(a.ParameterType)).Select(a => a.Name).ToArray();
-                            if (prms.Length > 0 && bs.HasChanged(TriggerEvent.ToolBar(prms, actionParameters[i].reference, "", null, "None", GUILayout.Width(100)), ref actionParameters[i].reference))
+                            string[] prms = trigger.GetParameters().Where(a => actionParameters[i].type.IsAssignableFrom(a.ParameterType)).Select(a => a.Name).ToArray();
+                            if (prms.Length > 0 && bs.HasChanged(ToolBar(prms, actionParameters[i].reference, "", null, "None", GUILayout.Width(100)), ref actionParameters[i].reference))
                                 GenerateCode();
                         }
                     }
@@ -227,7 +227,10 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             }
         }
 
-        code = GUILayout.TextArea(code);
+        if(HasChanged(GUILayout.TextArea(code),ref code))
+            SetDirty();
+        if (!string.IsNullOrEmpty(customCode))
+            customCode = GUILayout.TextArea(customCode);
         if(!Application.isPlaying)
             if (HasChanged(GUILayout.Toggle(showAll, "Show all functions"), ref showAll))
                 actions = new List<SerializedMember>();
@@ -235,7 +238,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
 
     }
     public SerializedMember trigger;
-    [HideInInspector]
+    
     private List<SerializedMember> actions = new List<SerializedMember>();
     public Object target;
 
@@ -260,6 +263,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
 
     public static string MethodName(SerializedMember info)
     {
+        
         var p = info.name + "(";
         var parameters = info.GetParameters();
         foreach (var item in parameters)
@@ -267,21 +271,21 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         return p.Trim(' ', ',') + ")"; 
     }
     public bool masterOnly;
-    
+    [ContextMenu("Refresh Code")]
     private void GenerateCode()
     {
         try
         {
             if (actionParameters == null) return;
-            if (action == null) return;
+            if (action == null||string.IsNullOrEmpty(action.name)) return;
             var expCount = action.indexes.Count;
             var p = string.Join(",", actionParameters.Take(actionParameters.Count - expCount).Select((a, i) => !string.IsNullOrEmpty(a.reference) ? a.reference : (a.value is Object ? $"prms[{i}]" : a.ToString())));
             var path = string.Format(action.code, actionParameters.Skip(expCount).ToArray());
             
             if (trigger == null) return;
             code = $@"
-void {MethodName(trigger)}
-{{
+void {trigger.DeclaringType.Name}_{MethodName(trigger)}
+{{  {customCode}
     {path}.{action.name}({p});
 }}
 ";
@@ -305,24 +309,28 @@ void {MethodName(trigger)}
         if (Application.isPlaying)
             CompileCode(false);
     }
-    
+    private HybInstance instance;
     private void CompileCode(bool hook) //2do optimize - script storage, returns non static class 
     {
-        var Runner = ScriptPool.GetClass("class cs:bs{ public  Object target;public  object[] prms; " + code + "}");
-
-        var methods = Runner.GetTypes()[0].GetMethods();
+        var Runner = ScriptPool.GetClass("class cs :TriggerEvent{ public  Object caller;public  Object target;public  object[] prms; " + code + "}");
+        instance = Runner.GetTypes()[0].Override(Runner.Runner, new HybInstance[0],this);
+        var methods = Runner.GetTypes()[0].GetMethods().ToArray();
         foreach (object comp in trigableObjects)
         {
-            foreach (var m in methods)
+            foreach (SSMethodInfo m in methods)
             {
-                var f = (comp as Type ?? comp.GetType()).GetField("_" + m.Id, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+                Type type = (comp as Type ?? comp.GetType());
+                if (!m.Id.StartsWith(type.Name)) continue;
+                
+                var f = type.GetField(m.Id.Substring(type.Name.Length), BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
                 
                 f?.SetValue(comp, hook && (!masterOnly || isMaster) ? new Hook(
                         delegate(object[] a)
                         {
-                            var instance = Runner.GetTypes()[0].Override(Runner.Runner, new HybInstance[0], comp);
-                            instance.SetPropertyOrField("target", HybInstance.Object(target));
-                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray()));
+                            
+                            instance.SetPropertyOrField("caller", HybInstance.Object(comp));
+                            instance.SetPropertyOrField("target", HybInstance.Object(target)); 
+                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray())); //2do add parameters expose instead
 
                             var d = m.Invoke(instance, a.Select(HybInstance.Object).ToArray());
                             if (d?.InnerObject is SSEnumerator ss)
@@ -343,6 +351,7 @@ void {MethodName(trigger)}
         // code = GUILayout.TextArea(code);
     }
 #endif
+    public string customCode="";
     public string code;
 
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,6 +12,22 @@ public class Expose : Attribute
 public interface ISerializableDictionary2
 {
         
+}
+public static class Temp
+{
+    private static StringBuilder sb = new StringBuilder();
+    public static StringBuilder StringBuilder(string s)
+    {
+        sb.Clear();
+        sb.Append(s);
+        return sb;
+
+    }
+    public static StringBuilder StringBuilder()
+    {
+        sb.Clear();
+        return sb;
+    }
 }
 [SelectionBase]
 public class bs : Base,IOnInspectorGUI

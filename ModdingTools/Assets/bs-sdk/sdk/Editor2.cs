@@ -103,35 +103,41 @@ public class EditorGUILayout : bs
             return UnityEditor.EditorGUILayout.ObjectField(label, value, type, allowSceneObjects);
         #endif
         #if game
-        var d = bs.GetControlUIData<ObjectFieldData>(label);
-        if (d.o != null)
-            value = d.o;
-        d.o = null;
-        
-        if (GUILayout.Button(label + ":" + ((value as Component)?.GetComponent<ItemBase>()??value)))
+        try
         {
-            var list = GameObject.FindObjectsOfType<ItemBase>().Where(a => a.GetComponent(type) && a.pernament);
-            string search = "";
-            ShowWindow(delegate
+            var d = bs.GetControlUIData<ObjectFieldData>(label);
+            if (d.o != null)
+                value = d.o;
+            d.o = null;
+
+            if (GUILayout.Button(label + ":" + ((value as Component)?.GetComponent<ItemBase>() ?? value)))
             {
-                win.isEditorSkin = true;
-                search = TextField("search", search);
-                foreach (ItemBase a in list.Where(a => string.IsNullOrEmpty(search) || (a.ToString().ContainsFastIc(search))).Take(20))
+                var list = GameObject.FindObjectsOfType<ItemBase>().Where(a => a.GetComponent(type) && a.pernament);
+                string search = "";
+                ShowWindow(delegate
                 {
-                    if (Button(a.ToString()))
+                    win.isEditorSkin = true;
+                    search = TextField("search", search);
+                    foreach (ItemBase a in list.Where(a => string.IsNullOrEmpty(search) || (a.ToString().ContainsFastIc(search))).Take(20))
                     {
-                        d.o = a.GetComponent(type);
-                        Back();
+                        if (Button(a.ToString()))
+                        {
+                            d.o = a.GetComponent(type);
+                            Back();
+                        }
                     }
-                }
-            });
-            
-            
+                });
+
+
+            }
+            return value;
         }
-        return value;
-#else
-        return null;
+        catch (Exception e)
+        {
+            Debug.LogException(e);
+        }
         #endif
+        return null;
     }
     public static object EnumPopup(string label, Enum e)
     {

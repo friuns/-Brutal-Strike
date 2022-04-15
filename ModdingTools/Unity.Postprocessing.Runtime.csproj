@@ -315,7 +315,7 @@
  <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/bs-sdk/Unity-Source-Engine-Importer/Plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
  <Reference Include="Enums.NET">
- <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/Plugins/sdk/Enums.NET.dll</HintPath>
+ <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/Plugins/Enums.NET.dll</HintPath>
  </Reference>
  <Reference Include="MeshExtension">
  <HintPath>C:/Users/friuns/Documents/unityHalf-life/builds/brutalStrike/ModdingTools/Assets/Plugins/sdk/MeshCombineStudio/Plugins/MeshExtension.dll</HintPath>
