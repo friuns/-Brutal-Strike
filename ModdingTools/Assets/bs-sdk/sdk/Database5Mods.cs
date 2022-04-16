@@ -213,15 +213,7 @@ public class SubsetListAttachments : EnumSubsetList<AttachmentSlots>
     }
 }
 
-public enum TeamEnum
-{
-    None,
-    Spectators,
-    DeathMatch,
-    Terrorists,
-    CounterTerrorists, Draw,WaitPls,
-    team1,team2,team3,team4,team5,team6,team7,team8,team9
-}
+
 
 [Serializable]
 public class SubsetListTeamEnum : EnumSubsetList<TeamEnum>

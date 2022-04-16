@@ -10,7 +10,7 @@ using System.Text;
 using System.Collections.Specialized;
 using System.Linq;
 using UnityEngine;
-#if !game && !sdk
+#if NETCOREAPP
 using MongoDB.Bson.IO;
 using MongoDB.Bson;
 #endif
@@ -70,7 +70,7 @@ namespace fastJSON
 
             else if (obj is Guid)
                 WriteGuid((Guid)obj);
-            #if !game && !sdk
+#if NETCOREAPP
             else if (obj is BsonDocument bs)
                 _output.Append(bs.ToJson(new JsonWriterSettings(){OutputMode = JsonOutputMode.RelaxedExtendedJson,Indent = true}));
             #endif

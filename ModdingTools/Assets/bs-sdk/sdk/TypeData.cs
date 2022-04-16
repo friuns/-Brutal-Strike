@@ -5,6 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
+
 #pragma warning disable 618
 
 
@@ -26,12 +28,17 @@ public class TypeData : ScriptableObject
                 MemberInfo[] ms = (comp is Type t ? t : comp.GetType()).GetMembers(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
                 foreach (var m in ms)
                 {
-                    if (m is FieldInfo f && f.FieldType == typeof(Hook) && Math2.XAnd(f.IsStatic, comp is Type))
+                    if (m is FieldInfo f)
                     {
-                        var s = f.Name.Substring(1);
-                        var method = (MethodInfo)ms.FirstOrDefault(a => a.Name == s);
-                        if (method == null) throw new Exception("not found " + s);
-                        l.list.Add(new SerializedMember(method, ""));
+                        if(typeof(UnityEvent).IsAssignableFrom(f.FieldType)) //2do
+                            l.list.Add(new SerializedMember() { name = m.Name,type = f.DeclaringType ,fullName = m.Name});
+                        else if(f.FieldType == typeof(Hook)&& Math2.XAnd(f.IsStatic, comp is Type))
+                        {
+                            var s = f.Name.Substring(1);
+                            var method = (MethodInfo)ms.FirstOrDefault(a => a.Name == s);
+                            if (method == null) throw new Exception("not found " + s);
+                            l.list.Add(new SerializedMember(method, ""));
+                        }
                     }
                 }
             }

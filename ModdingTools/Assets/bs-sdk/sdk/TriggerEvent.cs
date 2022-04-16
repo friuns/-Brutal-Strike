@@ -30,7 +30,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     
     private List<SerializedMember> m_methodInfos= new List<SerializedMember>();
     public List<SerializedMember> methodInfos => m_methodInfos.Count ==0 ? m_methodInfos = typeData.GetMethodInfos(trigableObjects):m_methodInfos;
-    private object[] trigableObjects => GetComponentsInChildren<Base>().Cast<object>().Concat(new[] { typeof(Player), typeof(Game) }).ToArray();
+    private object[] trigableObjects => GetComponentsInChildren<MonoBehaviour>().Cast<object>().Concat(new[] { typeof(Player), typeof(Game) }).ToArray();
     
     public static TypeData m_typeData;
     public static TypeData typeData
@@ -77,6 +77,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     public void Clear()
     {
         typeData.types.Clear();
+        typeData.triggers.Clear();
     }
     public static int ToolBar<T>(IList<T> ts, int t, string label, Func<T, string> @select = null, string def = "None", params GUILayoutOption[] prms)
     { 
@@ -176,7 +177,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             else if(target !=null) 
                 actionsAddRange(typeData.Get(target.GetType()).Select(a => a.Clone("target")));
 
-            if (trigger != null)
+            if (trigger?.name != null)
             {
                 foreach (var p in trigger.GetParameters())
                     if (!p.ParameterType.IsValueType && !p.ParameterType.IsPrimitive && !p.ParameterType.IsEnum)
@@ -310,7 +311,8 @@ void {trigger.DeclaringType.Name}_{MethodName(trigger)}
             CompileCode(false);
     }
     private HybInstance instance;
-    private void CompileCode(bool hook) //2do optimize - script storage, returns non static class 
+    private Dictionary<object, Hook> hooks = new Dictionary<object, Hook>();
+    private void CompileCode(bool add) //2do optimize - script storage, returns non static class 
     {
         var Runner = ScriptPool.GetClass("class cs :TriggerEvent{ public  Object caller;public  Object target;public  object[] prms; " + code + "}");
         instance = Runner.GetTypes()[0].Override(Runner.Runner, new HybInstance[0],this);
@@ -320,23 +322,34 @@ void {trigger.DeclaringType.Name}_{MethodName(trigger)}
             foreach (SSMethodInfo m in methods)
             {
                 Type type = (comp as Type ?? comp.GetType());
-                if (!m.Id.StartsWith(type.Name)) continue;
-                
-                var f = type.GetField(m.Id.Substring(type.Name.Length), BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
-                
-                f?.SetValue(comp, hook && (!masterOnly || isMaster) ? new Hook(
-                        delegate(object[] a)
-                        {
-                            
-                            instance.SetPropertyOrField("caller", HybInstance.Object(comp));
-                            instance.SetPropertyOrField("target", HybInstance.Object(target)); 
-                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray())); //2do add parameters expose instead
 
-                            var d = m.Invoke(instance, a.Select(HybInstance.Object).ToArray());
-                            if (d?.InnerObject is SSEnumerator ss)
-                                StartCoroutine(ss);
-                        })
-                    : null);
+
+                FieldInfo f = type.GetField(m.Id.StartsWith(type.Name) ? m.Id.Substring(type.Name.Length) : "_" + type.Name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+                if (f != null)
+                {
+                    var hk = (Hook)f.GetValue(comp);
+                    if(!hooks.TryGetValue((comp,m),out Hook hook2))
+                        hooks[(comp, m)] = hook2 = delegate(object[] a)
+                        {
+
+                            instance.SetPropertyOrField("caller", HybInstance.Object(comp));
+                            instance.SetPropertyOrField("target", HybInstance.Object(target));
+                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray())); //2do add parameters expose instead
+                            try
+                            {
+                                var d = m.Invoke(instance, a.Select(HybInstance.Object).ToArray());
+                                if (d?.InnerObject is SSEnumerator ss)
+                                    StartCoroutine(ss);
+                            }catch(Exception e){Debug.LogException(e);}
+                        };
+                    
+                    if (add && (!masterOnly || isMaster))
+                        hk += hook2;
+                    else
+                        hk -= hook2;
+                    
+                    f.SetValue(comp, hk);
+                }
             }
             // var d = (Delegate)act;
             // d+= Delegate.CreateDelegate();

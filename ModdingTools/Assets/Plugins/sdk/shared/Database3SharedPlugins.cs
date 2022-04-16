@@ -10,13 +10,21 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using fastJSON;
-#if !game && !sdk
+#if NETCOREAPP
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using MongoDB.Bson;
 using WebApplication4;
 #endif
-
+public enum TeamEnum
+{
+    None,
+    Spectators,
+    DeathMatch,
+    Terrorists,
+    CounterTerrorists, Draw,WaitPls,
+    team1,team2,team3,team4,team5,team6,team7,team8,team9
+}
 public class MyProduct
 {
     public int bcoins;
@@ -40,8 +48,8 @@ public class MyProduct
         public string signature;
         public string skuDetails;    
     }
-#if !game && !sdk 
-    public bool Validate()
+#if NETCOREAPP 
+    public bool ValidateFast()
     {
         Receipt r = JSON.ToObject<Receipt>(receipt);
         PayLoad payload = JSON.ToObject<PayLoad>(r.Payload);
