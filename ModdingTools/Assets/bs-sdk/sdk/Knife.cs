@@ -137,7 +137,7 @@ public class Knife : GunBase,IMeleeWeapon
 
                          if (IsMine)
                          {
-                             enemy.RPCDamageAddLife(-(int) damage, pl.viewId, id, enemy.skin.GetBodyPart(h.transform));
+                             enemy.RPCDamageAddLife(-(int)damage, pl.viewId, id, enemy.skin.GetBodyPart(h.transform));
                          }
                          continue;
                     }

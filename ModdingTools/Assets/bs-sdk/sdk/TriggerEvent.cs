@@ -23,11 +23,9 @@ using Object = UnityEngine.Object;
 // [ExecuteInEditMode]
 public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnInspectorGUI,IOnLoadAsset
 {
-
-    
-    
+  
     // public int triggerIndex = -1;
-    
+    public string className="cs:bs";    
     private List<SerializedMember> m_methodInfos= new List<SerializedMember>();
     public List<SerializedMember> methodInfos => m_methodInfos.Count ==0 ? m_methodInfos = typeData.GetMethodInfos(trigableObjects):m_methodInfos;
     private object[] trigableObjects => GetComponentsInChildren<MonoBehaviour>().Cast<object>().Concat(new[] { typeof(Player), typeof(Game) }).ToArray();
@@ -73,10 +71,14 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     }
 
 
-    [ContextMenu("Clear")]
+    [ContextMenu("Clear Types")]
     public void Clear()
     {
         typeData.types.Clear();
+    }
+    [ContextMenu("Clear Triggers")]
+    public void ClearTriggers()
+    {
         typeData.triggers.Clear();
     }
     public static int ToolBar<T>(IList<T> ts, int t, string label, Func<T, string> @select = null, string def = "None", params GUILayoutOption[] prms)
@@ -111,15 +113,26 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
 
     
 #if game
+  [ContextMenu("Test")]
+    public void Test()
+    {
+        
+        CScript r = CScript.CreateRunner( "class cs :TriggerEvent{ public  Object caller;public  Object target;public  object[] prms; " + code + "}",new ScriptConfig() { DefaultUsings = new[] { "UnityEngine","System.Collections","System.Collections.Generic","System.Linq" } });
+        
+        var  hybType = r.GetTypes()[0].Override(r.Runner,new HybInstance[0],this);
+        var ssMethodInfo = hybType.GetMethods("Test2")[1];
+        ssMethodInfo.Invoke(HybInstance.Object(this));
+    }
+
     public override void OnLoadAsset()
     {
         base.OnLoadAsset();
-        CompileCode(enabled);
+        CompileCodeStart(enabled);
     }
     public override void Awake()
     {
         base.Awake();
-        LevelEditor._OpenShowAdminWindow += delegate { CompileCode(enabled); };
+        LevelEditor._OpenShowAdminWindow += delegate { CompileCodeStart(enabled); };
 
     }
     protected override void OnCreate(bool b)
@@ -158,7 +171,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         }
         trigger = Serializer.Deserialize<SerializedMember>(br.ReadString());
         action = Serializer.Deserialize<SerializedMember>(br.ReadString());
-        CompileCode(enabled);
+        CompileCodeStart(enabled);
     }
 #endif
     public override void OnInspectorGUI()
@@ -167,13 +180,15 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         // if (Application.isPlaying) return;
         // var d = new DropdownItem<int>(4,"");
 
-        if (bs.HasChanged(ToolBar(methodInfos, trigger, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref trigger) || actions.Count ==0|| trigger != null && HasChanged(EditorGUILayout.ObjectField("target", target, typeof(Transform)), ref target))
+        if (bs.HasChanged(ToolBar(methodInfos, trigger, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref trigger) || actions.Count ==0|| trigger != null && HasChanged(EditorGUILayout.ObjectField("target", target, typeof(GameObject)), ref target))
         {
             actions = new List<SerializedMember>();
-            
-            if(target is GameObject g)
-                foreach(Component o in g.GetComponents<Component>())
+
+            if (target is GameObject g)
+            {
+                foreach (var o in g.GetComponents<Component>().Cast<Object>().Concat2(g))
                     actionsAddRange(typeData.Get(o.GetType()).Select(a => a.Clone("target", o.GetType())));
+            }
             else if(target !=null) 
                 actionsAddRange(typeData.Get(target.GetType()).Select(a => a.Clone("target")));
 
@@ -199,7 +214,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
                     actionParameters.Clear();
                 else
                 {
-                    if (action.targetType != null && target is GameObject o)
+                    if (action.targetType != null && target is GameObject o && action.targetType!= typeof(GameObject))
                         target = o.GetComponent(action.targetType);
                     
                     actionParameters = action.parameters.Select(a => a.ParameterType).Concat(action.indexes.Select(a => a.type)).Select(type => new SerializedValue(DefaultValue(type), type)).ToList();
@@ -236,6 +251,8 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             if (HasChanged(GUILayout.Toggle(showAll, "Show all functions"), ref showAll))
                 actions = new List<SerializedMember>();
         masterOnly = GUILayout.Toggle(masterOnly, "Execute Host Only");
+        if (exception != null)
+            LabelError(exception.Message);
 
     }
     public SerializedMember trigger;
@@ -285,7 +302,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             
             if (trigger == null) return;
             code = $@"
-void {trigger.DeclaringType.Name}_{MethodName(trigger)}
+void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
 {{  {customCode}
     {path}.{action.name}({p});
 }}
@@ -296,6 +313,7 @@ void {trigger.DeclaringType.Name}_{MethodName(trigger)}
             Debug.LogException(e);
         }
     }
+    public Exception exception;
     
 #if game
     
@@ -303,33 +321,38 @@ void {trigger.DeclaringType.Name}_{MethodName(trigger)}
     [ContextMenu("Start")]
     private void OnEnable()
     {
-        CompileCode(true);
+        CompileCodeStart(true);
     }
     private void OnDisable()
     {
         if (Application.isPlaying)
-            CompileCode(false);
+            CompileCodeStart(false);
     }
     private HybInstance instance;
     private Dictionary<object, Hook> hooks = new Dictionary<object, Hook>();
-    private void CompileCode(bool add) //2do optimize - script storage, returns non static class 
+    private static Dictionary<Hook, UnityAction> hooks2 = new Dictionary<Hook, UnityAction>();
+    private void CompileCodeStart(bool add) //2do optimize - script storage, returns non static class 
     {
-        var Runner = ScriptPool.GetClass("class cs :TriggerEvent{ public  Object caller;public  Object target;public  object[] prms; " + code + "}");
+        var Runner = ScriptPool.GetClass("class "+className+" { public  Object caller;public  Object target;public  object[] prms; " + code + "}");
         instance = Runner.GetTypes()[0].Override(Runner.Runner, new HybInstance[0],this);
+        // instance = HybInstance.Object(this);
+        
         var methods = Runner.GetTypes()[0].GetMethods().ToArray();
         foreach (object comp in trigableObjects)
         {
             foreach (SSMethodInfo m in methods)
             {
                 Type type = (comp as Type ?? comp.GetType());
+                
 
-
-                FieldInfo f = type.GetField(m.Id.StartsWith(type.Name) ? m.Id.Substring(type.Name.Length) : "_" + type.Name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
+                FieldInfo f = type.GetField(m.Id.StartsWith(type.Name) ? m.Id.Substring(type.Name.Length) : "_" +m.Id, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
                 if (f != null)
                 {
-                    var hk = (Hook)f.GetValue(comp);
+                    
+                    object hk = f.GetValue(comp);
+                    
                     if(!hooks.TryGetValue((comp,m),out Hook hook2))
-                        hooks[(comp, m)] = hook2 = delegate(object[] a)
+                        hooks[(comp, m)] = hook2 = new Hook(delegate(object[] a)
                         {
 
                             instance.SetPropertyOrField("caller", HybInstance.Object(comp));
@@ -340,15 +363,39 @@ void {trigger.DeclaringType.Name}_{MethodName(trigger)}
                                 var d = m.Invoke(instance, a.Select(HybInstance.Object).ToArray());
                                 if (d?.InnerObject is SSEnumerator ss)
                                     StartCoroutine(ss);
-                            }catch(Exception e){Debug.LogException(e);}
-                        };
+                            }
+                            catch (Exception e)
+                            {
+                                Debug.LogException(exception = e);
+                            }
+                        });
+
+
+                    add = add && (!Application.isPlaying || !masterOnly || isMaster);
                     
-                    if (add && (!masterOnly || isMaster))
-                        hk += hook2;
+                    
+                    
+                    if (hk is UnityEvent u)
+                    {
+                        if (!hooks2.TryGetValue(hook2, out var aa))
+                            hooks2[hook2] = aa = (() => hook2());
+                        
+                        if (add)
+                            u.AddListener(aa);
+                        else
+                            u.RemoveListener(aa);
+                    }
                     else
-                        hk -= hook2;
+                    {
+                        var h = (Hook)hk;
+                        if (add)
+                            h += hook2;
+                        else
+                            h -= hook2;
+                        f.SetValue(comp, h);    
+                    }
+
                     
-                    f.SetValue(comp, hk);
                 }
             }
             // var d = (Delegate)act;

@@ -7,7 +7,10 @@ public class Base : MonoBehaviour
     {
         
     }
-    #if UNITY_EDITOR
+    public  virtual void Start()
+    {
+    }
+#if UNITY_EDITOR
     public void OnSceneGui(SceneView scene)
     {
     }

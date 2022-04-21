@@ -468,8 +468,8 @@ public class Bullet : BulletBase,IOnLoadAsset
         {
             float damage = (float)this.damage/wep.bulletsPerShoot;
 
-          
-            if (!enemy.dead && !(enemy.knocked && roomSettings.dontKillKnocked) && damage > 0)
+
+            if (!enemy.dead && !(enemy.knocked && roomSettings.dontKillKnocked) && (roomSettings.allowPositiveDamage ? damage != 0 : damage > 0))
             {
                 HumanBodyBones bp = enemy.skin.GetBodyPart(h.transform);
                 var head = bp == HumanBodyBones.Head;

@@ -18,6 +18,7 @@ public class TypeData : ScriptableObject
     
     public List<SerializedMember> GetMethodInfos(IEnumerable obs)
     {
+        
         List<SerializedMember> list = new List<SerializedMember>();
         foreach (object comp in obs)
         {
@@ -31,10 +32,10 @@ public class TypeData : ScriptableObject
                     if (m is FieldInfo f)
                     {
                         if(typeof(UnityEvent).IsAssignableFrom(f.FieldType)) //2do
-                            l.list.Add(new SerializedMember() { name = m.Name,type = f.DeclaringType ,fullName = m.Name});
+                            l.list.Add(new SerializedMember() { name = m.Name, type = f.DeclaringType, fullName = m.Name, Prefix = "" });
                         else if(f.FieldType == typeof(Hook)&& Math2.XAnd(f.IsStatic, comp is Type))
                         {
-                            var s = f.Name.Substring(1);
+                            string s = f.Name.Substring(1);
                             var method = (MethodInfo)ms.FirstOrDefault(a => a.Name == s);
                             if (method == null) throw new Exception("not found " + s);
                             l.list.Add(new SerializedMember(method, ""));

@@ -20,6 +20,7 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
     {
     }
     public Type DeclaringType => type;
+    public string Prefix = "_";
     public bool exposed;
     public List<SerializedType> indexes = new List<SerializedType>();
     public string fullName;

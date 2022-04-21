@@ -1,11 +1,35 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Object = UnityEngine.Object;
-
 public delegate void Hook(params object[] args);
+
+// public class Hook
+// {
+//     public Hook(Action<object[]> action)
+//     {
+//         
+//     }
+//     
+//     public Hook(UnityEvent<object[]> action)
+//     {
+//         
+//     }
+//     
+//     public void Invoke(params object[] prms)
+//     {
+//         
+//     }
+//     public void Add(Hook value)
+//     {
+//         
+//     }
+// }
 
 public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
 {
+    public bool minePlayerOnly; 
+    public float updateInterval = 1;
 [Expose]
     public void KillPlayer(Player pl)
     {
@@ -28,13 +52,18 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     }
 
 
-    public bool minePlayerOnly; 
+    
     protected Hook _OnActionKey;
     public void OnActionKey(Player pl)
     {
         _OnActionKey?.Invoke(pl);
     }
-    public float updateInterval = 1;
+    protected Hook _Start;
+    public override void Start()
+    {
+        base.Start();
+        _Start?.Invoke();
+    }
     protected Hook _Update;
     public void Update()
     {
@@ -53,14 +82,7 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
         
     }
     
-    public void OnPlayerEnter(Player pl, Trigger other, bool b)
-    {
-        if(b)
-            OnPlayerEnter(pl,other);
-        else
-            OnPlayerExit(pl,other);
-    }
-
+    
     protected Hook _OnPlayerEnter;
     public void OnPlayerEnter(Player pl, Trigger other)
     {
@@ -71,6 +93,16 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     {
         _OnPlayerExit?.Invoke(pl, other);
     }
+    
+    public void OnPlayerEnter(Player pl, Trigger other, bool b)
+    {
+        if(b)
+            OnPlayerEnter(pl,other);
+        else
+            OnPlayerExit(pl,other);
+    }
+
+    
 
 
 }

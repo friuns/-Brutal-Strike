@@ -120,7 +120,7 @@ public partial class BuildToolsSDK : EditorWindow
     public static void BuildLevelPC()
     {
       
-        BuildLevel(BuildTarget.StandaloneWindows, mapsDir);
+        BuildLevel(EditorUserBuildSettings.activeBuildTarget, mapsDir);
         OpenExplorer();
     }
     
