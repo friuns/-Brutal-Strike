@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Security;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -16,6 +17,20 @@ using System.Text.RegularExpressions;
 using MongoDB.Bson;
 using WebApplication4;
 #endif
+
+public static class ext4
+{
+    public static class DefaultAssemblies
+    {
+        public static Assembly csharp = Assembly.Load("Assembly-CSharp");
+        public static Assembly csharpPlusin = Assembly.Load("Assembly-CSharp-firstpass");
+    }
+    
+    public static Type FindType(string name)
+    {
+        return Type.GetType(name, null, (assembly, typeName, arg3) => assembly.GetType(typeName) ?? DefaultAssemblies.csharp.GetType(typeName) ?? DefaultAssemblies.csharpPlusin.GetType(typeName)?? typeof(Object));
+    }
+}
 public enum TeamEnum
 {
     None,

@@ -204,7 +204,7 @@ public class GunBase : bsNetwork, IOnLoadAsset, IOnLevelEditorGUI,IDontDisable, 
     }
     public  void UpdateCount()
     {
-        Disabled = !pl.playerClassPrefab.weaponSets.HasFlag2(weaponSetId) || prematchOnly && !_Game.waitForPls || disabled || this is Attachment && roomSettings.disableAttachments;
+        Disabled = !pl.playerClassPrefab.weaponSets.HasAnyFlags(weaponSetId) || prematchOnly && !_Game.waitForPls || disabled || this is Attachment && roomSettings.disableAttachments;
         
         
         have = Count > 0 && !Disabled;

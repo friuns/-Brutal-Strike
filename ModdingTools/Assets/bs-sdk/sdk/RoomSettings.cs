@@ -107,6 +107,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
 
     public ObscuredFloat shrinkSpeed = 1;
     public int zoneDamage = 0;
+    public int moneyEachSecond = 0;
     [FieldAtr(preGameOnly = true,inherit = true)]
     public ObscuredBool enableZombies = false;
     public ObscuredBool enableZombiesMission = false;
@@ -145,7 +146,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public ObscuredBool canAimWithoutScope = true;
     public bool disableAttachments;
     
-    
+    public float spawnProtection=3;
     public bool unlimitedAmmo;
     public ObscuredBool ShootThroughWalls = true;
     public ObscuredFloat bulletPassFactor = 1;
@@ -200,6 +201,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public bool enableHearing = true;
     public bool coverSystem=true;
     public bool stopOnShoot=true;
+    
 #if game
     public GameType gameType { get { return map.gameType; } set { map.gameType = value; } }
     public bool ranked { get { return gameType.IsRanked(); } }

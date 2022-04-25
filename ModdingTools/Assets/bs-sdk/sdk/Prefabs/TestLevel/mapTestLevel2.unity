@@ -134,6 +134,170 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9119811415993574816}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &115371673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 115371674}
+  m_Layer: 0
+  m_Name: bounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &115371674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115371673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 168276792}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &168276790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168276792}
+  - component: {fileID: 168276791}
+  m_Layer: 0
+  m_Name: CreateBot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &168276791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168276790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31c0b03f7514bda8d978f8684a2909a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tr: {fileID: 168276792}
+  scene: 1
+  randomPickableNested: 0
+  levelEditorCreated: 0
+  bspGenerated: 0
+  path: 
+  assetLoaded: 0
+  probabilityFactor: 1
+  dragType: 0
+  itemName: 
+  icon: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  m_boundsTr: {fileID: 115371674}
+  bspModel:
+    nMins: {x: 0, y: 0, z: 0}
+    nMaxs: {x: 0, y: 0, z: 0}
+    vOrigin: {x: 0, y: 0, z: 0}
+    nodes: 
+    numLeafs: 0
+    indexOfFirstFace: 0
+    numberOfFaces: 0
+    bounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0, y: 0, z: 0}
+    pos: {x: 0, y: 0, z: 0}
+    renders: []
+  vdfInfo: []
+  m_isStatic: 0
+  angle: 0
+  pitch: 0
+  origin: {x: 0, y: 0, z: 0}
+  angles: {x: 0, y: 0, z: 0}
+  bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
+  showAll: 0
+  trigger:
+    m_type: Game, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    Prefix: _
+    exposed: 0
+    indexes: []
+    fullName: StartGame()
+    name: StartGame
+    parameters: []
+    path: 'StartGame() '
+    code: 
+  target: {fileID: 0}
+  actionParameters:
+  - m_type: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+    reference: 
+    objectReference: {fileID: 168276792}
+    json: 
+  - m_type: TeamEnum, Assembly-CSharp-firstpass, Version=1.0.9.1, Culture=neutral,
+      PublicKeyToken=null
+    reference: 
+    objectReference: {fileID: 0}
+    json: '"CounterTerrorists"'
+  - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    reference: 
+    objectReference: {fileID: 0}
+    json: 0
+  - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+    reference: 
+    objectReference: {fileID: 0}
+    json: true
+  action:
+    m_type: Game, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    Prefix: _
+    exposed: 1
+    indexes: []
+    fullName: CreateBotAtPosition(Transform position, TeamEnum team, int playerclass,
+      bool bot)
+    name: CreateBotAtPosition
+    parameters:
+    - m_type: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      Name: position
+    - m_type: TeamEnum, Assembly-CSharp-firstpass, Version=1.0.9.1, Culture=neutral,
+        PublicKeyToken=null
+      Name: team
+    - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Name: playerclass
+    - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+      Name: bot
+    path: 'bs._Game/CreateBotAtPosition(Transform position, TeamEnum team, int playerclass,
+      bool bot) '
+    code: bs._Game
+  masterOnly: 1
+  customCode: 
+  code: "\r\nvoid Game_StartGame()\r\n{  \r\n    bs._Game.CreateBotAtPosition(prms[0],TeamEnum.CounterTerrorists,0,true);\r\n}\r\n"
+--- !u!4 &168276792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168276790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.63, y: 1.23, z: -19.76}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 115371674}
+  m_Father: {fileID: 0}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &176577039
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +365,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1441,6 +1606,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1664,6 +1830,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1880,6 +2047,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1896,7 +2064,7 @@ MonoBehaviour:
   - m_type: UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
     reference: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 748908119}
     json: 
   action:
     m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -1913,7 +2081,7 @@ MonoBehaviour:
     code: bs._Player
   masterOnly: 0
   customCode: 
-  code: "\r\nvoid SelectTeamWindow()\r\n{\r\nif(bs.Button(\"Test\"))\n    bs._Player.TeleportTo(prms[0]);\r\n}\r\n"
+  code: "\r\nvoid Player_SelectTeamWindow()\r\n{  \r\n    bs._Player.TeleportTo(prms[0]);\r\n}\r\n"
 --- !u!4 &628128455
 Transform:
   m_ObjectHideFlags: 0
@@ -2634,6 +2802,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: UnityEngine.UI.Button, UnityEngine.UI, Version=1.0.0.0, Culture=neutral,
@@ -2838,6 +3007,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -3023,6 +3193,88 @@ PlayableDirector:
     value: {fileID: 821482952}
   m_ExposedReferences:
     m_References: []
+--- !u!1001 &850447265
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1366898683506060, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_Name
+      value: DropBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_RootOrder
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291673557966264, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528870920611294, guid: 4f58c1869502fac449d07239a2b94a17,
+        type: 3}
+      propertyPath: enableMoney
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114528870920611294, guid: 4f58c1869502fac449d07239a2b94a17,
+        type: 3}
+      propertyPath: randomWeapons
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114745227270179610, guid: 4f58c1869502fac449d07239a2b94a17,
+        type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298145617921296, guid: 4f58c1869502fac449d07239a2b94a17,
+        type: 3}
+      propertyPath: offset.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670298145617921296, guid: 4f58c1869502fac449d07239a2b94a17,
+        type: 3}
+      propertyPath: constantMove.y
+      value: -15
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f58c1869502fac449d07239a2b94a17, type: 3}
 --- !u!1 &877871461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3249,6 +3501,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -4485,22 +4738,17 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
-    m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_type: 
     Prefix: _
     exposed: 0
     indexes: []
-    fullName: OnPlayerEnter(Player pl, Trigger other, Boolean b)
-    name: OnPlayerEnter
-    parameters:
-    - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-      Name: pl
-    - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-      Name: other
-    - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-      Name: b
-    path: 'OnPlayerEnter(Player pl, Trigger other, Boolean b) '
+    fullName: 
+    name: 
+    parameters: []
+    path: 
     code: 
   target: {fileID: 1567936749}
   actionParameters:
@@ -4573,7 +4821,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: 0
@@ -5302,6 +5551,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -5359,7 +5609,7 @@ MonoBehaviour:
     code: bs._Game
   masterOnly: 1
   customCode: 
-  code: "\r\nvoid AnimationEvent(string s)\r\n{  \r\n    bs._Game.CreateBotAtPosition(prms[0],TeamEnum.Terrorists,0,false);\r\n}\r\n"
+  code: "\r\nvoid TriggerHelper_AnimationEvent(string s)\r\n{  \r\n    bs._Game.CreateBotAtPosition(prms[0],TeamEnum.Terrorists,0,false);\r\n}\r\n"
 --- !u!114 &1567936748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5892,6 +6142,7 @@ MonoBehaviour:
   origin: {x: 0, y: 0, z: 0}
   angles: {x: 0, y: 0, z: 0}
   bspModelPos: {x: 0, y: 0, z: 0}
+  className: cs:bs
   showAll: 0
   trigger:
     m_type: TriggerHelper, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -6573,6 +6824,7 @@ MonoBehaviour:
     zoneSize: 1000
     shrinkSpeed: 1
     zoneDamage: 0
+    moneyEachSecond: 0
     enableZombies: 0
     enableZombiesMission: 0
     zombiePowerTime: 1
@@ -6632,6 +6884,7 @@ MonoBehaviour:
     seed: 0
     autoAim_Y: 0
     androidInertia: 0
+    allowPositiveDamage: 0
     specialGun: 0
     enableShooting: 1
     searchEnemy: 1

@@ -38,9 +38,13 @@ public class GameSettingsInGame:bs,IOnLoadAsset
         // var gameSettingsInGame = FindObjectOfType<GameSettingsInGame>();
         // if (gameSettingsInGame && room.sets.version >= 2512)
         // {
+        
+            
         Serializer.DeepCopy(gameSettings, room.sets);
         gameSettings = room.sets; //for inspector
         room.varParse.UpdateValues(ForceRead: true);
+        if (Application.isEditor)
+            room.sets.mpVersion = settings.mpVersion;
         //     // refreshGameValues?.Invoke();
         // }
     }

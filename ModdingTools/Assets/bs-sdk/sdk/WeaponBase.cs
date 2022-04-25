@@ -10,7 +10,7 @@ public class WeaponBase : GunBase
 
     public Transform explosionParticle;
     
-    [Obsolete] 
+
     [FieldAtrStart(inherit = true)]
     
     public bool explodeOnCollision;

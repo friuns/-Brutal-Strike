@@ -5,13 +5,15 @@ using System.Text.RegularExpressions;
 using fastJSON;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 
 [Serializable]
 public class SerializedValue:SerializedType 
 {
-    public string reference; //trigger event code naming
+    [FormerlySerializedAs("reference")] 
+    public string name; //trigger event code naming
     public Object objectReference;
     public SerializedValue(){}
     public SerializedValue(object o)
@@ -43,8 +45,11 @@ public class SerializedValue:SerializedType
     public object value { get { return GetValue(); } set { SetValue(value); } }
     public object GetValue()
     {
+        
         if (isReference)
             return objectReference;
+        else if (string.IsNullOrEmpty(json))
+            return TriggerEvent.DefaultValue(type);
         else
             return JSON.ToObject(json,type);
     }

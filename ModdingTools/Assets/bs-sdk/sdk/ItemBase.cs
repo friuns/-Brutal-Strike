@@ -70,9 +70,9 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
                 return m_boundsTr;
             }
             m_boundsTr = transform.Find("bounds");
-            m_boundsTr.hideFlags = HideFlags.HideInHierarchy;
             if (m_boundsTr) return boundsTr;
             m_boundsTr = new GameObject("bounds").transform;
+            m_boundsTr.hideFlags = HideFlags.HideInHierarchy;
             m_boundsTr.SetParent(transform, false);
             if (!Application.isPlaying) SetDirty();
             return m_boundsTr;
@@ -227,8 +227,12 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     //public static MemoryStream ms = new MemoryStream();
     //public static BinaryReader br = new BinaryReader(ms);
     //public static BinaryWriter bw = new BinaryWriter(ms);
-    
+
     [ContextMenu("sync")]
+    public void SyncTest()
+    {
+        SetBytes(GetBytes(), true);
+    }
     public void Sync()
     {
         ArraySegment<byte> bytes = GetBytes();
@@ -336,6 +340,7 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
 
     public virtual void OnLevelEditorGUI()
     {
+        
         itemName = TextField("name", itemName);
         var old = offset;
         offset.y = FloatField("height offset", offset.y);

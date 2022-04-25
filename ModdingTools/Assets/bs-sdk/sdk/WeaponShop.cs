@@ -18,26 +18,36 @@ public class WeaponShop : WeaponShopBase,ItemBaseVarParseEnable
         
         base.Awake();
     }
+    internal WeaponShopCollection defWeapons;
     public override void Start()
     {
+        defWeapons = weapons;
         // if (roomSettings.awpOnly) //settings loads after awake
             // disabled = true;
+            
         base.Start();
+        CreateWeapons();
     }
     public override void OnPreMatch()
     {
         base.OnPreMatch();
         
 //        if (isMaster)
+        CreateWeapons();
+//            if (inRoom)
+//                Sync();
+    }
+    private void CreateWeapons()
+    {
         if (allWeapons)
         {
-            weapons = new WeaponShopCollection();
+            weapons = defWeapons.Clone();
             foreach (GunBase a in _ObsPlayer.guns)
                 weapons.Add(a, 1);
         }
-        else if(randomWeapons)
+        else if (randomWeapons)
         {
-            weapons = new WeaponShopCollection();
+            weapons = defWeapons.Clone();
             var m = money;
             while (true)
             {
@@ -46,7 +56,7 @@ public class WeaponShop : WeaponShopBase,ItemBaseVarParseEnable
                 if (weps.Count == 0) break;
 
                 GunBase gun = weps.WeightedRandom(a => a.price);
-                if (gun is Weapon w) //using ammoprefab because guns gets filled when player selects class
+                if (gun is Weapon w && w.ammoPrefab) //using ammoprefab because guns gets filled when player selects class
                     weapons.Add(w.ammoPrefab, w.ammoPrefab.dropAmmount * 4);
                 m -= gun.m_price;
 
@@ -54,8 +64,6 @@ public class WeaponShop : WeaponShopBase,ItemBaseVarParseEnable
                     weapons.Add(gun, gun.dropAmmount);
             }
         }
-//            if (inRoom)
-//                Sync();
     }
 #endif
     

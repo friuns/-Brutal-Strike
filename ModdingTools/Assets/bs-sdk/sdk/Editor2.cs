@@ -105,6 +105,7 @@ public class EditorGUILayout : bs
         #if game
         try
         {
+            
             var d = bs.GetControlUIData<ObjectFieldData>(label);
             if (d.o != null)
                 value = d.o;
@@ -112,7 +113,7 @@ public class EditorGUILayout : bs
 
             if (GUILayout.Button(label + ":" + ((value as Component)?.GetComponent<ItemBase>() ?? value)))
             {
-                var list = GameObject.FindObjectsOfType<ItemBase>().Where(a => a.GetComponent(type) && a.pernament);
+                var list = GameObject.FindObjectsOfType<ItemBase>().Where(a => (type == typeof(GameObject) || a.GetComponent(type)) && a.pernament);
                 string search = "";
                 ShowWindow(delegate
                 {
@@ -122,7 +123,7 @@ public class EditorGUILayout : bs
                     {
                         if (Button(a.ToString()))
                         {
-                            d.o = a.GetComponent(type);
+                            d.o = ext.GetComponentOrGameObject(a, type);
                             Back();
                         }
                     }

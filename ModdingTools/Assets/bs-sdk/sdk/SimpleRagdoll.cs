@@ -13,8 +13,8 @@ public class SimpleRagdoll:MonoBehaviour
         if (applyGravity)
             velocity += Physics.gravity * TimeCached.deltaTime;
         
-        transform.position += (velocity + constantMove) * TimeCached.deltaTime;
-        if (oldPos != Vector3.zero && Physics.Linecast(oldPos + offset, transform.position + offset, out RaycastHit h, Layer.levelMaskFull))
+        transform.position += (velocity + constantMove) * TimeCached.deltaTime;RaycastHit h;
+        if (oldPos != Vector3.zero && Physics.Linecast(oldPos + offset, transform.position + offset, out  h, Layer.levelMaskFull))
         {
             transform.position = h.point + offset;
             transform.up = h.normal;

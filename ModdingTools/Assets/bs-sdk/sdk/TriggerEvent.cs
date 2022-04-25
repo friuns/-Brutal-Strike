@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text;
 #if game
 using Slowsharp;
 #endif
@@ -15,6 +16,7 @@ using UnityEditor;
 #endif
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Debug = UnityEngine.Debug;
 
 using Object = UnityEngine.Object;
@@ -25,7 +27,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
 {
   
     // public int triggerIndex = -1;
-    public string className="cs:bs";    
+        
     private List<SerializedMember> m_methodInfos= new List<SerializedMember>();
     public List<SerializedMember> methodInfos => m_methodInfos.Count ==0 ? m_methodInfos = typeData.GetMethodInfos(trigableObjects):m_methodInfos;
     private object[] trigableObjects => GetComponentsInChildren<MonoBehaviour>().Cast<object>().Concat(new[] { typeof(Player), typeof(Game) }).ToArray();
@@ -101,12 +103,17 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     }
     public static object DrawObject(object value, string name, Type type)
     {
+        #if game
+        if (type == typeof(string))
+            return TextField(name, (string)value, int.MaxValue);
+        #endif
         if (value is Object || value is null)
             return EditorGUILayout.ObjectField(name, (Object)value, type);
-        else if (value is Enum e)
-        {
+         if (value is Enum e)
             return EditorGUILayout.EnumPopup(name, e);
-        }
+
+        
+         
         return bs.DrawObject(value, name);
     }
 
@@ -117,7 +124,7 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     public void Test()
     {
         
-        CScript r = CScript.CreateRunner( "class cs :TriggerEvent{ public  Object caller;public  Object target;public  object[] prms; " + code + "}",new ScriptConfig() { DefaultUsings = new[] { "UnityEngine","System.Collections","System.Collections.Generic","System.Linq" } });
+        CScript r = CScript.CreateRunner( "class cs :TriggerEvent{ public  Object caller; " + code + "}",new ScriptConfig() { DefaultUsings = new[] { "UnityEngine","System.Collections","System.Collections.Generic","System.Linq" } });
         
         var  hybType = r.GetTypes()[0].Override(r.Runner,new HybInstance[0],this);
         var ssMethodInfo = hybType.GetMethods("Test2")[1];
@@ -127,12 +134,16 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     public override void OnLoadAsset()
     {
         base.OnLoadAsset();
-        CompileCodeStart(enabled);
+        // CompileCodeStart(enabled);
     }
     public override void Awake()
     {
         base.Awake();
-        LevelEditor._OpenShowAdminWindow += delegate { CompileCodeStart(enabled); };
+        
+        LevelEditor._OpenShowAdminWindow += delegate
+        {
+            CompileCodeStart(enabled);
+        };
 
     }
     protected override void OnCreate(bool b)
@@ -142,13 +153,12 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     public override void Save(BinaryWriter bw)
     {
         base.Save(bw);
-        int i;
-        bw.Write(SceneFinder.GetPath((target as Component)?.transform, out i));
-        bw.Write(i);
+        bw.WriteComponent(target);
         bw.Write(code);
-        bw.WriteByte((byte)actionParameters.Count);
-        foreach (var a in actionParameters)
+        bw.WriteByte((byte)exposedParams.Count);
+        foreach (var a in exposedParams)
         {
+            bw.Write(a.name);
             bw.WriteValue(a.value);
         }
         bw.Write(Serializer.Serialize(trigger));
@@ -157,30 +167,34 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     public override void Load(BinaryReader br)
     {
         base.Load(br);
-        var path = br.ReadString();
-        var i2 = br.ReadInt32();
-        target = SceneFinder.FindAtPath(path, i2);
+        target = br.ReadComponent();
         code = br.ReadString();
-        actionParameters.Clear();
+        exposedParams.Clear();
         
         var cnt = br.ReadByte();
         for (int i = cnt - 1; i >= 0; i--)
         {
-            var v = br.ReadValue();
-            actionParameters.Add(new SerializedValue(v));
+            var name = br.ReadString();
+                var v = br.ReadValue();
+            exposedParams.Add(new SerializedValue(v){name = name});
         }
         trigger = Serializer.Deserialize<SerializedMember>(br.ReadString());
         action = Serializer.Deserialize<SerializedMember>(br.ReadString());
         CompileCodeStart(enabled);
     }
+    public override void CopyFrom(ItemBase b) //breaks object references
+    {
+
+    }
 #endif
+    
     public override void OnInspectorGUI()
     {
         
         // if (Application.isPlaying) return;
         // var d = new DropdownItem<int>(4,"");
-
-        if (bs.HasChanged(ToolBar(methodInfos, trigger, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref trigger) || actions.Count ==0|| trigger != null && HasChanged(EditorGUILayout.ObjectField("target", target, typeof(GameObject)), ref target))
+        
+        if (bs.HasChanged(ToolBar(methodInfos, trigger, "Trigger", a => (a.DeclaringType.Name??"null") + "/" + MethodName(a)), ref trigger) || actions.Count ==0|| trigger != null &&  HasChanged(EditorGUILayout.ObjectField("target", target, typeof(GameObject)), ref target))
         {
             actions = new List<SerializedMember>();
 
@@ -205,52 +219,39 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             GenerateCode();
         }
 
-        // if (action != null)
+        
+        if (trigger != null && bs.HasChanged(ToolBar(actions, action, "Action", a => a.path), ref action)) //Refresh aciton parameters
         {
-            
-            if (trigger != null && bs.HasChanged(ToolBar(actions, action, "Action", a => a.path), ref action)) //Refresh aciton parameters
-            {
-                if (action == null)
-                    actionParameters.Clear();
-                else
-                {
-                    if (action.targetType != null && target is GameObject o && action.targetType!= typeof(GameObject))
-                        target = o.GetComponent(action.targetType);
-                    
-                    actionParameters = action.parameters.Select(a => a.ParameterType).Concat(action.indexes.Select(a => a.type)).Select(type => new SerializedValue(DefaultValue(type), type)).ToList();
-                }
-                GenerateCode();
-            }
-
-            if (action != null)
-            {
-                var parameterInfos = action.parameters;
-
-                for (var i = 0; i < actionParameters.Count; i++)
-                {
-                    using (new GUILayout.HorizontalScope())
-                    {
-                        if (bs.HasChanged(a => actionParameters[i].value = DrawObject(a, parameterInfos.Get(i)?.Name ?? "index", parameterInfos.Get(i)?.ParameterType), actionParameters[i].value))
-                            GenerateCode();
-                        if (trigger != null)
-                        {
-                            string[] prms = trigger.GetParameters().Where(a => actionParameters[i].type.IsAssignableFrom(a.ParameterType)).Select(a => a.Name).ToArray();
-                            if (prms.Length > 0 && bs.HasChanged(ToolBar(prms, actionParameters[i].reference, "", null, "None", GUILayout.Width(100)), ref actionParameters[i].reference))
-                                GenerateCode();
-                        }
-                    }
-                }
-            }
+            if (action?.targetType != null && target is GameObject o && action.targetType != typeof(GameObject))
+                target = o.GetComponent(action.targetType);
+            GenerateCode();
+            #if game
+            CompileCodeStart(false,true);
+#endif
         }
 
-        if(HasChanged(GUILayout.TextArea(code),ref code))
-            SetDirty();
-        if (!string.IsNullOrEmpty(customCode))
-            customCode = GUILayout.TextArea(customCode);
+        if (action != null)
+            foreach (var exp in exposedParams)
+                exp.value=DrawObject(exp.value, exp.name, exp.type);
+        
+        using (GuiEnabled(customCode))
+            if (HasChanged(GUILayout.TextArea(code), ref code))
+                SetDirty();
+
+        customCode = GUILayout.Toggle(customCode, "custom code");
         if(!Application.isPlaying)
             if (HasChanged(GUILayout.Toggle(showAll, "Show all functions"), ref showAll))
                 actions = new List<SerializedMember>();
         masterOnly = GUILayout.Toggle(masterOnly, "Execute Host Only");
+
+        if (GUILayout.Button("Compile"))
+        {
+            GenerateCode();
+            #if game
+            CompileCodeStart(false,true);
+            Sync();
+#endif
+        }
         if (exception != null)
             LabelError(exception.Message);
 
@@ -260,7 +261,10 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
     private List<SerializedMember> actions = new List<SerializedMember>();
     public Object target;
 
-    public List<SerializedValue> actionParameters = new  List<SerializedValue>();
+    // public List<SerializedValue> actionParameters = new  List<SerializedValue>();
+    
+    [FormerlySerializedAs("actionParameters")] 
+    public List<SerializedValue> exposedParams = new  List<SerializedValue>();
     public SerializedMember action;
 
 
@@ -274,8 +278,9 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
 
 
 
-    public static string cast(string name)
+    public static string GetTrueName(Type t)
     {
+        var name = t.Name;
         return name == "String" ? "string" : name == "Int32" ? "int" : name == "Single" ? "float" : name == "Boolean" ? "bool" : name;
     }
 
@@ -285,26 +290,36 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
         var p = info.name + "(";
         var parameters = info.GetParameters();
         foreach (var item in parameters)
-            p += $"{cast(item.ParameterType.Name)} {item.Name}, ";
+            p += $"{GetTrueName(item.ParameterType)} {item.Name}, ";
         return p.Trim(' ', ',') + ")"; 
     }
     public bool masterOnly;
-    [ContextMenu("Refresh Code")]
+    // [ContextMenu("Refresh Code")]
     private void GenerateCode()
     {
         try
         {
-            if (actionParameters == null) return;
-            if (action == null||string.IsNullOrEmpty(action.name)) return;
-            var expCount = action.indexes.Count;
-            var p = string.Join(",", actionParameters.Take(actionParameters.Count - expCount).Select((a, i) => !string.IsNullOrEmpty(a.reference) ? a.reference : (a.value is Object ? $"prms[{i}]" : a.ToString())));
-            var path = string.Format(action.code, actionParameters.Skip(expCount).ToArray());
+            if (customCode||action == null||string.IsNullOrEmpty(action.name)) return;
+            
+            StringBuilder sb = new StringBuilder();
+            StringBuilder sb2 = new StringBuilder();
+            foreach (var a in action.parameters)
+            {
+                sb.AppendLine(GetTrueName(a.type) + " " + a.Name + ";");
+                sb2.Append(","+a.Name);
+            }
+            for (var i = 0; i < action.indexes.Count; i++)
+                sb.AppendLine(GetTrueName(action.indexes[i].type) + " index" + i + ";");
+
+            var path = string.Format(action.code, Enumerable.Range(0, action.indexes.Count).Select(a => "index" + a).Cast<object>().ToArray());
             
             if (trigger == null) return;
             code = $@"
+Object target;
+{sb}
 void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
-{{  {customCode}
-    {path}.{action.name}({p});
+{{  
+    {path}.{action.name}({sb2.ToString().Substring(Mathf.Min(sb.Length,1))});
 }}
 ";
         }
@@ -330,17 +345,46 @@ void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
     }
     private HybInstance instance;
     private Dictionary<object, Hook> hooks = new Dictionary<object, Hook>();
-    private static Dictionary<Hook, UnityAction> hooks2 = new Dictionary<Hook, UnityAction>();
-    private void CompileCodeStart(bool add) //2do optimize - script storage, returns non static class 
+    private static Dictionary<Hook, UnityAction> hook2Action = new Dictionary<Hook, UnityAction>();
+    private void CompileCodeStart(bool add,bool refreshExposed=false)
     {
-        var Runner = ScriptPool.GetClass("class "+className+" { public  Object caller;public  Object target;public  object[] prms; " + code + "}");
+        try
+        {
+            CompileCodeStart2(add,refreshExposed);
+        }
+        catch (Exception e)
+        {
+            exception = e?.InnerException??e;
+            throw;
+        }
+    }
+    // public bool showTarget = true;
+    private void CompileCodeStart2(bool add,bool refreshExposed=false) //2do optimize - script storage, returns non static class 
+    {
+        var Runner = ScriptPool.GetClass("class cs:bs { public  Object caller;public  object[] prms;  " + code + "}");
         instance = Runner.GetTypes()[0].Override(Runner.Runner, new HybInstance[0],this);
         // instance = HybInstance.Object(this);
         
-        var methods = Runner.GetTypes()[0].GetMethods().ToArray();
+            
+        
+        var methods = Runner.GetTypes()[0].InterpretKlass.GetMethods();
+        var fields = Runner.GetTypes()[0].InterpretKlass.GetFields().Where(a => a.Id != "caller" && a.Id != "prms" && a.Id != "target").ToArray();
+        if (refreshExposed)
+        {
+            var old = exposedParams.ToArray();
+            exposedParams.Clear();
+            // showTarget = false;
+            for (var i = 0; i < fields.Length; i++)
+            {
+                var serializedValue = new SerializedValue(fields[i].GetValue(instance).InnerObject) { name = fields[i].Id, type = fields[i].FieldType.CompiledType };
+                if (i < old.Length && serializedValue.type == old[i].type)
+                    serializedValue.value = old[i].value;
+                exposedParams.Add(serializedValue);
+            }
+        }
         foreach (object comp in trigableObjects)
         {
-            foreach (SSMethodInfo m in methods)
+            foreach (var  m in methods)
             {
                 Type type = (comp as Type ?? comp.GetType());
                 
@@ -350,17 +394,28 @@ void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
                 {
                     
                     object hk = f.GetValue(comp);
-                    
-                    if(!hooks.TryGetValue((comp,m),out Hook hook2))
-                        hooks[(comp, m)] = hook2 = new Hook(delegate(object[] a)
+
+                    var key = (comp,f);
+
+                    hooks.TryGetValue(key, out Hook oldhook2);
+                        
+                    var newHook=hooks[key] = new Hook(delegate(object[] prms)
                         {
 
                             instance.SetPropertyOrField("caller", HybInstance.Object(comp));
+                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(exposedParams.Select(b => b.value).ToArray()));//old 
                             instance.SetPropertyOrField("target", HybInstance.Object(target));
-                            instance.SetPropertyOrField("prms", HybInstance.ObjectArray(actionParameters.Select(b => b.value).ToArray())); //2do add parameters expose instead
+                            foreach (var a in exposedParams)
+                                instance.SetPropertyOrField(a.name, HybInstance.Object(a.value));
+                            
+                            // {
+                            //     instance.SetPropertyOrField("prms", HybInstance.ObjectArray(exposedParams.Select(b => b.value).ToArray())); //2do add parameters expose instead    
+                            // }
+                            // instance.SetPropertyOrField("prms", HybInstance.ObjectArray(exposedParams.Select(b => b.value).ToArray())); //2do add parameters expose instead
                             try
                             {
-                                var d = m.Invoke(instance, a.Select(HybInstance.Object).ToArray());
+                                
+                                var d = m.Invoke(instance, prms.Select(HybInstance.Object).ToArray());
                                 if (d?.InnerObject is SSEnumerator ss)
                                     StartCoroutine(ss);
                             }
@@ -377,21 +432,19 @@ void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
                     
                     if (hk is UnityEvent u)
                     {
-                        if (!hooks2.TryGetValue(hook2, out var aa))
-                            hooks2[hook2] = aa = (() => hook2());
-                        
+                        if (oldhook2!=null && hook2Action.TryGetValue(oldhook2, out UnityAction aa))
+                            u.RemoveListener(aa);
+
+                        hook2Action[newHook] = aa = (() => newHook());
                         if (add)
                             u.AddListener(aa);
-                        else
-                            u.RemoveListener(aa);
                     }
                     else
                     {
                         var h = (Hook)hk;
+                        h -= oldhook2;
                         if (add)
-                            h += hook2;
-                        else
-                            h -= hook2;
+                            h += newHook;
                         f.SetValue(comp, h);    
                     }
 
@@ -411,7 +464,7 @@ void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
         // code = GUILayout.TextArea(code);
     }
 #endif
-    public string customCode="";
+    public bool customCode;
     public string code;
 
 

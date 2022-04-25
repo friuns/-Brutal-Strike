@@ -64,9 +64,11 @@ public class BodyToTransform : SerializableDictionary<HumanBodyBones , Transform
 public class BodyDamage : SerializableDictionary<HumanBodyBones, float> { }
 
 
-#if game
+
 public static class ext3
 {
+   
+#if game
     public static void InvokeSafe(this Hook a,params object[] o)
     {
         try
@@ -168,9 +170,9 @@ public static class ext3
 //    {
 //        return Component<T>(a.gameObject);
 //    }
-
-}
 #endif
+}
+
 
 
 

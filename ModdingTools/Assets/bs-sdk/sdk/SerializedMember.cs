@@ -41,7 +41,7 @@ public class SerializedMember:SerializedType, IEquatable<SerializedMember>
         type = method.DeclaringType;
         path = $"{Path}{fullName} {postFix}";
     }
-    public Type targetType; //target gameobjectonly
+    internal Type targetType; //target gameobjectonly
     public SerializedMember Clone(string c, Type t)
     {
         var clone = (SerializedMember)base.MemberwiseClone();

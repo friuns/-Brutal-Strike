@@ -28,23 +28,16 @@ public class SerializedType:ISerializationCallbackReceiver
         if (m_type == null && type != null)
             m_type = type?.AssemblyQualifiedName;
     }
-    public static Type GetType(string name)
-    {
-        return Type.GetType(name, null, (assembly, typeName, arg3) => assembly.GetType(typeName) ?? DefaultAssemblies.csharp.GetType(typeName) ?? DefaultAssemblies.csharpPlusin.GetType(typeName)?? typeof(Object));
-    }
+    
 
-    public static class DefaultAssemblies
-    {
-        public static Assembly csharp = Assembly.Load("Assembly-CSharp");
-        public static Assembly csharpPlusin = Assembly.Load("Assembly-CSharp-firstpass");
-    }
+    
 
     public void OnAfterDeserialize()
     {
         if (!string.IsNullOrEmpty(m_type))
             try
             {
-                type = GetType(m_type);
+                type = ext4.FindType(m_type);
             }
             catch (Exception)
             {

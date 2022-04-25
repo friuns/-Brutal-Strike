@@ -29,9 +29,18 @@ public static class Temp
         return sb;
     }
 }
+
+
 [SelectionBase]
 public class bs : Base,IOnInspectorGUI
 {
+    public static MyDisp GuiEnabled(bool enabled)
+    {
+        var old = GUI.enabled;
+        GUI.enabled = enabled;
+        return new MyDisp() { a = () => { GUI.enabled = old; } };
+    }
+    
     public static bool insideGUI;
     public static bool HasChanged<T>(Func<T, T> f, T a)
     {
@@ -184,4 +193,33 @@ public class bsNetwork : bs
 public class AssetBase : bs
 {
     
+}
+
+
+public struct MyDisp<T> : IDisposable
+{
+    private T t;
+    public MyDisp(Action<T> act, T t)
+    {
+        a = act;
+        this.t = t;
+    }
+    public Action<T> a;
+    public void Dispose()
+    {
+        a?.Invoke(t);
+    }
+}
+
+public struct MyDisp : IDisposable
+{
+    public MyDisp(Action act)
+    {
+        a = act;
+    }
+    public Action a;
+    public void Dispose()
+    {
+        a?.Invoke();
+    }
 }

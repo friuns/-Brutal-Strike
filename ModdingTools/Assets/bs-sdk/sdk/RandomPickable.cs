@@ -63,7 +63,7 @@ public class RandomPickable : ObjectBase, IOnPoolDestroy, IOnPreMatch
 
         var prefab =
             // random.value > .3f ? 
-            assetPrefabs.WhereNonAlloc2((WeaponPickable a) => !a.gun.Disabled && (weaponIds.Length==0|| weaponIds.Contains(a.gun.gunName)) ).WeightedRandom(a => a.Probability + Mathf.Max(0, 1f -density)*10, random);
+            assetPrefabs.WhereNonAlloc2((WeaponPickable a) => !a.gun.Disabled && a.gun.price>0 && (weaponIds.Length==0|| weaponIds.Contains(a.gun.gunName)) ).WeightedRandom(a => a.Probability + Mathf.Max(0, 1f -density)*10, random);
             // : assetPrefabs.Random(a => a is LootBox,random);
             if (!prefab)
                 throw new MyException("coud not find weapon for random pickable");
