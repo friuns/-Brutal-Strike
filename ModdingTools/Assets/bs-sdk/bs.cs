@@ -13,6 +13,10 @@ public interface ISerializableDictionary2
 {
         
 }
+public class Vehicle:bs
+{
+    
+}
 public static class Temp
 {
     private static StringBuilder sb = new StringBuilder();

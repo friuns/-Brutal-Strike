@@ -305,11 +305,11 @@ public class TriggerEvent : ItemBase,IOnLevelEditorGUI,IOnInspectorGUIHide,IOnIn
             StringBuilder sb2 = new StringBuilder();
             foreach (var a in action.parameters)
             {
-                sb.AppendLine(GetTrueName(a.type) + " " + a.Name + ";");
+                sb.AppendLine("public "+GetTrueName(a.type) + " " + a.Name + ";");
                 sb2.Append(","+a.Name);
             }
             for (var i = 0; i < action.indexes.Count; i++)
-                sb.AppendLine(GetTrueName(action.indexes[i].type) + " index" + i + ";");
+                sb.AppendLine("public "+GetTrueName(action.indexes[i].type) + " index" + i + ";");
 
             var path = string.Format(action.code, Enumerable.Range(0, action.indexes.Count).Select(a => "index" + a).Cast<object>().ToArray());
             
@@ -368,7 +368,7 @@ void {trigger.DeclaringType.Name}{trigger.Prefix}{MethodName(trigger)}
             
         
         var methods = Runner.GetTypes()[0].InterpretKlass.GetMethods();
-        var fields = Runner.GetTypes()[0].InterpretKlass.GetFields().Where(a => a.Id != "caller" && a.Id != "prms" && a.Id != "target").ToArray();
+        var fields = Runner.GetTypes()[0].InterpretKlass.GetFields().Where(a => a.Id != "caller" && a.Id != "prms" && a.Id != "target" && a.AccessModifier == AccessModifier.Public).ToArray();
         if (refreshExposed)
         {
             var old = exposedParams.ToArray();

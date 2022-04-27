@@ -161,7 +161,7 @@ public class GunInfo
     }
     public override int GetHashCode()
     {
-        return count*33+(int)secondaryCount;
+        return arrayId;
     }
     
     public virtual bool IsBetterThan(GunInfo b)

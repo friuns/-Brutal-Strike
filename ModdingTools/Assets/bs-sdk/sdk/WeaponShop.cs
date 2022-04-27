@@ -41,13 +41,13 @@ public class WeaponShop : WeaponShopBase,ItemBaseVarParseEnable
     {
         if (allWeapons)
         {
-            weapons = defWeapons.Clone();
+            weapons = new WeaponShopCollection();
             foreach (GunBase a in _ObsPlayer.guns)
                 weapons.Add(a, 1);
         }
         else if (randomWeapons)
         {
-            weapons = defWeapons.Clone();
+            weapons = new WeaponShopCollection();
             var m = money;
             while (true)
             {

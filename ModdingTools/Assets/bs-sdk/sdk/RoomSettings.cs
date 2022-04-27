@@ -73,7 +73,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public bool disableCrosshair;
     public bool autoShot;
     public bool enableParachute;
-    [FieldAtr(inherit = true, dontDraw = true, gameType = GameType.DeathMatch | GameType.TDM)]
+    // [FieldAtr(inherit = true, dontDraw = true, gameType = GameType.DeathMatch | GameType.TDM)]
     public float reviveTime = 6;
     public bool canBuyAlways;
     public bool selectSpawnLocation;

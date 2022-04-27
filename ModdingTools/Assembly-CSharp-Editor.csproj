@@ -130,6 +130,9 @@
      <Compile Include="Assets\bs-sdk\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
      <Compile Include="Assets\bs-sdk\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
      <Compile Include="Assets\bs-sdk\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\EVP5\Scripts\Editor\InspectorTools.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\EVP5\Scripts\Editor\VehicleControllerInspector.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\EVP5\Scripts\Editor\VehicleStandardInputInspector.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Editor\AudioClipPropertyDrawer.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Editor\AudioSourcePropertyDrawer.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Editor\BuildToolsSDK.cs" />

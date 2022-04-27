@@ -306,7 +306,7 @@ public class PlayerSkin : ObjectBase,ISkinBase, IOnLoadAsset, IDontDisable
             foreach (var a in rigidbodies)
             {
                 a.SetKinematic(!die);
-//            a.detectCollisions = ragdoll;
+                // a.detectCollisions = die;
                 a.interpolation = die ? RigidbodyInterpolation.Extrapolate : RigidbodyInterpolation.None;
 
             }

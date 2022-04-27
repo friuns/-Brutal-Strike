@@ -5436,24 +5436,14 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: OnEnter(Player pl)
+        fullName: OnEnter(Player pl, bool enter)
         name: OnEnter
         parameters:
         - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pl
-        path: '/airPlanePubgPrefab PubgPlane/OnEnter(Player pl) '
-        code: .airPlanePubgPrefab
-      - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnExit(Player pl)
-        name: OnExit
-        parameters:
-        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-          Name: pl
-        path: '/airPlanePubgPrefab PubgPlane/OnExit(Player pl) '
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: enter
+        path: '/airPlanePubgPrefab PubgPlane/OnEnter(Player pl, bool enter) '
         code: .airPlanePubgPrefab
       - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
@@ -5528,23 +5518,14 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: OnEnter(Player pl)
+        fullName: OnEnter(Player pl, bool enter)
         name: OnEnter
         parameters:
         - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pl
-        path: '/parachute Parachute/OnEnter(Player pl) '
-        code: .parachute
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnExit(Player pl)
-        name: OnExit
-        parameters:
-        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-          Name: pl
-        path: '/parachute Parachute/OnExit(Player pl) '
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: enter
+        path: '/parachute Parachute/OnEnter(Player pl, bool enter) '
         code: .parachute
       - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -13249,6 +13230,133 @@ MonoBehaviour:
         parameters: []
         path: '/vehicle Vehicle/Parachute/RPCOpenParachute() '
         code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: FixedUpdate()
+        name: FixedUpdate
+        parameters: []
+        path: '/vehicle Vehicle/Car/FixedUpdate() '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: InputGetKey(KeyCode keyCode)
+        name: InputGetKey
+        parameters:
+        - m_type: UnityEngine.KeyCode, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: keyCode
+        path: '/vehicle Vehicle/Car/InputGetKey(KeyCode keyCode) '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: Lerp(float SteerValue, int i, float factor)
+        name: Lerp
+        parameters:
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: SteerValue
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: factor
+        path: '/vehicle Vehicle/Car/Lerp(float SteerValue, int i, float factor) '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: OnCollisionEnter(Collision collision)
+        name: OnCollisionEnter
+        parameters:
+        - m_type: UnityEngine.Collision, UnityEngine.PhysicsModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          Name: collision
+        path: '/vehicle Vehicle/Car/OnCollisionEnter(Collision collision) '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: OnLevelEditorGUI()
+        name: OnLevelEditorGUI
+        parameters: []
+        path: '/vehicle Vehicle/Car/OnLevelEditorGUI() '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: OnOwnerChanged(int id)
+        name: OnOwnerChanged
+        parameters:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: id
+        path: '/vehicle Vehicle/Car/OnOwnerChanged(int id) '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        name: OnPhotonSerializeView
+        parameters:
+        - m_type: PhotonStream, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: stream
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: info
+        path: '/vehicle Vehicle/Car/OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo
+          info) '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: OnPlayerStay(Player pl, Trigger other)
+        name: OnPlayerStay
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: other
+        path: '/vehicle Vehicle/Car/OnPlayerStay(Player pl, Trigger other) '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: OnReset()
+        name: OnReset
+        parameters: []
+        path: '/vehicle Vehicle/Car/OnReset() '
+        code: .vehicle
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: RPCTransferOwnership(int id)
+        name: RPCTransferOwnership
+        parameters:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: id
+        path: '/vehicle Vehicle/Car/RPCTransferOwnership(int id) '
+        code: .vehicle
       - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
@@ -13325,24 +13433,14 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: OnEnter(Player pl)
+        fullName: OnEnter(Player pl, bool enter)
         name: OnEnter
         parameters:
         - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pl
-        path: '/vehicle Vehicle/OnEnter(Player pl) '
-        code: .vehicle
-      - m_type: BattleRoyale.Vehicle, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnExit(Player pl)
-        name: OnExit
-        parameters:
-        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-          Name: pl
-        path: '/vehicle Vehicle/OnExit(Player pl) '
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: enter
+        path: '/vehicle Vehicle/OnEnter(Player pl, bool enter) '
         code: .vehicle
       - m_type: Armor, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
