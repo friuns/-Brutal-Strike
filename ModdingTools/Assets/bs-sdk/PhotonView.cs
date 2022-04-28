@@ -1,9 +1,11 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PhotonView : MonoBehaviour
 {
     // public int viewIdField ;
+    public List<Component> ObservedComponents;
 }
 
 public class Destructable : ItemBase
