@@ -15,7 +15,7 @@ public interface ISerializableDictionary2
 }
 public class Vehicle:bs
 {
-    
+    public Vector3 cameraTargetOffset = new Vector3(0, 8, -25);
 }
 public static class Temp
 {
