@@ -47,8 +47,8 @@ TagManager:
   - EditorLayer
   - Tree
   - Terrain
-  - FogVolumeSurrogate
-  - FogVolumeUniform
+  - HideInLevelEditor
+  - Car
   - PostProcessVolume
   - playerTrigger
   - grenade
