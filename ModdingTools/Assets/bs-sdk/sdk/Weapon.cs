@@ -44,7 +44,6 @@ public partial class Weapon : WeaponBase
         if (!handsPrefab) GUILayout.Label("Hands Missing!", GUIStyle.none);
         base.OnInspectorGUI();
     }
-    
     [FieldAtrStart()] 
     [Header("       Weapon settings")]
     public bool reloadOneByOne;
@@ -343,13 +342,16 @@ public partial class Weapon : WeaponBase
         at.RpcSyncAttachments();
         //pl.countChanged?.Invoke();
     }
+    
     public void AddAttachment(Attachment at)
     {
         if (!AttachmentAvailable(at)) return;
         Weapon wep = this;
         Attachment prev = wep.attachments.FirstOrDefault(a => a.attachmentSlot == at.attachmentSlot);
         if (prev)
+        {
             RemoveAttachment(prev);
+        }
 
         if (at.AttachedTo.Count == at.Count)
             at.AttachedTo.RemoveAt(0);

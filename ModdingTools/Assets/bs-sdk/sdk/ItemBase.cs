@@ -300,6 +300,9 @@ public abstract class ItemBase : BotPickable, IOnLevelEditorGUI
     }
     public override void OnLoadAsset()
     {
+        if (string.IsNullOrEmpty(itemName))
+            itemName = name;
+        
         base.OnLoadAsset();
         assetPrefabs.Add(this);
         // if (icon)

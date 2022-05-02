@@ -7,9 +7,11 @@ using UnityEngine.Serialization;
 
 namespace BattleRoyale
 {
-public class Car : Vehicle,IOnPlayerStay
+[RequireComponent(typeof(PhotonView))]
+public partial class Car : Vehicle,IOnPlayerStay,ISetLife,IOnPlayerEnter
 {
-    
+    public int price;
+    public WeaponSetId setId = WeaponSetId.a1;
     public VehicleController vehicleController;
     public Transform[] seats;
     public Transform exit;
@@ -17,8 +19,17 @@ public class Car : Vehicle,IOnPlayerStay
     public float nitro = 10;
     public float lerpMove = 3;
     public float lerpRot = 3;
+    public GameObject explosionEffect;
     
+    public float minForce = 1.0f;
+    public float multiplier = 0.1f;
 #if game
+    
+    public override void OnLoadAsset()
+    {
+        base.OnLoadAsset();
+        _Game.carDict[itemName] = this;
+    }
     public VarParse2 varParse { get { return m_varParse ?? (m_varParse = new VarParse2(Game.varManager,vehicleController, "Car/" + itemName, RoomInfo: room)); } } 
     internal VarParse2 m_varParse;
     public override void OnLevelEditorGUI()
@@ -43,17 +54,30 @@ public class Car : Vehicle,IOnPlayerStay
             pv.RefreshOwner();
         }
     }
-    
 
+    public override void Awake()
+    {
+        base.Awake();
+        
+        vehicleController = GetComponent<VehicleController>();
+        photonView.synchronization = ViewSynchronization.Unreliable;
+        photonView.ObservedComponents = new List<Component>() { this };
+        var m_vehicle = GetComponent<VehicleController>();
+        m_vehicle.processContacts = true;
+        m_vehicle.onImpact += ProcessImpact;
+
+    }
+ 
     public override void Start()
     {
         base.Start();
+        life = defLife;
         photonViews = GetComponentsInChildren<PhotonView>(true);
-        vehicleController = GetComponent<VehicleController>();
-        photonView.synchronization = ViewSynchronization.Unreliable;
-        // photonView.ObservedComponents = new List<Component>() { this };
-        startPos = new PosRot(transform);
         
+        
+        startPos = new PosRot(transform);
+        _Loader.loaderPrefs.optimizePhysics = false;
+        Physics.autoSimulation = true;
     }
     private PosRot startPos;
 
@@ -62,15 +86,26 @@ public class Car : Vehicle,IOnPlayerStay
         var seat = seats.GetClamped(pls.IndexOf(pl));
         pl.SetPosition(seat.position);
         pl.skin.rot = seat.rotation;
+
+        bool left = InputGetKey(KeyCode.A) || InputGetKey(KeyCode.Mouse3);
+        bool right = InputGetKey(KeyCode.D) || InputGetKey(KeyCode.Mouse4);
+        var brake = InputGetKey(KeyCode.Space);
+        var forward = InputGetKey(KeyCode.W) || InputGetKey(KeyCode.Mouse0);
+        var back = InputGetKey(KeyCode.S) || InputGetKey(KeyCode.Mouse1);
+        (Input2 as Input2)?.ToggleKeyOn(KeyCode.Mouse1, false);
+        (Input2 as Input2)?.ToggleKeyOn(KeyCode.Mouse3, false);
+        (Input2 as Input2)?.ToggleKeyOn(KeyCode.Mouse4, false);
+
+        steerInput = Lerp(steerInput, left ? -1 : right ? 1 : 0, Time.deltaTime) + bs._MobileInput.move.x;
+
+        forwardInput = Lerp(forwardInput, forward ? 1 : 0, Time.deltaTime * 3) + Mathf.Max(bs._MobileInput.move.y, 0);
+        reverseInput = Lerp(reverseInput, back ? 1 : 0, Time.deltaTime * 3) + Mathf.Min(bs._MobileInput.move.y, 0);
+        handbrakeInput = brake ? 1 : 0;
         
-        UpdateInput(vehicleController);
+        UpdateInput();
         if (pl.IsMine && !pl.dead && pl.vehicle == this)
-        {
             if (pl.Input2.GetKeyDown(KeyCode.F) && enterTime != Time.time)
-            {
                 pl.RPCSetVehicle(null);
-            }        
-        }
             
     }
     
@@ -118,24 +153,28 @@ public class Car : Vehicle,IOnPlayerStay
         }
 
     }
-
+    public MaxValue minVel = new MaxValue();
     public void FixedUpdate()
     {
-        if(!ownerPl)return;
+        
+        if (!ownerPl)
+        {
+            return;
+        }
         if (InputGetKey(KeyCode.LeftShift))
             rigidbody.AddForce(transform.forward * 10 * rigidbody.mass);
-        //if (!new[] { m_Car.WheelFL, m_Car.WheelFR, m_Car.WheelRR, m_Car.WheelRL }.All(a => a.m_grounded))
-        //rigidbody.AddForce(Vector3.down * setting.extraGravity, ForceMode.Acceleration);
+        minVel.minValue = rigidbody.velocity.sqrMagnitude;
+
 
         if (!IsMine && Time.time - collisionTime > .3f)
         {
             maxLerp = Mathf.Clamp((syncPos - pos).magnitude / 5, 1, 3);
-            var mt = Vector3.MoveTowards(Vector3.zero, offsetPos, Time.deltaTime * lerpMove * maxLerp);
+            var mt = Vector3.Lerp(Vector3.zero, offsetPos, Time.deltaTime * lerpMove * maxLerp);
             offsetPos -= mt;
             rigidbody.MovePosition(pos + mt);
 
             var rt = Quaternion.Slerp(Quaternion.identity, offsetRot, Time.deltaTime *lerpRot * maxLerp);
-            //offsetRot = Quaternion.Lerp(offsetRot, Quaternion.identity, 1 - Time.deltaTime * 10);
+            
             offsetRot *= Quaternion.Inverse(rt);
             rigidbody.MoveRotation(rt * rot);
         }
@@ -146,15 +185,18 @@ public class Car : Vehicle,IOnPlayerStay
     internal float collisionTime;
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponentInParent<Car>())
-            collisionTime = Time.time;
+        var other = collision.collider.GetComponentInParent<Car>();
+        if (other)
+            collisionTime = other.collisionTime = Time.time;
     }
 
     public override void OnReset()
     {
         base.OnReset();
-         startPos.ApplyToTransform(transform);
+         startPos?.ApplyToTransform(transform);
          photonView.RefreshOwner();
+         life = defLife;
+         vehicleController.GetComponent<VehicleDamage>().RepairImmediate();
     }
 
     private Input2Base Input2 => ownerPl.Input2;
@@ -174,27 +216,12 @@ public class Car : Vehicle,IOnPlayerStay
     private float reverseInput;
     private float steerInput;
     
-    public void UpdateInput(VehicleController target)
+    public void UpdateInput()
     {
 
-        bool left = InputGetKey(KeyCode.A);
-        bool right = InputGetKey(KeyCode.D);
-        var brake = InputGetKey(KeyCode.Space);
-        var forward = InputGetKey(KeyCode.W) ;
-        var back = InputGetKey(KeyCode.S);
+        vehicleController.steerInput = steerInput;
+        vehicleController.throttleInput = forwardInput;
 
-        steerInput = Lerp(steerInput, left ? -1 : right ? 1 : 0, Time.deltaTime);
-        forwardInput = Lerp(forwardInput, forward ? 1 : 0, Time.deltaTime * 3);
-        reverseInput = Lerp(reverseInput, back ? 1 : 0, Time.deltaTime * 3);
-        handbrakeInput = brake ? 1 : 0;
-        
-      
-        target.steerInput = steerInput;
-        target.throttleInput = forwardInput;
-        
-        
-        
-        
          float throttleInput = 0.0f;
         float brakeInput = 0.0f;
 
@@ -202,7 +229,7 @@ public class Car : Vehicle,IOnPlayerStay
         float minSpeed = 0.1f;
         float minInput = 0.1f;
 
-        if (target.speed > minSpeed)
+        if (vehicleController.speed > minSpeed)
         {
             throttleInput = forwardInput;
             brakeInput = reverseInput;
@@ -216,7 +243,7 @@ public class Car : Vehicle,IOnPlayerStay
             }
             else if (forwardInput > minInput)
             {
-                if (target.speed < -minSpeed)
+                if (vehicleController.speed < -minSpeed)
                 {
                     throttleInput = 0.0f;
                     brakeInput = forwardInput;
@@ -229,51 +256,50 @@ public class Car : Vehicle,IOnPlayerStay
             }
         }
 
-
-        // Override throttle if specified
-
-
         throttleInput *= 1.0f - handbrakeInput;
-
-        // Apply input to vehicle
-
-        target.steerInput = steerInput;
-        target.throttleInput = throttleInput;
-        target.brakeInput = brakeInput;
-        target.handbrakeInput = handbrakeInput;
-        
-        
-        
+        vehicleController.steerInput = steerInput;
+        vehicleController.throttleInput = throttleInput;
+        vehicleController.brakeInput = brakeInput;
+        vehicleController.handbrakeInput = handbrakeInput;
     }
     private float enterTime;
-    AnimationClipPlayable clip;
     public override void OnEnter(Player pl, bool enter)
     {
         base.OnEnter(pl, enter);
-        
+        pl.onPlatform = false;
+        pl.node.SetParent(null);
         enterTime = Time.time;
         if (!enter)
             pl.SetPosition(exit.position);
         pl.controller.noclip  = enter;
         if (enter)
-            clip = AnimationPlayableUtilities.PlayClip(pl.animator, seatingClip, out _);
+            pl.gesture = AnimationPlayableUtilities.PlayClip(pl.animator, seatingClip, out _);
         else
-            clip.Destroy();
+        {
+            steerInput = forwardInput = reverseInput = handbrakeInput = 0;
+            UpdateInput();
+            if (pl.gesture.IsValid())
+                pl.gesture.Destroy();
+        }
 
-        if (ownerPl.IsMine)
+        if (ownerPl?.IsMine==true)
             RPCTransferOwnership(ownerPl.ownerID);    
         
     }
     public void OnPlayerStay(Player pl, Trigger other)
     {
-        if (pl.IsMine && pls.Count<seats.Length && enterTime != Time.time && !pl.vehicle && pl.Input2.GetKeyDown(KeyCode.F, "F Enter Vehicle", "Enter Vehicle"))
+        if (!dead && pl.IsMine && pls.Count<seats.Length && enterTime != Time.time && !pl.vehicle && pl.Input2.GetKeyDown(KeyCode.F, "F Enter Vehicle", "Enter Vehicle"))
         {
             pl.RPCSetVehicle(this);
-            
         }
 
     }
+    
+
 #endif
+
+
+    
 }
 
 }

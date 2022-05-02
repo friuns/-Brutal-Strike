@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 
 // namespace doru
 // {
-
 public class Door : Destructable, IOnPlayerStay
 {
     public new string target = "";
@@ -21,7 +20,6 @@ public class Door : Destructable, IOnPlayerStay
     public Vector3 rotate = new Vector3(0, 90, 0);
     public bool teleport;
     public bool twoSideOpen = true;
-    public bool checkPoint;
     public bool physics = true;
     public int damage = 0;
     public Vector3 jumpPadVel = Vector3.zero;
@@ -214,28 +212,6 @@ public class Door : Destructable, IOnPlayerStay
         }
         else
         {
-            if (checkPoint && bs.runMode)
-            {
-                if (!pl.checkPoints.Contains(this))
-                {
-                    pl.checkPoints.Add(this);
-                    pl.lastCheckPoint = pos;
-                    pl.playerAudioSource.PlayOneShot(gameRes.checkPoint);
-                    
-                    if (pl.IsMine && pl.checkPoints.Count >= _Game.doors.Count(a => a.checkPoint))
-                    {
-                        
-                        pl.CallRPC(pl.SetRunTime, Mathf.Min(pl.runTime ?? 999999, Time.time-_Player.startRunTime));
-                        // pl.pos = pl.GetSpawnStartPos(TeamEnum.Terrorists).pos;
-                        pl.RPCDie();
-                        _Hud.CenterText(BigTextFontSize("Finnish!"), 3);
-                    }
-                    else
-                    if (pl.observing)
-                        _Hud.CenterText("Checkpoint!", 1);
-                }
-            }
-
             if (damage > 0 && TimeElapsed(1) && pl.IsMine)
                 pl.RPCDamageAddLife(-damage);
             if (jumpPadVel != Vector3.zero)

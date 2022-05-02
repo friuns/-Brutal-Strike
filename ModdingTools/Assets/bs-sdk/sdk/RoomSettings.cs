@@ -76,7 +76,6 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     // [FieldAtr(inherit = true, dontDraw = true, gameType = GameType.DeathMatch | GameType.TDM)]
     public float reviveTime = 6;
     public bool canBuyAlways;
-    public bool selectSpawnLocation;
     [FieldAtr(dontDraw = true)]
     public int level=1;
     [Header("BotSettings")]
@@ -192,16 +191,18 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public  float autoAim_Y = 0;
     public bool androidInertia;
     public bool allowPositiveDamage;
+    public bool allowFriendlyFire;
+    public bool showCarShop = true;
     [FieldAtrEnd]
     public ObscuredBool specialGun = false;
     
     public bool enableShooting = true;
-    
-    public bool searchEnemy=true;
+
+    public bool searchEnemy = true;
     public bool enableHearing = true;
-    public bool coverSystem=true;
-    public bool stopOnShoot=true;
-    
+    public bool coverSystem = true;
+    public bool stopOnShoot = true;
+
 #if game
     public GameType gameType { get { return map.gameType; } set { map.gameType = value; } }
     public bool ranked { get { return gameType.IsRanked(); } }

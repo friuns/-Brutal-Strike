@@ -873,6 +873,270 @@ MonoBehaviour:
         parameters: []
         path: '/res GameRes/OnLoadAsset() '
         code: .res
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: AddLife(float colliderDamage)
+        name: AddLife
+        parameters:
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: colliderDamage
+        path: '/carDict Car[]/AddLife(float colliderDamage) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Die()
+        name: Die
+        parameters: []
+        path: '/carDict Car[]/Die() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: DieTest()
+        name: DieTest
+        parameters: []
+        path: '/carDict Car[]/DieTest() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: FixedUpdate()
+        name: FixedUpdate
+        parameters: []
+        path: '/carDict Car[]/FixedUpdate() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: InputGetKey(KeyCode keyCode)
+        name: InputGetKey
+        parameters:
+        - m_type: UnityEngine.KeyCode, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: keyCode
+        path: '/carDict Car[]/InputGetKey(KeyCode keyCode) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Lerp(float SteerValue, int i, float factor)
+        name: Lerp
+        parameters:
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: SteerValue
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: factor
+        path: '/carDict Car[]/Lerp(float SteerValue, int i, float factor) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnCollisionEnter(Collision collision)
+        name: OnCollisionEnter
+        parameters:
+        - m_type: UnityEngine.Collision, UnityEngine.PhysicsModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          Name: collision
+        path: '/carDict Car[]/OnCollisionEnter(Collision collision) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnEnter(Player pl, bool enter)
+        name: OnEnter
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: enter
+        path: '/carDict Car[]/OnEnter(Player pl, bool enter) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnLevelEditorGUI()
+        name: OnLevelEditorGUI
+        parameters: []
+        path: '/carDict Car[]/OnLevelEditorGUI() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnLoadAsset()
+        name: OnLoadAsset
+        parameters: []
+        path: '/carDict Car[]/OnLoadAsset() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnOwnerChanged(int id)
+        name: OnOwnerChanged
+        parameters:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: id
+        path: '/carDict Car[]/OnOwnerChanged(int id) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        name: OnPhotonSerializeView
+        parameters:
+        - m_type: PhotonStream, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: stream
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: info
+        path: '/carDict Car[]/OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo
+          info) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnPlayerEnter(Player pl, Trigger other, bool b)
+        name: OnPlayerEnter
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: other
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        path: '/carDict Car[]/OnPlayerEnter(Player pl, Trigger other, bool b) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnPlayerStay(Player pl, Trigger other)
+        name: OnPlayerStay
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: other
+        path: '/carDict Car[]/OnPlayerStay(Player pl, Trigger other) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnReset()
+        name: OnReset
+        parameters: []
+        path: '/carDict Car[]/OnReset() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: ProcessImpact()
+        name: ProcessImpact
+        parameters: []
+        path: '/carDict Car[]/ProcessImpact() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: RPCDamageAddLife(float damage, int pv, int weapon, HumanBodyBones
+          colliderId, Vector3 hitPos)
+        name: RPCDamageAddLife
+        parameters:
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: damage
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: pv
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: weapon
+        - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          Name: colliderId
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: hitPos
+        path: '/carDict Car[]/RPCDamageAddLife(float damage, int pv, int weapon,
+          HumanBodyBones colliderId, Vector3 hitPos) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: RPCTransferOwnership(int id)
+        name: RPCTransferOwnership
+        parameters:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: id
+        path: '/carDict Car[]/RPCTransferOwnership(int id) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: SetLife(float nwLife)
+        name: SetLife
+        parameters:
+        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: nwLife
+        path: '/carDict Car[]/SetLife(float nwLife) '
+        code: .carDict[{0}]
       - m_type: PlayerClass, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -1535,15 +1799,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: v2
         path: '/playerPrefab Player/ClampMove(Vector3 v2) '
-        code: .playerPrefab
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: ClearCheckPoints()
-        name: ClearCheckPoints
-        parameters: []
-        path: '/playerPrefab Player/ClearCheckPoints() '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -3449,17 +3704,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: SetRunTime(float time)
-        name: SetRunTime
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: time
-        path: '/playerPrefab Player/SetRunTime(float time) '
-        code: .playerPrefab
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
         fullName: SetScores(Byte[] bts)
         name: SetScores
         parameters:
@@ -3581,6 +3825,17 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: mv
         path: '/playerPrefab Player/SetWasdKeys(Vector3 mv) '
+        code: .playerPrefab
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: SHowCarShop(PosRot respawn)
+        name: SHowCarShop
+        parameters:
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: respawn
+        path: '/playerPrefab Player/SHowCarShop(PosRot respawn) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -6008,16 +6263,6 @@ MonoBehaviour:
         exposed: 0
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: ClearCheckPoints()
-        name: ClearCheckPoints
-        parameters: []
-        path: '/playersAll Player[]/ClearCheckPoints() '
-        code: .playersAll[{0}]
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         fullName: ClosestPlayerToCursor()
         name: ClosestPlayerToCursor
         parameters: []
@@ -8079,18 +8324,6 @@ MonoBehaviour:
         exposed: 1
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: SetRunTime(float time)
-        name: SetRunTime
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: time
-        path: '/playersAll Player[]/SetRunTime(float time) '
-        code: .playersAll[{0}]
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         fullName: SetScores(Byte[] bts)
         name: SetScores
         parameters:
@@ -8222,6 +8455,18 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: mv
         path: '/playersAll Player[]/SetWasdKeys(Vector3 mv) '
+        code: .playersAll[{0}]
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: SHowCarShop(PosRot respawn)
+        name: SHowCarShop
+        parameters:
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: respawn
+        path: '/playersAll Player[]/SHowCarShop(PosRot respawn) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -13139,309 +13384,6 @@ MonoBehaviour:
         parameters: []
         path: '/money Money/Reset() '
         code: .money
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: FixedUpdate()
-        name: FixedUpdate
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/FixedUpdate() '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: LateUpdate()
-        name: LateUpdate
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/LateUpdate() '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnLoadAsset()
-        name: OnLoadAsset
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/OnLoadAsset() '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-        name: OnPhotonSerializeView
-        parameters:
-        - m_type: PhotonStream, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: stream
-        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: info
-        path: '/vehicle Vehicle/Parachute/OnPhotonSerializeView(PhotonStream stream,
-          PhotonMessageInfo info) '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnPlConnected(PhotonPlayer photonPlayer)
-        name: OnPlConnected
-        parameters:
-        - m_type: PhotonPlayer, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: photonPlayer
-        path: '/vehicle Vehicle/Parachute/OnPlConnected(PhotonPlayer photonPlayer) '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnReset()
-        name: OnReset
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/OnReset() '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnStartGame()
-        name: OnStartGame
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/OnStartGame() '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
-        fullName: OpenParachute()
-        name: OpenParachute
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/OpenParachute() '
-        code: .vehicle
-      - m_type: Parachute, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: RPCOpenParachute()
-        name: RPCOpenParachute
-        parameters: []
-        path: '/vehicle Vehicle/Parachute/RPCOpenParachute() '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: FixedUpdate()
-        name: FixedUpdate
-        parameters: []
-        path: '/vehicle Vehicle/Car/FixedUpdate() '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: InputGetKey(KeyCode keyCode)
-        name: InputGetKey
-        parameters:
-        - m_type: UnityEngine.KeyCode, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: keyCode
-        path: '/vehicle Vehicle/Car/InputGetKey(KeyCode keyCode) '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: Lerp(float SteerValue, int i, float factor)
-        name: Lerp
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: SteerValue
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: i
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: factor
-        path: '/vehicle Vehicle/Car/Lerp(float SteerValue, int i, float factor) '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnCollisionEnter(Collision collision)
-        name: OnCollisionEnter
-        parameters:
-        - m_type: UnityEngine.Collision, UnityEngine.PhysicsModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          Name: collision
-        path: '/vehicle Vehicle/Car/OnCollisionEnter(Collision collision) '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnLevelEditorGUI()
-        name: OnLevelEditorGUI
-        parameters: []
-        path: '/vehicle Vehicle/Car/OnLevelEditorGUI() '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
-        fullName: OnOwnerChanged(int id)
-        name: OnOwnerChanged
-        parameters:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: id
-        path: '/vehicle Vehicle/Car/OnOwnerChanged(int id) '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-        name: OnPhotonSerializeView
-        parameters:
-        - m_type: PhotonStream, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: stream
-        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: info
-        path: '/vehicle Vehicle/Car/OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo
-          info) '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnPlayerStay(Player pl, Trigger other)
-        name: OnPlayerStay
-        parameters:
-        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-          Name: pl
-        - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-          Name: other
-        path: '/vehicle Vehicle/Car/OnPlayerStay(Player pl, Trigger other) '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnReset()
-        name: OnReset
-        parameters: []
-        path: '/vehicle Vehicle/Car/OnReset() '
-        code: .vehicle
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: RPCTransferOwnership(int id)
-        name: RPCTransferOwnership
-        parameters:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: id
-        path: '/vehicle Vehicle/Car/RPCTransferOwnership(int id) '
-        code: .vehicle
-      - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnDestroy()
-        name: OnDestroy
-        parameters: []
-        path: '/vehicle Vehicle/PubgPlane/OnDestroy() '
-        code: .vehicle
-      - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnLoadAsset()
-        name: OnLoadAsset
-        parameters: []
-        path: '/vehicle Vehicle/PubgPlane/OnLoadAsset() '
-        code: .vehicle
-      - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnPlConnected(PhotonPlayer photonPlayer)
-        name: OnPlConnected
-        parameters:
-        - m_type: PhotonPlayer, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: photonPlayer
-        path: '/vehicle Vehicle/PubgPlane/OnPlConnected(PhotonPlayer photonPlayer) '
-        code: .vehicle
-      - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
-        fullName: SetPosRot(Vector3 Pos, Quaternion Rot)
-        name: SetPosRot
-        parameters:
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: Pos
-        - m_type: UnityEngine.Quaternion, UnityEngine.CoreModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          Name: Rot
-        path: '/vehicle Vehicle/PubgPlane/SetPosRot(Vector3 Pos, Quaternion Rot) '
-        code: .vehicle
-      - m_type: BattleRoyale.PubgPlane, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
-        fullName: SetupPubgPlane(bool DropPlayer)
-        name: SetupPubgPlane
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: DropPlayer
-        path: '/vehicle Vehicle/PubgPlane/SetupPubgPlane(bool DropPlayer) '
-        code: .vehicle
-      - m_type: BattleRoyale.Vehicle, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnDestroy()
-        name: OnDestroy
-        parameters: []
-        path: '/vehicle Vehicle/OnDestroy() '
-        code: .vehicle
-      - m_type: BattleRoyale.Vehicle, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: OnEnter(Player pl, bool enter)
-        name: OnEnter
-        parameters:
-        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-          Name: pl
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: enter
-        path: '/vehicle Vehicle/OnEnter(Player pl, bool enter) '
-        code: .vehicle
       - m_type: Armor, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -16630,42 +16572,7 @@ MonoBehaviour:
         path: '/dirTextures Texture2D[]/SetPixelsImpl(int x, int y, int w, int h,
           Color[] pixel, int miplevel, int frame) '
         code: .dirTextures[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: AutoSetRotation()
-        name: AutoSetRotation
-        parameters: []
-        path: '/checkPoints Door[]/AutoSetRotation() '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: Load(BinaryReader br)
-        name: Load
-        parameters:
-        - m_type: BinaryReader, Assembly-CSharp-firstpass, Version=1.0.9.1, Culture=neutral,
-            PublicKeyToken=null
-          Name: br
-        path: '/checkPoints Door[]/Load(BinaryReader br) '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: OnCreate(bool b)
-        name: OnCreate
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: b
-        path: '/checkPoints Door[]/OnCreate(bool b) '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      - m_type: CheckPoint, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes:
@@ -16677,88 +16584,8 @@ MonoBehaviour:
           Name: pl
         - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: other
-        path: '/checkPoints Door[]/OnPlayerStay(Player pl, Trigger other) '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: OnPlConnected(PhotonPlayer photonPlayer)
-        name: OnPlConnected
-        parameters:
-        - m_type: PhotonPlayer, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: photonPlayer
-        path: '/checkPoints Door[]/OnPlConnected(PhotonPlayer photonPlayer) '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: OnReset()
-        name: OnReset
-        parameters: []
-        path: '/checkPoints Door[]/OnReset() '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: OpenDoor(bool open, bool inverseOpen)
-        name: OpenDoor
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: open
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: inverseOpen
-        path: '/checkPoints Door[]/OpenDoor(bool open, bool inverseOpen) '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: ParseBsp()
-        name: ParseBsp
-        parameters: []
-        path: '/checkPoints Door[]/ParseBsp() '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: Reset()
-        name: Reset
-        parameters: []
-        path: '/checkPoints Door[]/Reset() '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: RPCOpenDoor()
-        name: RPCOpenDoor
-        parameters: []
-        path: '/checkPoints Door[]/RPCOpenDoor() '
-        code: .checkPoints[{0}]
-      - m_type: Door, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: Save(BinaryWriter bw)
-        name: Save
-        parameters:
-        - m_type: BinaryWriter, Assembly-CSharp-firstpass, Version=1.0.9.1, Culture=neutral,
-            PublicKeyToken=null
-          Name: bw
-        path: '/checkPoints Door[]/Save(BinaryWriter bw) '
-        code: .checkPoints[{0}]
+        path: '/lastCheckpoints CheckPoint[]/OnPlayerStay(Player pl, Trigger other) '
+        code: .lastCheckpoints[{0}]
       - m_type: Armor, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -18016,15 +17843,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: v2
         path: '/lastKilledBy Player/ClampMove(Vector3 v2) '
-        code: .lastKilledBy
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: ClearCheckPoints()
-        name: ClearCheckPoints
-        parameters: []
-        path: '/lastKilledBy Player/ClearCheckPoints() '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -19930,17 +19748,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: SetRunTime(float time)
-        name: SetRunTime
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: time
-        path: '/lastKilledBy Player/SetRunTime(float time) '
-        code: .lastKilledBy
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
         fullName: SetScores(Byte[] bts)
         name: SetScores
         parameters:
@@ -20062,6 +19869,17 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: mv
         path: '/lastKilledBy Player/SetWasdKeys(Vector3 mv) '
+        code: .lastKilledBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: SHowCarShop(PosRot respawn)
+        name: SHowCarShop
+        parameters:
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: respawn
+        path: '/lastKilledBy Player/SHowCarShop(PosRot respawn) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -20582,15 +20400,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: v2
         path: '/iMoveController IMovementController/Player/ClampMove(Vector3 v2) '
-        code: .iMoveController
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: ClearCheckPoints()
-        name: ClearCheckPoints
-        parameters: []
-        path: '/iMoveController IMovementController/Player/ClearCheckPoints() '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -22539,17 +22348,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: SetRunTime(float time)
-        name: SetRunTime
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: time
-        path: '/iMoveController IMovementController/Player/SetRunTime(float time) '
-        code: .iMoveController
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
         fullName: SetScores(Byte[] bts)
         name: SetScores
         parameters:
@@ -22674,6 +22472,17 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: mv
         path: '/iMoveController IMovementController/Player/SetWasdKeys(Vector3 mv) '
+        code: .iMoveController
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: SHowCarShop(PosRot respawn)
+        name: SHowCarShop
+        parameters:
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: respawn
+        path: '/iMoveController IMovementController/Player/SHowCarShop(PosRot respawn) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -24907,15 +24716,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: ClearCheckPoints()
-        name: ClearCheckPoints
-        parameters: []
-        path: '/resquedBy Player/ClearCheckPoints() '
-        code: .resquedBy
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
         fullName: ClosestPlayerToCursor()
         name: ClosestPlayerToCursor
         parameters: []
@@ -26815,17 +26615,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: SetRunTime(float time)
-        name: SetRunTime
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: time
-        path: '/resquedBy Player/SetRunTime(float time) '
-        code: .resquedBy
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
         fullName: SetScores(Byte[] bts)
         name: SetScores
         parameters:
@@ -26947,6 +26736,17 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: mv
         path: '/resquedBy Player/SetWasdKeys(Vector3 mv) '
+        code: .resquedBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: SHowCarShop(PosRot respawn)
+        name: SHowCarShop
+        parameters:
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: respawn
+        path: '/resquedBy Player/SHowCarShop(PosRot respawn) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -28971,15 +28771,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: ClearCheckPoints()
-        name: ClearCheckPoints
-        parameters: []
-        path: '/ClearCheckPoints() '
-        code: 
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
         fullName: ClosestPlayerToCursor()
         name: ClosestPlayerToCursor
         parameters: []
@@ -30869,17 +30660,6 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: SetRunTime(float time)
-        name: SetRunTime
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: time
-        path: '/SetRunTime(float time) '
-        code: 
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 1
-        indexes: []
         fullName: SetScores(Byte[] bts)
         name: SetScores
         parameters:
@@ -31001,6 +30781,17 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: mv
         path: '/SetWasdKeys(Vector3 mv) '
+        code: 
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes: []
+        fullName: SHowCarShop(PosRot respawn)
+        name: SHowCarShop
+        parameters:
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: respawn
+        path: '/SHowCarShop(PosRot respawn) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _

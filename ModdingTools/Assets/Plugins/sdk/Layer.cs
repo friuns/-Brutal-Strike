@@ -19,6 +19,7 @@ public struct Layer
     public static int tree = LayerMask.NameToLayer("Tree");
     public static int glass = LayerMask.NameToLayer(Tag.Glass);
     public static int door = LayerMask.NameToLayer("door");
+    public static int car = LayerMask.NameToLayer("Car");
     public static int player = LayerMask.NameToLayer("Player");
     public static int hands = LayerMask.NameToLayer("Hands");
     public static int ground = LayerMask.NameToLayer("Ground");

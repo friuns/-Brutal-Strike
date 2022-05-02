@@ -35,6 +35,7 @@ public class HandsSkin : bs, ISkinBase, IPosRot, IOnLoadAsset
     [NonSerialized] private Renderer[] m_renderers;
     public float animationSpeed = 1;
     public List<AnimationEvents> animationEvents = new List<AnimationEvents>();
+    public GameObject[] attachmentSlotHide = new GameObject[0];    
 
 #if UNITY_EDITOR
     [ContextMenu("TPose")]

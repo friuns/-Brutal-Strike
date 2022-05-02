@@ -952,7 +952,9 @@ namespace fastJSON
         {
             // FEATURE : optimize create enum
 #if !SILVERLIGHT2
-            return Enum.Parse(pt, v.ToString());
+            var value = v.ToString();
+            value = value.Replace("Survival", "BattleRoyale").Replace("RunMode","Racing");
+            return Enum.Parse(pt, value);
 #else
             return Enum.Parse(pt, v, true);
 #endif

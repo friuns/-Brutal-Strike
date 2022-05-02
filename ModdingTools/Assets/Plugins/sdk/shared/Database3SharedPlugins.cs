@@ -202,10 +202,10 @@ public enum GameType
     // #if !game
     Any=~0,
     // #endif
-    Classic=2, DeathMatch=4, TDM=8, Mod=32, Survival=64,Mission=128,
+    Classic=2, DeathMatch=4, TDM=8, Mod=32, BattleRoyale=64,Mission=128,
     zombieMode = 256,
     ranked1v1 = 1024,
-    RunMode = 2048,
+    Racing = 2048,
     ImposterMode = 4096
 }
 [Flags]

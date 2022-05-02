@@ -528,7 +528,7 @@ public class VehicleAudio : MonoBehaviour
 
 		if (impacts.hardImpactAudioClip != null || impacts.softImpactAudioClip != null)
 			{
-			float impactSpeed = m_vehicle.localImpactVelocity.magnitude;
+			float impactSpeed = m_vehicle.sumImpactVelocity.magnitude;
 
 			if (impactSpeed > impacts.minSpeed)
 				{
@@ -546,7 +546,7 @@ public class VehicleAudio : MonoBehaviour
 
 				if (clip)
 					PlayOneTime(clip,
-						m_vehicle.cachedTransform.TransformPoint(m_vehicle.localImpactPosition),
+						m_vehicle.cachedTransform.TransformPoint(m_vehicle.sumImpactPosition),
 						Mathf.Lerp(impacts.minVolume, impacts.maxVolume, impactRatio) + UnityEngine.Random.Range(-impacts.randomVolume, impacts.randomVolume),
 						Mathf.Lerp(impacts.minPitch, impacts.maxPitch, impactRatio) + UnityEngine.Random.Range(-impacts.randomPitch, impacts.randomPitch));
 

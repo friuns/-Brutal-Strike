@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using System;
 using System.Collections.Generic;
+using BattleRoyale;
 
 namespace EVP
 {
@@ -218,15 +219,11 @@ public partial class VehicleController : MonoBehaviour
     // Impact properties. Use from an OnImpact event only.
     // Private values get masaged properly just before invoking the event.
 
-    public Vector3 localImpactPosition { get { return m_sumImpactPosition; } }
-    public Vector3 localImpactVelocity { get { return m_sumImpactVelocity; } }
     public bool isHardImpact { get { return m_sumImpactHardness >= 0; } }
 
     // Body drag properties. Can be queued continuously.
 
-    public Vector3 localDragPosition { get { return m_localDragPosition; } }
-    public Vector3 localDragVelocity { get { return m_localDragVelocity; } }
-    public bool isHardDrag { get { return m_localDragHardness >= 0; } }
+    public bool isHardDrag { get { return localDragHardness >= 0; } }
 
 
     // Utility, also available for add-on components
@@ -433,7 +430,7 @@ public partial class VehicleController : MonoBehaviour
 
         if (processContacts)
         {
-            UpdateDragState(Vector3.zero, Vector3.zero, m_localDragHardness);
+            UpdateDragState(Vector3.zero, Vector3.zero, localDragHardness);
             // debugText = string.Format("Drag Pos: {0}  Drag Velocity: {1,5:0.00}  Drag Friction: {2,4:0.00}", localDragPosition, localDragVelocity.magnitude, localDragFriction);
         }
     }
@@ -1508,14 +1505,14 @@ public partial class VehicleController : MonoBehaviour
     // Private data for internal use
 
     int m_sumImpactCount = 0;
-    Vector3 m_sumImpactPosition = Vector3.zero;
-    Vector3 m_sumImpactVelocity = Vector3.zero;
+    internal Vector3 sumImpactPosition = Vector3.zero;
+    internal Vector3 sumImpactVelocity = Vector3.zero;
     int m_sumImpactHardness = 0;
     float m_lastImpactTime = 0.0f;
 
-    Vector3 m_localDragPosition = Vector3.zero;
-    Vector3 m_localDragVelocity = Vector3.zero;
-    int m_localDragHardness = 0;
+    internal  Vector3 localDragPosition = Vector3.zero;
+    internal  Vector3 localDragVelocity = Vector3.zero;
+    int localDragHardness = 0;
 
     float m_lastStrongImpactTime = 0.0f;
     PhysicMaterial m_lastImpactedMaterial;
@@ -1540,7 +1537,7 @@ public partial class VehicleController : MonoBehaviour
             ProcessContacts(collision, false);
     }
 
-
+    public Car car;
     void ProcessContacts(Collision col, bool isCollisionEnter)
     {
         int impactCount = 0; // All impacts
@@ -1556,7 +1553,7 @@ public partial class VehicleController : MonoBehaviour
         float sqrImpactSpeed = impactMinSpeed * impactMinSpeed;
 
         // We process all contacts individually and get an impact and/or drag amount out of each one.
-
+        car = null;
         foreach (ContactPoint contact in col.contacts)
         {
             Collider collider = contact.otherCollider;
@@ -1572,8 +1569,13 @@ public partial class VehicleController : MonoBehaviour
             // Calculate the velocity of the body in the contact point with respect to the colliding object
 
             Vector3 v = m_rigidbody.GetPointVelocity(contact.point);
-            if (collider.attachedRigidbody != null)
-                v -= collider.attachedRigidbody.GetPointVelocity(contact.point);
+            var cr = collider.attachedRigidbody;
+            if (cr != null)
+            {
+                if (!car)
+                    car = cr.GetComponent<Car>();
+                v -= cr.GetPointVelocity(contact.point);
+            }
 
             float dragRatio = Vector3.Dot(v, contact.normal);
 
@@ -1618,8 +1620,8 @@ public partial class VehicleController : MonoBehaviour
             impactVelocity *= invCount;
 
             m_sumImpactCount++;
-            m_sumImpactPosition += m_transform.InverseTransformPoint(impactPosition);
-            m_sumImpactVelocity += m_transform.InverseTransformDirection(impactVelocity);
+            sumImpactPosition += m_transform.InverseTransformPoint(impactPosition);
+            sumImpactVelocity += m_transform.InverseTransformDirection(impactVelocity);
             m_sumImpactHardness += impactHardness;
         }
 
@@ -1648,8 +1650,8 @@ public partial class VehicleController : MonoBehaviour
 
             float invCount = 1.0f / m_sumImpactCount;
 
-            m_sumImpactPosition *= invCount;
-            m_sumImpactVelocity *= invCount;
+            sumImpactPosition *= invCount;
+            sumImpactVelocity *= invCount;
 
             // Notify the listeners on the impact
 
@@ -1661,14 +1663,14 @@ public partial class VehicleController : MonoBehaviour
             }
 
             // debugText = string.Format("Count: {4}  Impact Pos: {0}  Impact Velocity: {1} ({2,5:0.00})  Impact Friction: {3,4:0.00}", localImpactPosition, localImpactVelocity, localImpactVelocity.magnitude, localImpactFriction, m_sumImpactCount);
-            if (showCollisionGizmos && localImpactVelocity.sqrMagnitude > 0.001f)
-                Debug.DrawLine(transform.TransformPoint(localImpactPosition), transform.TransformPoint(localImpactPosition) + CommonTools.Lin2Log(transform.TransformDirection(localImpactVelocity)), Color.red, 0.2f, false);
+            if (showCollisionGizmos && sumImpactVelocity.sqrMagnitude > 0.001f)
+                Debug.DrawLine(transform.TransformPoint(sumImpactPosition), transform.TransformPoint(sumImpactPosition) + CommonTools.Lin2Log(transform.TransformDirection(sumImpactVelocity)), Color.red, 0.2f, false);
 
             // Reset impact data
 
             m_sumImpactCount = 0;
-            m_sumImpactPosition = Vector3.zero;
-            m_sumImpactVelocity = Vector3.zero;
+            sumImpactPosition = Vector3.zero;
+            sumImpactVelocity = Vector3.zero;
             m_sumImpactHardness = 0;
 
             m_lastImpactTime = Time.time + impactInterval * UnityEngine.Random.Range(-impactIntervalRandom, impactIntervalRandom); // Add a random variation for avoiding regularities
@@ -1686,13 +1688,13 @@ public partial class VehicleController : MonoBehaviour
     {
         if (dragVelocity.sqrMagnitude > 0.001f)
         {
-            m_localDragPosition = Vector3.Lerp(m_localDragPosition, dragPosition, 10.0f * Time.deltaTime);
-            m_localDragVelocity = Vector3.Lerp(m_localDragVelocity, dragVelocity, 20.0f * Time.deltaTime);
-            m_localDragHardness = dragHardness;
+            localDragPosition = Vector3.Lerp(localDragPosition, dragPosition, 10.0f * Time.deltaTime);
+            localDragVelocity = Vector3.Lerp(localDragVelocity, dragVelocity, 20.0f * Time.deltaTime);
+            localDragHardness = dragHardness;
         }
         else
         {
-            m_localDragVelocity = Vector3.Lerp(m_localDragVelocity, Vector3.zero, 10.0f * Time.deltaTime);
+            localDragVelocity = Vector3.Lerp(localDragVelocity, Vector3.zero, 10.0f * Time.deltaTime);
         }
 
         if (showCollisionGizmos && localDragVelocity.sqrMagnitude > 0.001f)

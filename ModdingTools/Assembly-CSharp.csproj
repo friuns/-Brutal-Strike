@@ -124,6 +124,8 @@
      <Compile Include="Assets\bs-sdk\sdk\BulletBase.cs" />
      <Compile Include="Assets\bs-sdk\sdk\C4.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Car.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\CarDamage.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\CheckPoint.cs" />
      <Compile Include="Assets\bs-sdk\sdk\ConstrGrenade.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Database5Mods.cs" />
      <Compile Include="Assets\bs-sdk\sdk\DisableIfSceneLoaded.cs" />

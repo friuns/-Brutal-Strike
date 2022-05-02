@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using BattleRoyale;
 using EnumsNET;
 using UnityEngine;
 using UnityEngine.UI;
@@ -292,6 +293,8 @@ public class PlayerSkinDict : SerializableDictionary<int, PlayerSkin> { }
 [Serializable]
 public class PlayerClassDict : SerializableDictionary<int, PlayerClass> { }
 
+[Serializable]
+public class CarDict : SerializableDictionary<string, Car> { }
 
 [Serializable]
 public class BoneOffsets : SerializableDictionary<HumanBodyBones, Vector3>
@@ -306,6 +309,10 @@ public class GunDict : SerializableDictionary2<int, GunBase>
 }
 
 #if game
+interface ILife
+{
+    float lifePr { get; }
+}
 interface ISetLife
 {
     void RPCDamageAddLife(float damage, int pv = -1, int weapon = -1, HumanBodyBones colliderId = 0, Vector3 hitPos = default);

@@ -99,7 +99,7 @@ public class VehicleTelemetry : MonoBehaviour
 		if (vehicleDamage != null)
 			{
 			text += string.Format("\nDamage mesh/collider/node:{0,5:0.00} {1,4:0.00} {2,4:0.00}  {3}",
-				vehicleDamage.meshDamage, vehicleDamage.colliderDamage, vehicleDamage.nodeDamage, vehicleDamage.isRepairing? "REPAIRING" : "");
+				vehicleDamage.meshDamage, vehicleDamage.colliderDamage, vehicleDamage.nodeDamage, vehicleDamage.repairing? "REPAIRING" : "");
 			}
 
 		if (target.debugText != "")

@@ -86,7 +86,7 @@ public class FieldAtrStart:Attribute
 }
 public class GameTypes
 {
-    public const GameType noRespawnTypes =  GameType.Classic | GameType.Survival | GameType.Mission | GameType.zombieMode ;
+    public const GameType noRespawnTypes =  GameType.Classic | GameType.BattleRoyale | GameType.Mission | GameType.zombieMode ;
 }
 public interface IOnInspectorGUIHide
 {

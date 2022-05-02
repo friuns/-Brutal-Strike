@@ -374,7 +374,7 @@ RectTransform:
   m_GameObject: {fileID: 443162408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1213.184, y: 1213.184, z: 1213.184}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 493450251}
   m_RootOrder: 0
@@ -439,7 +439,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4607de42f4ff72445894aff3ed4512e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9658599173a750f46ab158199b0e58a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -785,9 +785,8 @@ MonoBehaviour:
   path: grenade_pickable
   assetLoaded: 0
   probabilityFactor: 1
-  dragScale: 0
-  alignToGround: 0
-  targetName: 
+  dragType: 0
+  itemName: 
   icon: {fileID: 21300000, guid: 889dd9df5f2826247913e6631f6af792, type: 3}
   offset: {x: 0, y: 0, z: 0}
   m_boundsTr: {fileID: 0}
@@ -813,6 +812,7 @@ MonoBehaviour:
   bspModelPos: {x: 0, y: 0, z: 0}
   timeToRespawn: 0
   transformCache: {fileID: 0}
+  hideWhenFarAway: 1
   weapons:
     m_keys: 
     m_values: []
@@ -3601,8 +3601,12 @@ MonoBehaviour:
   flashLight: {fileID: 0}
   MuzzleFlash: {fileID: 0}
   MuzzleFlash2: []
+  vrHandsTr: []
+  vrHands:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  vrForward: {fileID: 0}
   crosshair: {fileID: 0}
-  handsFov: 60
   attachments:
   - {fileID: 0}
   - {fileID: 0}
@@ -3610,6 +3614,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animationSpeed: 1
+  animationEvents: []
+  attachmentSlotHide: []
 --- !u!1001 &948876453
 PrefabInstance:
   m_ObjectHideFlags: 0
