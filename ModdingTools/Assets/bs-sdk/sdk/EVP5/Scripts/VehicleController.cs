@@ -1536,8 +1536,9 @@ public partial class VehicleController : MonoBehaviour
         if (processContacts)
             ProcessContacts(collision, false);
     }
-
-    public Car car;
+#if game
+    public AccessTimeChanged<Car> car = new AccessTimeChanged<Car>() { valitTime = 5 };
+#endif
     void ProcessContacts(Collision col, bool isCollisionEnter)
     {
         int impactCount = 0; // All impacts
@@ -1553,7 +1554,6 @@ public partial class VehicleController : MonoBehaviour
         float sqrImpactSpeed = impactMinSpeed * impactMinSpeed;
 
         // We process all contacts individually and get an impact and/or drag amount out of each one.
-        car = null;
         foreach (ContactPoint contact in col.contacts)
         {
             Collider collider = contact.otherCollider;
@@ -1572,8 +1572,12 @@ public partial class VehicleController : MonoBehaviour
             var cr = collider.attachedRigidbody;
             if (cr != null)
             {
-                if (!car)
-                    car = cr.GetComponent<Car>();
+                #if game
+                var component = cr.GetComponent<Car>();
+                if (component)
+                    car.Value = component;
+                #endif
+                
                 v -= cr.GetPointVelocity(contact.point);
             }
 

@@ -315,7 +315,7 @@ interface ILife
 }
 interface ISetLife
 {
-    void RPCDamageAddLife(float damage, int pv = -1, int weapon = -1, HumanBodyBones colliderId = 0, Vector3 hitPos = default);
+    void RPCDamageAddLife(float damage, Player pv = null, GunBase weapon = null, HumanBodyBones colliderId = 0, Vector3 hitPos = default);
 }
 #endif
 //public static class PhotonGroup

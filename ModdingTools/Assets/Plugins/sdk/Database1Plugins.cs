@@ -53,7 +53,6 @@ public static class Tag
     public static int mainTexture = Shader.PropertyToID("_MainTex");
     public static char splitChar = '@';
     public const HideFlags HideInHierarchy = HideFlags.HideInHierarchy;
-    public const int ZoneID=4020;
     public const int Heal=4021;
     public const string  _LightMap = "_LightMap";
     public const string Glass = "Glass",
@@ -66,6 +65,7 @@ public static class Tag
         gunPlaceHolder = "gunPlaceHolder",
         Untagged = "Untagged",
         logging = "logging",
+        IgnoreDamage = "IgnoreDamage",
         isStatic = "isStatic",
         mapPrefix = "Map/";
     public const string fortniteBlockTrigger = "fortniteBlockTrigger";

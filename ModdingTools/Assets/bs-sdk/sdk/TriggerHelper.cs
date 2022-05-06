@@ -77,7 +77,7 @@ public class TriggerHelper:Trigger,IOnPlayerEnter,IOnPlayerStay,ISetLife
     {
         _AnimationEvent?.Invoke(s);
     }
-    public void RPCDamageAddLife(float damage, int pv = -1, int weapon = -1, HumanBodyBones colliderId = HumanBodyBones.Hips, Vector3 hitPos = default)
+    public void RPCDamageAddLife(float damage, Player pv = null, GunBase weapon = null, HumanBodyBones colliderId = 0, Vector3 hitPos = default)
     {
         
     }

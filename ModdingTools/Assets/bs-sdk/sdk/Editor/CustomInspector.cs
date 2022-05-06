@@ -145,7 +145,7 @@ public partial class CustomInspector : Editor
 
         bs.insideGUI = true;
         bs.insideEditor = true;
-        if (string.IsNullOrEmpty(search) || target is IOnInspectorGUISearch)
+        if (search=="" || target is IOnInspectorGUISearch)
         {
             if (target is IOnInspectorGUI io)
                 using (new GUILayout.VerticalScope(style: GUI.skin.box))
@@ -203,7 +203,7 @@ public partial class CustomInspector : Editor
                 var path = sprop.serializedObject.targetObject.name + "." + sprop.propertyPath;
                 GUI.changed = false;
                 var fnd = sprop.name.Contains(search, StringComparison.OrdinalIgnoreCase);
-                if (!string.IsNullOrEmpty(search) && sprop.hasChildren && !fnd) //draw children manually of serializable if searching 
+                if (search!="" && sprop.hasChildren && !fnd) //draw children manually of serializable if searching 
                 {
                     var prop = sprop.Copy();
                     SerializedProperty endProperty = prop.GetEndProperty();
@@ -213,7 +213,7 @@ public partial class CustomInspector : Editor
                             EditorGUILayout.PropertyField(prop, true);
                     }
                 }
-                else if (string.IsNullOrEmpty(search) || sprop.hasChildren || fnd)
+                else if (search=="" || sprop.hasChildren || fnd)
                 {
                     EditorGUILayout.PropertyField(sprop, true);
 
@@ -227,7 +227,14 @@ public partial class CustomInspector : Editor
                 }
             }
         }
+        
         obj.ApplyModifiedProperties();
+        
+        if(search!="")
+            foreach (FieldInfo a in obj.targetObject.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
+            {
+                bs.DrawObject(a.GetValue(obj.targetObject), a.Name);
+            }
         return EditorGUI.EndChangeCheck();
     }
 

@@ -140,10 +140,12 @@ public class VehicleDamage : MonoBehaviour
 
     public void RepairImmediate()
     {
-        RestoreMeshes();
-        RestoreNodes();
-        RestoreColliders();
-
+        try
+        {
+            RestoreMeshes();
+            RestoreNodes();
+            RestoreColliders();
+        }catch{}
         repairing = false;
         meshDamage = 0.0f;
         colliderDamage = 0.0f;
@@ -176,8 +178,8 @@ public class VehicleDamage : MonoBehaviour
 
             // Deform the nodes
 
-            for (int i = 0, c = nodes.Length; i < c; i++)
-                nodeDamage += DeformNode(nodes[i], m_originalNodePositions[i], m_originalNodeRotations[i], contactPoint, impactVelocity * 0.5f);
+            // for (int i = 0, c = nodes.Length; i < c; i++)
+                // nodeDamage += DeformNode(nodes[i], m_originalNodePositions[i], m_originalNodeRotations[i], contactPoint, impactVelocity * 0.5f);
             
             
 // #if game

@@ -71,7 +71,7 @@ public class BulletBase : ObjectBase
         if (pl.observing && damage > 5)
             _ObsCamera.PlayExplodeAnim();
         
-        pl.RPCDamageAddLife(-(int) damage, gun.pl.viewId, gun.id, Random.value > .5 ? HumanBodyBones.LeftUpperLeg : HumanBodyBones.RightUpperLeg); //
+        pl.RPCDamageAddLife(-(int) damage, gun.pl, gun, Random.value > .5 ? HumanBodyBones.LeftUpperLeg : HumanBodyBones.RightUpperLeg); //
     }
 
     public static Vector3  AddExplosionForce(  Vector3 explosionVec, float explosionRadius, float explosionForce )

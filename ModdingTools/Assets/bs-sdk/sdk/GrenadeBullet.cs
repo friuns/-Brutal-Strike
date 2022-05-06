@@ -67,9 +67,9 @@ public class GrenadeBullet : BulletBase,ISetLife,IOnPlayerEnter
         Destroy(gameObject);
         base.OnReset();
     }
-    public void RPCDamageAddLife(float damage, int pv = -1, int weapon = -1, HumanBodyBones colliderId = 0, Vector3 hitPos = default)
+    public void RPCDamageAddLife(float damage, Player pv = null, GunBase weapon = null, HumanBodyBones colliderId = 0, Vector3 hitPos = default)
     {
-        if (pv == -1 || ToObject<Player>(pv).IsMine)
+        if (pv?.IsMine==true)
             CallRPC(Explode);
     }
     public void OnPlayerEnter(Player pl, Trigger other, bool b)

@@ -25,11 +25,11 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
 
     [FieldAtr] public int maxPlayers = 10;
     
-
-    [FieldAtrStart(readOnly = true)] 
-    public string country = "";
     [RoomPulbic]
     public string password="";
+    [FieldAtrStart(readOnly = true)] 
+    public string country = "";
+    
     [RoomPulbic]
     public int version;
     [RoomPulbic]
@@ -176,7 +176,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public float ClimbFriction3 = .5f;
     public float SlideSpeed = 10;
     public bool teamAutoBalance=true;
-    public bool swapTeams;
+    // public bool swapTeams;
     public int imposterCount = 1;
     public bool randomEachTime;
     public float bombTimeSec = 45f;
@@ -193,6 +193,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public bool allowPositiveDamage;
     public bool allowFriendlyFire;
     public bool showCarShop = true;
+    public float floorLevel;
     [FieldAtrEnd]
     public ObscuredBool specialGun = false;
     
@@ -216,8 +217,6 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     {
     }
 
-    public bool newPlayerSync => mpVersion >= 10;
-    public bool newPlayerSync2 => mpVersion >= 14;
 #if game
     public bool OnVarParseDraw(FieldCache fieldCache)
     {

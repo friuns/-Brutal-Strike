@@ -109,7 +109,7 @@ public partial class Weapon : WeaponBase
     public ObscuredBool sniper => weaponType == WeaponType.Sniper;
     public ObscuredBool sniperAndAim => weaponType == WeaponType.Sniper && aiming;
     public bool haveScope { get { return sniper || canAimWithoutScope || scope; } }
-    public ObscuredInt maxBullets2 { get { return (int)((ExtendedClip? 1.334f:1) *  secondaryCountDef) ; } set { secondaryCountDef = value; } }
+    public ObscuredInt maxBullets2 { get { return (int)((ExtendedClip?.multiplier ?? 1) * secondaryCountDef); } set { secondaryCountDef = value; } }
     
     
     public float aimSpeed { get { return scope?.m_aimSpeed ?? m_aimSpeed; } }
@@ -119,8 +119,8 @@ public partial class Weapon : WeaponBase
         {
             var attachment = scope;
             if (attachment)
-                return attachment.scopeFov;
-            return scopeFov;
+                return attachment.multiplier;
+            return multiplier;
         }
     }
     public bool AttachmentAvailable(AttachmentBase a)

@@ -165,10 +165,9 @@ public class FloorCell : BuildScript, IOnTriggerEnter
         if (IsMine)
             Destroy();
     }
-    public override void RPCDamageAddLife(float damage, int pv = -1, int weapon = -1, HumanBodyBones collId = 0, Vector3 hitPos = default)
+    public override void RPCDamageAddLife(float damage, Player pv = null, GunBase weapon = null, HumanBodyBones collId = 0, Vector3 hitPos = default)
     {
-        var knife = _Game.playerPrefab.guns.FirstOrDefault(a=>a is Knife);
-        if (weapon == knife.id)
+        if (weapon is Knife)
             damage *= 10;
 
         base.RPCDamageAddLife(damage, pv, weapon, collId, hitPos);

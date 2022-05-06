@@ -76,7 +76,7 @@ public class Hostage : ItemBase, IOnPlayerStay
             if (deadPlayer && pl.observing && pl.Input2.GetKeyDownTime(KeyCode.F, 2, Android ? "Rescue" : "Hold {0} to rescue" + deadPlayer.name))
             {
                 CallRPC(SetActive, false);
-                deadPlayer.RPCReset(true, pos);
+                deadPlayer.RPCReset(true, new PosRot(pos));
             }
         }
         else if ((!follow || follow.deadOrKnocked) && !pl.deadOrKnocked)

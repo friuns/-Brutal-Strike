@@ -48,7 +48,6 @@ public class Bullet : BulletBase,IOnLoadAsset
         bulletSpeedFactor = gameSettings.bulletSpeedFactor * wep.bulletSpeed * (wep.Compressor ? 2 : 1); 
         startPos=pos = base.pos;
         startTime = Time.time;
-        oldDesctructable = null;
         WallScore = 0;
 
         var transformForward = transform.forward;
@@ -201,8 +200,9 @@ public class Bullet : BulletBase,IOnLoadAsset
         RaycastHit? firstHit=null;
         for (var i = 0; i < cnt; i++)
         {
-            var h = hits[i];
+            var h = hit = hits[i];
             var hCollider = h.collider;
+            if (hCollider.CompareTag(Tag.IgnoreDamage)) continue;
             int layer = hCollider.gameObject.layer;
             var level = Layer.levelMask2.Contains(layer);
             if (level)
@@ -214,18 +214,9 @@ public class Bullet : BulletBase,IOnLoadAsset
                 if (!roomSettings.ShootThroughWalls)
                     return;
             }
-            ISetLife isetlife = h.transform.GetComponentInParent<ISetLife>();
+            ISetLife isetlife = hCollider.GetComponentInParent<ISetLife>();
 
-            if (isetlife is Destructable destructable && IsMine && oldDesctructable != destructable && destructable.team != shooter.team)
-            {
-                HoleAndParticles(h);
-                
-                destructable.RPCDamageAddLife(-damage, shooter.viewId, wep.id, hitPos: h.point);
-                oldDesctructable = destructable;
-                if (!roomSettings.ShootThroughWalls)
-                    return;
-            }
-            else if (layer == Layer.ragdoll || isetlife is Player)
+            if (layer == Layer.ragdoll || isetlife is Player)
             {
                 if (firstHit!=null && WallScore == 0) //draw hole 
                     if (Physics.Linecast(h.point, firstHit.Value.point, out hit, Layer.levelMask2))
@@ -248,7 +239,8 @@ public class Bullet : BulletBase,IOnLoadAsset
             }
             else if (isetlife != null)
             {
-                isetlife.RPCDamageAddLife(-damage, shooter.viewId, wep.id, hitPos: h.point);
+                isetlife.RPCDamageAddLife(-damage, shooter, wep, hitPos: h.point);
+                return;
             }
             
         }
@@ -265,6 +257,8 @@ public class Bullet : BulletBase,IOnLoadAsset
         float dist;
         while ((dist = getdist) > 0 && RayCastTransparent(new Ray(pos, move), out hit, dist, Layer.allmask, QueryTriggerInteraction.Collide)) //dont use raycastAll because it wont register same object twice 
         {
+            
+            
             bool frontFace = Vector3.Dot(transform.forward, hit.normal) < 0;
 
             var hCollider = hit.collider;
@@ -273,7 +267,7 @@ public class Bullet : BulletBase,IOnLoadAsset
             if (level && (!gameSettings.ShootThroughWalls || wep.explodeOnCollision || wep.pl.bot)) { HoleAndParticles(hit); return true; }
 
             if (i++ > 15) { print("overflow"); return true; }
-            if (!hCollider.isTrigger)
+            if (!hit.collider.CompareTag(Tag.IgnoreDamage) && !hCollider.isTrigger)
             {
                 if (level)
                 {
@@ -338,15 +332,13 @@ public class Bullet : BulletBase,IOnLoadAsset
                 }
 
 
-                var isetLife = hit.transform.GetComponentInParent<ISetLife>();
-                if (isetLife is Destructable destructable && destructable.IsNotNull() && IsMine && oldDesctructable != destructable && destructable.team != shooter.team)
+                var isetLife = hCollider.GetComponentInParent<ISetLife>();
+                if (isetLife != null && !(isetLife is Player))
                 {
-                    // HoleAndParticles(h, true);
-                    destructable.RPCDamageAddLife(-damage, shooter.viewId, wep.id, hitPos: hit.point);
-                    oldDesctructable = destructable;
+                    HoleAndParticles(hit,false);
+                    isetLife?.RPCDamageAddLife(-damage, shooter, wep, hitPos: hit.point);
+                    return true;
                 }
-                else if (!(isetLife is Player))
-                    isetLife?.RPCDamageAddLife(-damage, shooter.viewId, wep.id, hitPos: hit.point);
             }
             // if (layer == Layer.player || layer == Layer.playerTrigger)
             if (layer == Layer.ragdoll)
@@ -414,7 +406,7 @@ public class Bullet : BulletBase,IOnLoadAsset
 //    IComparer<RaycastHit> comparer;
 
 
-    private void HoleAndParticles(RaycastHit h)
+    private void HoleAndParticles(RaycastHit h,bool createHole=true)
     {
         // if(fxEnabled)
         // if (!Android || CheckRayOrNearAndroid(h.point))
@@ -425,11 +417,10 @@ public class Bullet : BulletBase,IOnLoadAsset
             if (h.collider.CompareTag(Tag.Glass) && !depthBufferPresent)
                 return;
             // if (!wep.explodeOnCollision)
+            if(createHole)
                 hole(h);
         }
     }
-    Destructable oldDesctructable;
-
 
     private bool RagDollCheck(RaycastHit h)
     {
@@ -458,7 +449,7 @@ public class Bullet : BulletBase,IOnLoadAsset
         
         
         
-        if (!shooter.IsEnemyOrBot(enemy) && !wep.allowFriendlyFire || shooter.SpawnProtection(enemy) || enemy.dead)
+        if (!shooter.IsEnemyOrBot(enemy) && wep.damage>0 || shooter.SpawnProtection(enemy) || enemy.dead)
             return false;
 
         wep.lastHit = h;
@@ -487,7 +478,7 @@ public class Bullet : BulletBase,IOnLoadAsset
                 // if (enemy.damageDeal.maxDamage == 0)
                  
                 
-                enemy.RPCDamageAddLife(-damage, wep.pl.viewId, wep.id, bp, h.point);
+                enemy.RPCDamageAddLife(-damage, wep.pl, wep, bp, h.point);
             }
             
         }

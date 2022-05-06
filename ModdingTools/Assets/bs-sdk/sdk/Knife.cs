@@ -86,7 +86,7 @@ public class Knife : GunBase,IMeleeWeapon
                     if (enemy != null && enemy != pl)
                     {
                         if (IsMine)
-                            enemy.RPCDamageAddLife(-set.damage, pl.viewId, id, Random.value<.3f?HumanBodyBones.Head  :HumanBodyBones.Chest);
+                            enemy.RPCDamageAddLife(-set.damage, pl, this, Random.value<.3f?HumanBodyBones.Head  :HumanBodyBones.Chest);
                         // h.point = enemy.controller.ClosestPoint(pl.Cam.pos);
                         // h.normal = (pl.Cam.pos - h.point).normalized;
                         // enemy.CreateBloodParticles(h);
@@ -126,7 +126,7 @@ public class Knife : GunBase,IMeleeWeapon
                     if (pl.zombie) damage = (int)(damage * (1f - pl.zombiePowerUp / 2));
                     if (enemy != null)
                     {
-                        if (!pl.IsEnemyOrBot(enemy) && !allowFriendlyFire)
+                        if (!pl.IsEnemyOrBot(enemy) && damage>0)
                             continue;
 
                         lastHit = h;
@@ -137,7 +137,7 @@ public class Knife : GunBase,IMeleeWeapon
 
                          if (IsMine)
                          {
-                             enemy.RPCDamageAddLife(-(int)damage, pl.viewId, id, enemy.skin.GetBodyPart(h.transform));
+                             enemy.RPCDamageAddLife(-(int)damage, pl, this, enemy.skin.GetBodyPart(h.transform));
                          }
                          continue;
                     }
@@ -145,7 +145,7 @@ public class Knife : GunBase,IMeleeWeapon
                     if (isetlife != null && isetlife is Player == false)
                     {
                         if (IsMine)
-                            isetlife.RPCDamageAddLife(-(int) damage, pl.viewId, id);
+                            isetlife.RPCDamageAddLife(-(int) damage, pl, this);
                     }
                     else
                     {

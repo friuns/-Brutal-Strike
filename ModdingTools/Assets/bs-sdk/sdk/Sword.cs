@@ -281,7 +281,7 @@ public partial class Sword : GunBase,IMeleeWeapon
             {
                 enemy.CreateBlood(h);
                 enemy.RPCPlayAnim(Animator.StringToHash(nameof(Anims.Damage)), .1f, -dir);
-                enemy.RPCDamageAddLife(-(int) damage * damageFactor, pl.viewId, id, enemy.skin.GetBodyPart(h.transform));
+                enemy.RPCDamageAddLife(-(int) damage * damageFactor, pl, this, enemy.skin.GetBodyPart(h.transform));
             }
         }
     }

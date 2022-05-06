@@ -207,7 +207,6 @@ public class Door : Destructable, IOnPlayerStay
 
         if (teleport)
         {
-            pl.lastCheckPoint = buttonTarget.pos + Vector3.up;
             pl.SetPosition(buttonTarget.pos + Vector3.up);
         }
         else

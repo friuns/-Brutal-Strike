@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: e9c92e51e1f353443b6e02dcfd61bf23
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: ak47_Body
+    100002: //RootNode
+    100004: fpArms
+    100006: fpArms_Head
+    100008: fpArms_Hips
+    100010: fpArms_LeftArm
+    100012: fpArms_LeftFoot
+    100014: fpArms_LeftForeArm
+    100016: fpArms_LeftForeArmRoll
+    100018: fpArms_LeftHand
+    100020: fpArms_LeftHandIndex1
+    100022: fpArms_LeftHandIndex2
+    100024: fpArms_LeftHandIndex3
+    100026: fpArms_LeftHandMiddle1
+    100028: fpArms_LeftHandMiddle2
+    100030: fpArms_LeftHandMiddle3
+    100032: fpArms_LeftHandPinky1
+    100034: fpArms_LeftHandPinky2
+    100036: fpArms_LeftHandPinky3
+    100038: fpArms_LeftHandRing1
+    100040: fpArms_LeftHandRing2
+    100042: fpArms_LeftHandRing3
+    100044: fpArms_LeftHandThumb1
+    100046: fpArms_LeftHandThumb2
+    100048: fpArms_LeftHandThumb3
+    100050: fpArms_LeftHandWeapon
+    100052: fpArms_LeftInHandPinky
+    100054: fpArms_LeftLeg
+    100056: fpArms_LeftShoulder
+    100058: fpArms_LeftToeBase
+    100060: fpArms_LeftUpLeg
+    100062: fpArms_Neck
+    100064: fpArms_RightArm
+    100066: fpArms_RightFoot
+    100068: fpArms_RightForeArm
+    100070: fpArms_RightForeArmRoll
+    100072: fpArms_RightHand
+    100074: fpArms_RightHandIndex1
+    100076: fpArms_RightHandIndex2
+    100078: fpArms_RightHandIndex3
+    100080: fpArms_RightHandMiddle1
+    100082: fpArms_RightHandMiddle2
+    100084: fpArms_RightHandMiddle3
+    100086: fpArms_RightHandPinky1
+    100088: fpArms_RightHandPinky2
+    100090: fpArms_RightHandPinky3
+    100092: fpArms_RightHandRing1
+    100094: fpArms_RightHandRing2
+    100096: fpArms_RightHandRing3
+    100098: fpArms_RightHandThumb1
+    100100: fpArms_RightHandThumb2
+    100102: fpArms_RightHandThumb3
+    100104: fpArms_RightHandWeapon
+    100106: fpArms_RightInHandPinky
+    100108: fpArms_RightLeg
+    100110: fpArms_RightShoulder
+    100112: fpArms_RightToeBase
+    100114: fpArms_RightUpLeg
+    100116: fpArms_Spine1
+    100118: fpArms_Spine2
+    100120: fpArms_Spine3
+    100122: genSWAT_Reference
+    100124: ak47_mag
+    100126: ak47_pasted__Mesh
+    100128: ak47_Slide
+    100130: ak47_triger
+    400000: ak47_Body
+    400002: //RootNode
+    400004: fpArms
+    400006: fpArms_Head
+    400008: fpArms_Hips
+    400010: fpArms_LeftArm
+    400012: fpArms_LeftFoot
+    400014: fpArms_LeftForeArm
+    400016: fpArms_LeftForeArmRoll
+    400018: fpArms_LeftHand
+    400020: fpArms_LeftHandIndex1
+    400022: fpArms_LeftHandIndex2
+    400024: fpArms_LeftHandIndex3
+    400026: fpArms_LeftHandMiddle1
+    400028: fpArms_LeftHandMiddle2
+    400030: fpArms_LeftHandMiddle3
+    400032: fpArms_LeftHandPinky1
+    400034: fpArms_LeftHandPinky2
+    400036: fpArms_LeftHandPinky3
+    400038: fpArms_LeftHandRing1
+    400040: fpArms_LeftHandRing2
+    400042: fpArms_LeftHandRing3
+    400044: fpArms_LeftHandThumb1
+    400046: fpArms_LeftHandThumb2
+    400048: fpArms_LeftHandThumb3
+    400050: fpArms_LeftHandWeapon
+    400052: fpArms_LeftInHandPinky
+    400054: fpArms_LeftLeg
+    400056: fpArms_LeftShoulder
+    400058: fpArms_LeftToeBase
+    400060: fpArms_LeftUpLeg
+    400062: fpArms_Neck
+    400064: fpArms_RightArm
+    400066: fpArms_RightFoot
+    400068: fpArms_RightForeArm
+    400070: fpArms_RightForeArmRoll
+    400072: fpArms_RightHand
+    400074: fpArms_RightHandIndex1
+    400076: fpArms_RightHandIndex2
+    400078: fpArms_RightHandIndex3
+    400080: fpArms_RightHandMiddle1
+    400082: fpArms_RightHandMiddle2
+    400084: fpArms_RightHandMiddle3
+    400086: fpArms_RightHandPinky1
+    400088: fpArms_RightHandPinky2
+    400090: fpArms_RightHandPinky3
+    400092: fpArms_RightHandRing1
+    400094: fpArms_RightHandRing2
+    400096: fpArms_RightHandRing3
+    400098: fpArms_RightHandThumb1
+    400100: fpArms_RightHandThumb2
+    400102: fpArms_RightHandThumb3
+    400104: fpArms_RightHandWeapon
+    400106: fpArms_RightInHandPinky
+    400108: fpArms_RightLeg
+    400110: fpArms_RightShoulder
+    400112: fpArms_RightToeBase
+    400114: fpArms_RightUpLeg
+    400116: fpArms_Spine1
+    400118: fpArms_Spine2
+    400120: fpArms_Spine3
+    400122: genSWAT_Reference
+    400124: ak47_mag
+    400126: ak47_pasted__Mesh
+    400128: ak47_Slide
+    400130: ak47_triger
+    2300000: ak47_Body
+    2300002: ak47_mag
+    2300004: ak47_pasted__Mesh
+    2300006: ak47_Slide
+    2300008: ak47_triger
+    3300000: ak47_Body
+    3300002: ak47_mag
+    3300004: ak47_pasted__Mesh
+    3300006: ak47_Slide
+    3300008: ak47_triger
+    4300000: fpArms
+    4300002: ak47_Body
+    4300004: ak47_Slide
+    4300006: ak47_mag
+    4300008: ak47_pasted__Mesh
+    4300010: ak47_triger
+    7400000: shoot1
+    7400002: draw
+    7400004: reload
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: fpArms
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: draw
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 176
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ak47_Body
+        weight: 1
+      - path: fpArms
+        weight: 1
+      - path: genSWAT_Reference
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg/fpArms_LeftFoot
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg/fpArms_LeftFoot/fpArms_LeftToeBase
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg/fpArms_RightFoot
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg/fpArms_RightFoot/fpArms_RightToeBase
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1/fpArms_LeftHandIndex2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1/fpArms_LeftHandIndex2/fpArms_LeftHandIndex3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1/fpArms_LeftHandMiddle2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1/fpArms_LeftHandMiddle2/fpArms_LeftHandMiddle3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1/fpArms_LeftHandRing2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1/fpArms_LeftHandRing2/fpArms_LeftHandRing3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1/fpArms_LeftHandThumb2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1/fpArms_LeftHandThumb2/fpArms_LeftHandThumb3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandWeapon
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1/fpArms_LeftHandPinky2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1/fpArms_LeftHandPinky2/fpArms_LeftHandPinky3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_Neck
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_Neck/fpArms_Head
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1/fpArms_RightHandIndex2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1/fpArms_RightHandIndex2/fpArms_RightHandIndex3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1/fpArms_RightHandMiddle2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1/fpArms_RightHandMiddle2/fpArms_RightHandMiddle3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1/fpArms_RightHandRing2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1/fpArms_RightHandRing2/fpArms_RightHandRing3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1/fpArms_RightHandThumb2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1/fpArms_RightHandThumb2/fpArms_RightHandThumb3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandWeapon
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1/fpArms_RightHandPinky2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1/fpArms_RightHandPinky2/fpArms_RightHandPinky3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shoot1
+      takeName: Take 001
+      firstFrame: 135
+      lastFrame: 144
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ak47_Body
+        weight: 1
+      - path: fpArms
+        weight: 1
+      - path: genSWAT_Reference
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg/fpArms_LeftFoot
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg/fpArms_LeftFoot/fpArms_LeftToeBase
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg/fpArms_RightFoot
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg/fpArms_RightFoot/fpArms_RightToeBase
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1/fpArms_LeftHandIndex2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1/fpArms_LeftHandIndex2/fpArms_LeftHandIndex3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1/fpArms_LeftHandMiddle2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1/fpArms_LeftHandMiddle2/fpArms_LeftHandMiddle3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1/fpArms_LeftHandRing2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1/fpArms_LeftHandRing2/fpArms_LeftHandRing3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1/fpArms_LeftHandThumb2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1/fpArms_LeftHandThumb2/fpArms_LeftHandThumb3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandWeapon
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1/fpArms_LeftHandPinky2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1/fpArms_LeftHandPinky2/fpArms_LeftHandPinky3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_Neck
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_Neck/fpArms_Head
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1/fpArms_RightHandIndex2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1/fpArms_RightHandIndex2/fpArms_RightHandIndex3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1/fpArms_RightHandMiddle2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1/fpArms_RightHandMiddle2/fpArms_RightHandMiddle3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1/fpArms_RightHandRing2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1/fpArms_RightHandRing2/fpArms_RightHandRing3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1/fpArms_RightHandThumb2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1/fpArms_RightHandThumb2/fpArms_RightHandThumb3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandWeapon
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1/fpArms_RightHandPinky2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1/fpArms_RightHandPinky2/fpArms_RightHandPinky3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: reload
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 110
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ak47_Body
+        weight: 1
+      - path: fpArms
+        weight: 1
+      - path: genSWAT_Reference
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg/fpArms_LeftFoot
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_LeftUpLeg/fpArms_LeftLeg/fpArms_LeftFoot/fpArms_LeftToeBase
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg/fpArms_RightFoot
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_RightUpLeg/fpArms_RightLeg/fpArms_RightFoot/fpArms_RightToeBase
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1/fpArms_LeftHandIndex2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandIndex1/fpArms_LeftHandIndex2/fpArms_LeftHandIndex3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1/fpArms_LeftHandMiddle2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandMiddle1/fpArms_LeftHandMiddle2/fpArms_LeftHandMiddle3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1/fpArms_LeftHandRing2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandRing1/fpArms_LeftHandRing2/fpArms_LeftHandRing3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1/fpArms_LeftHandThumb2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandThumb1/fpArms_LeftHandThumb2/fpArms_LeftHandThumb3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftHandWeapon
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1/fpArms_LeftHandPinky2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_LeftShoulder/fpArms_LeftArm/fpArms_LeftForeArm/fpArms_LeftForeArmRoll/fpArms_LeftHand/fpArms_LeftInHandPinky/fpArms_LeftHandPinky1/fpArms_LeftHandPinky2/fpArms_LeftHandPinky3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_Neck
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_Neck/fpArms_Head
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1/fpArms_RightHandIndex2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandIndex1/fpArms_RightHandIndex2/fpArms_RightHandIndex3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1/fpArms_RightHandMiddle2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandMiddle1/fpArms_RightHandMiddle2/fpArms_RightHandMiddle3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1/fpArms_RightHandRing2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandRing1/fpArms_RightHandRing2/fpArms_RightHandRing3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1/fpArms_RightHandThumb2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandThumb1/fpArms_RightHandThumb2/fpArms_RightHandThumb3
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightHandWeapon
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1/fpArms_RightHandPinky2
+        weight: 1
+      - path: genSWAT_Reference/fpArms_Hips/fpArms_Spine1/fpArms_Spine2/fpArms_Spine3/fpArms_RightShoulder/fpArms_RightArm/fpArms_RightForeArm/fpArms_RightForeArmRoll/fpArms_RightHand/fpArms_RightInHandPinky/fpArms_RightHandPinky1/fpArms_RightHandPinky2/fpArms_RightHandPinky3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
