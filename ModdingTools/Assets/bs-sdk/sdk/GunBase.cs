@@ -75,8 +75,8 @@ public class GunBase : bsNetwork, IOnLoadAsset, IOnLevelEditorGUI,IDontDisable, 
     public ObscuredInt m_price = 600;
     public bool disabled;
     public bool prematchOnly;
-    [FormerlySerializedAs("scopeFov")]
-    public float multiplier = 1;
+    [FormerlySerializedAs("multiplier")] 
+    public float scopeFov = 1;
     public ObscuredInt dropAmmount = 1;
     public ObscuredFloat m_aimSpeed = 16.5f;
     public float gravityFactor=1;
