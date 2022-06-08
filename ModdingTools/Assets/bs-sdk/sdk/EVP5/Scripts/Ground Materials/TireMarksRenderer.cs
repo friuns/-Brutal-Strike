@@ -32,7 +32,7 @@ public class MarkPoint
 	public int lastIndex = 0;
 	}
 
-
+[JsonNonSerialized]
 public class TireMarksRenderer : MonoBehaviour
 	{
 	public enum Mode { PressureAndSkid, PressureOnly }

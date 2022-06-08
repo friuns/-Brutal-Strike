@@ -233,7 +233,8 @@ public partial class CustomInspector : Editor
         if(search!="")
             foreach (FieldInfo a in obj.targetObject.GetType().GetFields(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
             {
-                bs.DrawObject(a.GetValue(obj.targetObject), a.Name);
+                if(a.Name.Contains(search,StringComparison.CurrentCultureIgnoreCase))
+                TriggerEvent.DrawObject(a.GetValue(obj.targetObject), a.Name,a.FieldType);
             }
         return EditorGUI.EndChangeCheck();
     }

@@ -17,16 +17,18 @@ interface IAutoUpdate
 public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
 {
     internal bool inited;
+    [FieldAtr] public int maxPlayers = 10;
 #if game 
     [FieldAtr(readOnly = true,priority=-1,devOnly = true)]
     public MapStat map = new MapStat(); //must be serialized for file save, or server sync
-    [FieldAtr(dontDraw = true)] public List<MapStat> mapMods = new List<MapStat>();
+    // [FieldAtrStart(dontDraw = true)] 
+    // public List<MapStat> mapMods = new List<MapStat>();
+    
+    
 #endif
 
-    [FieldAtr] public int maxPlayers = 10;
     
-    [RoomPulbic]
-    public string password="";
+    
     [FieldAtrStart(readOnly = true)] 
     public string country = "";
     
@@ -35,8 +37,10 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     [RoomPulbic]
     public int mpVersion;
     public bool androidOnly =false;
-    [FieldAtrStart]
-    [Header("GamePlay")]
+    [FieldAtrStart] [Header("GamePlay")]
+    [RoomPulbic]
+    public string password="";
+    public bool enablePeek = true;
     public bool useSurf;
     public float fallDamageFactor=0.7f;
     public ObscuredFloat hitSlowDown = .5f;
@@ -61,7 +65,6 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public float shootSpread=1;
     public bool enableRun;
     public bool enableProne = false;
-    public bool enablePeek = true;
     public bool selfRevive=false;
     public ObscuredInt knockTime = 20;
     public bool enableKnocking=true;
@@ -192,7 +195,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public bool androidInertia;
     public bool allowPositiveDamage;
     public bool allowFriendlyFire;
-    public bool showCarShop = true;
+    public bool showCarShop = false;
     public float floorLevel;
     [FieldAtrEnd]
     public ObscuredBool specialGun = false;
@@ -231,6 +234,8 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public void OnValueChanged(string key, FieldCache fc)
     {
         Physics.IgnoreLayerCollision(Layer.player, Layer.ignoreRayCast, enablePlayerDrop);
+        if (key.EndsWith(nameof(enableThirdPerson)) && enableThirdPerson && fc.inited)
+            ShootThroughWalls = false;
     }
     
 #endif

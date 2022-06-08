@@ -200,8 +200,10 @@ public partial class BuildToolsSDK : EditorWindow
     }
     private static BuildTarget[] buildPlatforms { get
     {
+        #if game
         // if (Environment.UserName == "friuns")
-            // return new[] {EditorUserBuildSettings.activeBuildTarget};
+            return new[] {EditorUserBuildSettings.activeBuildTarget};
+            #endif
 
         return new[]
         {

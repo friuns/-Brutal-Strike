@@ -134,6 +134,7 @@
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\Formatter.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\Getters.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\JSON.cs" />
+     <Compile Include="Assets\Plugins\sdk\shared\FastJson\JSONParameters.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\JsonParser.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\JsonSerializer.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\Reflection.cs" />

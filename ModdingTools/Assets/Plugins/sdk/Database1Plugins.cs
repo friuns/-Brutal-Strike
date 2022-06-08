@@ -46,6 +46,11 @@ public static class ExecutionOrder
 }
 public static class Tag
 {
+    public static string bc1000 = "1000_bc";
+    public static  string bc100 = "100_diamonds";
+    public static  string bc10 = "10_diamonds";
+    public static  string battle_pass = "battle_pass";
+    public static  string trial_pass = "1-week-trial";
     public const string Lang = "Lang";
     public static readonly int DetailAlbedoMap = Shader.PropertyToID("_DetailAlbedoMap");
     public static readonly int Detail = Shader.PropertyToID("_Detail");
@@ -69,6 +74,8 @@ public static class Tag
         isStatic = "isStatic",
         mapPrefix = "Map/";
     public const string fortniteBlockTrigger = "fortniteBlockTrigger";
+    public static string PlayerMe = "PlayerMe";
+    public static string glbExtension=".fbx";
 }
 
 

@@ -6,7 +6,7 @@ public partial class CheckPoint:ItemBase , IOnPlayerStay
     #if game
     public void OnPlayerStay(Player pl, Trigger other)
     {
-        if (!pl.lastCheckpoints.Contains(this) && (!racing|| pl.team == TeamEnum.Terrorists))
+        if (!pl.lastCheckpoints.Contains(this) && (!racing|| pl.team2 == Team.Racer))
         {
             pl.playerAudioSource.PlayOneShot(gameRes.checkPoint);
             var checkPointCnt = _Game.baseItems.Count(a => a is CheckPoint);

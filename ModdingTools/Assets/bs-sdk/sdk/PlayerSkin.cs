@@ -122,6 +122,7 @@ public class PlayerSkin : ObjectBase,ISkinBase, IOnLoadAsset, IDontDisable
 
     [FieldAtrStart]
     public bool disabled;
+    public bool hidden;
     public Vector3 cameraTargetOffset = new Vector3(0, 0.4f, -3f);
 
     // public bool disableArmorSkins = true;

@@ -18,6 +18,7 @@ public class Knife : GunBase,IMeleeWeapon
     [Serializable]
     public class Set
     {
+        [FieldAtrStart(inherit = true)]
         public ObscuredFloat shootInterval = 0.0955f;
         public float audioDelay = 0;
         public ObscuredFloat damageDelay = 0;
@@ -30,6 +31,7 @@ public class Knife : GunBase,IMeleeWeapon
         //public HumanBodyBones weaponBone = HumanBodyBones.LastBone;
     }
     [Header("       knife settings")]
+    [FieldAtrStart(inherit = true)]
     public Set primary;
     public Set secondary;
     public AudioClip2 hitWall2;

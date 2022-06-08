@@ -295,8 +295,7 @@ public partial class VehicleController : MonoBehaviour
         aeroDrag = Mathf.Max(aeroDrag, 0.0f);
     }
 
-
-    void OnEnable()
+    private void Start()
     {
         // Cache/find components and configure rigidbody
 

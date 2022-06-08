@@ -294,7 +294,7 @@ public class PlayerSkinDict : SerializableDictionary<int, PlayerSkin> { }
 public class PlayerClassDict : SerializableDictionary<int, PlayerClass> { }
 
 [Serializable]
-public class CarDict : SerializableDictionary<string, Car> { }
+public class CarDict : SerializableDictionary<string, CarBase> { }
 
 [Serializable]
 public class BoneOffsets : SerializableDictionary<HumanBodyBones, Vector3>

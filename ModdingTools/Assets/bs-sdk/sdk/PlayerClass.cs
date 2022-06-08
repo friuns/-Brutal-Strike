@@ -74,7 +74,10 @@ public partial class PlayerClass : bs, IOnLoadAsset,IOnLevelEditorGUI
 //    public ObscuredBool disableStandInacuracy = true;
     public ObscuredBool caryAnything = false;
     public float targetSpeed = 3.5f;
-
+    public bool enableRopes;
+    public float ropeMax=1;
+    public float ropePower=1;
+    public float ropeCoolDown=1;
 
     
     [Tooltip("how quick player can change direction")]

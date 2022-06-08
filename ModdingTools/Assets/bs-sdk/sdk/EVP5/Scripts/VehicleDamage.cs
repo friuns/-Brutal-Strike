@@ -6,6 +6,7 @@
 
 
 using BattleRoyale;
+using fastJSON;
 using UnityEngine;
 
 namespace EVP
@@ -19,7 +20,7 @@ public class VehicleDamage : MonoBehaviour
         // car = GetComponent<Car>();
     // }
     public MeshFilter[] meshes;
-    public MeshCollider[] colliders;
+    private MeshCollider[] colliders = new MeshCollider[0];
     public Transform[] nodes;
 
     [Space(5)] public float minVelocity = 1.0f;
@@ -55,7 +56,7 @@ public class VehicleDamage : MonoBehaviour
    internal float nodeDamage = 0.0f;
 
 
-   void OnEnable()
+   void Start()
     {
         m_vehicle = GetComponent<VehicleController>();
         m_vehicle.processContacts = true;
@@ -119,7 +120,7 @@ public class VehicleDamage : MonoBehaviour
 
     void OnDisable()
     {
-        RepairImmediate();
+        // RepairImmediate();
     }
 
 
@@ -144,7 +145,7 @@ public class VehicleDamage : MonoBehaviour
         {
             RestoreMeshes();
             RestoreNodes();
-            RestoreColliders();
+            // RestoreColliders();
         }catch{}
         repairing = false;
         meshDamage = 0.0f;
@@ -158,6 +159,7 @@ public class VehicleDamage : MonoBehaviour
 
     void ProcessImpact()
     {
+        
         Vector3 impactVelocity = Vector3.zero;
 
         if (m_vehicle.sumImpactVelocity.sqrMagnitude > minVelocity * minVelocity)
@@ -174,7 +176,7 @@ public class VehicleDamage : MonoBehaviour
 
             // Deform the colliders
 
-            colliderDamage = DeformColliders(contactPoint, impactVelocity);
+            // colliderDamage = DeformColliders(contactPoint, impactVelocity);
 
             // Deform the nodes
 

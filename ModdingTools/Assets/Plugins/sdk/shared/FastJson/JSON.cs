@@ -10,102 +10,17 @@ using System.IO;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using UnityEngine;
-
+#if game
+using Debug = UnityEngine.Debug;
+#endif
 public class JsonNonSerialized:Attribute{}
 
 namespace fastJSON
 {
     //public delegate object Serialize(object data);
     //public delegate object Deserialize(string data);
-    public sealed class JSONParameters
-    {
-        /// <summary>
-        /// Use the fast GUID format (default = True)
-        /// </summary>
-        public bool UseFastGuid = true;
-        /// <summary>
-        /// Serialize null values to the output (default = True)
-        /// </summary>
-        public bool SerializeNullValues = false;
-        /// <summary>
-        /// Use the UTC date format (default = True)
-        /// </summary>
-        public bool UseUTCDateTime = true;
-        /// <summary>
-        /// Show the readonly properties of types in the output (default = False)
-        /// </summary>
-        public bool ShowReadOnlyProperties = false;
-        /// <summary>
-        /// Use the $types extension to optimise the output json (default = True)
-        /// </summary>
-        public bool UsingGlobalTypes = false;
-        /// <summary>
-        /// Ignore case when processing json and deserializing 
-        /// </summary>
-        [Obsolete("Not needed anymore and will always match")]
-        public bool IgnoreCaseOnDeserialize = false;
-        /// <summary>
-        /// Anonymous types have read only properties 
-        /// </summary>
-        public bool EnableAnonymousTypes = false;
-        /// <summary>
-        /// Enable fastJSON extensions $types, $type, $map (default = True)
-        /// </summary>
-        public bool UseExtensions = true;
-        /// <summary>
-        /// Use escaped unicode i.e. \uXXXX format for non ASCII characters (default = True)
-        /// </summary>
-        public bool UseEscapedUnicode = true;
-        /// <summary>
-        /// Output string key dictionaries as "k"/"v" format (default = False) 
-        /// </summary>
-        public bool KVStyleStringDictionary = false;
-        /// <summary>
-        /// Output Enum values instead of names (default = False)
-        /// </summary>
-        public bool UseValuesOfEnums = false;
-        /// <summary>
-        /// Ignore attributes to check for (default : XmlIgnoreAttribute, NonSerialized)
-        /// </summary>
-        public List<Type> IgnoreAttributes = new List<Type> { typeof(System.Xml.Serialization.XmlIgnoreAttribute), typeof(NonSerializedAttribute),typeof(JsonNonSerialized) };
-        /// <summary>
-        /// If you have parametric and no default constructor for you classes (default = False)
-        /// 
-        /// IMPORTANT NOTE : If True then all initial values within the class will be ignored and will be not set
-        /// </summary>
-        public bool ParametricConstructorOverride = false;
-        /// <summary>
-        /// Serialize DateTime milliseconds i.e. yyyy-MM-dd HH:mm:ss.nnn (default = false)
-        /// </summary>
-        public bool DateTimeMilliseconds = false;
-        /// <summary>
-        /// Maximum depth for circular references in inline mode (default = 20)
-        /// </summary>
-        public int SerializerMaxDepth = 20;
-        /// <summary>
-        /// Inline circular or already seen objects instead of replacement with $i (default = False) 
-        /// </summary>
-        public bool InlineCircularReferences = true; //score.pos broken 
-        /// <summary>
-        /// Formatter indent spaces (default = 3)
-        /// </summary>
-        public byte FormatterIndentSpaces = 3;
-        public bool SkipDefaultValues=true;
-        public bool enableProperties;
 
-        public void FixValues()
-        {
-            if (UseExtensions == false) // disable conflicting params
-            {
-                UsingGlobalTypes = false;
-                InlineCircularReferences = true;
-            }
-            if (EnableAnonymousTypes)
-                ShowReadOnlyProperties = true;
-        }
-    }
-
-    public static class JSON
+public static class JSON
     {
         /// <summary>
         /// Globally set-able parameters for controlling the serializer
@@ -698,12 +613,7 @@ namespace fastJSON
                 _usingglobals = true;
 
             bool found = d.TryGetValue("$type", out tn);
-#if !SILVERLIGHT
-            if (found == false && type == typeof(System.Object))
-            {
-                return d;   // CreateDataset(d, globaltypes);
-            }
-#endif
+
             if (found)
             {
                 if (_usingglobals)
@@ -716,7 +626,12 @@ namespace fastJSON
             }
 
             if (type == null)
-                throw new InvalidCastException("Cannot determine type "+input+" "+tn); //2do throw exception earler when parsing types
+            {
+                d.Remove("$type");
+                Debug.LogError("Cannot determine type " + input + " " + tn);
+                return d;
+                throw new InvalidCastException("Cannot determine type " + input + " " + tn); //2do throw exception earler when parsing types
+            }
 
             string typename = type.FullName;
             object o = input;
@@ -1131,139 +1046,7 @@ namespace fastJSON
             return col;
         }
 
-#if !SILVERLIGHT
-        private DataSet CreateDataset(Dictionary<string, object> reader, Dictionary<string, object> globalTypes)
-        {
-            DataSet ds = new DataSet();
-            ds.EnforceConstraints = false;
-            ds.BeginInit();
 
-            // read dataset schema here
-            var schema = reader["$schema"];
-
-            if (schema is string)
-            {
-                TextReader tr = new StringReader((string)schema);
-                ds.ReadXmlSchema(tr);
-            }
-            else
-            {
-                DatasetSchema ms = (DatasetSchema)ParseDictionary((Dictionary<string, object>)schema, globalTypes, typeof(DatasetSchema), null);
-                ds.DataSetName = ms.Name;
-                for (int i = 0; i < ms.Info.Count; i += 3)
-                {
-                    if (ds.Tables.Contains(ms.Info[i]) == false)
-                        ds.Tables.Add(ms.Info[i]);
-                    ds.Tables[ms.Info[i]].Columns.Add(ms.Info[i + 1], Type.GetType(ms.Info[i + 2]));
-                }
-            }
-
-            foreach (KeyValuePair<string, object> pair in reader)
-            {
-                if (pair.Key == "$type" || pair.Key == "$schema") continue;
-
-                List<object> rows = (List<object>)pair.Value;
-                if (rows == null) continue;
-
-                DataTable dt = ds.Tables[pair.Key];
-                ReadDataTable(rows, dt);
-            }
-
-            ds.EndInit();
-
-            return ds;
-        }
-
-        private void ReadDataTable(List<object> rows, DataTable dt)
-        {
-            dt.BeginInit();
-            dt.BeginLoadData();
-            List<int> guidcols = new List<int>();
-            List<int> datecol = new List<int>();
-            List<int> bytearraycol = new List<int>();
-
-            foreach (DataColumn c in dt.Columns)
-            {
-                if (c.DataType == typeof(Guid) || c.DataType == typeof(Guid?))
-                    guidcols.Add(c.Ordinal);
-                if (_params.UseUTCDateTime && (c.DataType == typeof(DateTime) || c.DataType == typeof(DateTime?)))
-                    datecol.Add(c.Ordinal);
-                if (c.DataType == typeof(byte[]))
-                    bytearraycol.Add(c.Ordinal);
-            }
-
-            foreach (List<object> row in rows)
-            {
-                object[] v = new object[row.Count];
-                row.CopyTo(v, 0);
-                foreach (int i in guidcols)
-                {
-                    string s = (string)v[i];
-                    if (s != null && s.Length < 36)
-                        v[i] = new Guid(Convert.FromBase64String(s));
-                }
-                foreach (int i in bytearraycol)
-                {
-                    string s = (string)v[i];
-                    if (s != null)
-                        v[i] = Convert.FromBase64String(s);
-                }
-                if (_params.UseUTCDateTime)
-                {
-                    foreach (int i in datecol)
-                    {
-                        string s = (string)v[i];
-                        if (s != null)
-                            v[i] = CreateDateTime(s);
-                    }
-                }
-                dt.Rows.Add(v);
-            }
-
-            dt.EndLoadData();
-            dt.EndInit();
-        }
-
-        DataTable CreateDataTable(Dictionary<string, object> reader, Dictionary<string, object> globalTypes)
-        {
-            var dt = new DataTable();
-
-            // read dataset schema here
-            var schema = reader["$schema"];
-
-            if (schema is string)
-            {
-                TextReader tr = new StringReader((string)schema);
-                dt.ReadXmlSchema(tr);
-            }
-            else
-            {
-                var ms = (DatasetSchema)this.ParseDictionary((Dictionary<string, object>)schema, globalTypes, typeof(DatasetSchema), null);
-                dt.TableName = ms.Info[0];
-                for (int i = 0; i < ms.Info.Count; i += 3)
-                {
-                    dt.Columns.Add(ms.Info[i + 1], Type.GetType(ms.Info[i + 2]));
-                }
-            }
-
-            foreach (var pair in reader)
-            {
-                if (pair.Key == "$type" || pair.Key == "$schema")
-                    continue;
-
-                var rows = (List<object>)pair.Value;
-                if (rows == null)
-                    continue;
-
-                if (!dt.TableName.Equals(pair.Key, StringComparison.InvariantCultureIgnoreCase))
-                    continue;
-
-                ReadDataTable(rows, dt);
-            }
-
-            return dt;
-        }
-#endif
         #endregion
     }
 

@@ -12,7 +12,7 @@ using UnityEngine;
 public interface IDontDisable
 {
 }
-
+[JsonNonSerialized]
 public class TransformCache : Base
 {
     internal List<TransformCache> prefabInstances = new List<TransformCache>();

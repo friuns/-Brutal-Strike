@@ -125,6 +125,7 @@
      <Compile Include="Assets\bs-sdk\sdk\BulletBase.cs" />
      <Compile Include="Assets\bs-sdk\sdk\C4.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Car.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\CarBase.cs" />
      <Compile Include="Assets\bs-sdk\sdk\CarDamage.cs" />
      <Compile Include="Assets\bs-sdk\sdk\CheckPoint.cs" />
      <Compile Include="Assets\bs-sdk\sdk\ConstrGrenade.cs" />
@@ -242,6 +243,7 @@
      <Compile Include="Assets\bs-sdk\sdk\SwordInit.cs" />
      <Compile Include="Assets\bs-sdk\sdk\SwordParticles.cs" />
      <Compile Include="Assets\bs-sdk\sdk\SyncronizePhysics.cs" />
+     <Compile Include="Assets\bs-sdk\sdk\Tank.cs" />
      <Compile Include="Assets\bs-sdk\sdk\Trigger.cs" />
      <Compile Include="Assets\bs-sdk\sdk\TriggerEvent.cs" />
      <Compile Include="Assets\bs-sdk\sdk\TriggerHelper.cs" />

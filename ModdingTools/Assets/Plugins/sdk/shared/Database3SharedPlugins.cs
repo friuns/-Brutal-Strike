@@ -76,8 +76,7 @@ public class MyProduct
     }
     public bool Validate2()
     {
-        bool valid = true;
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < (Debugger.IsAttached?1: 50); i++)
         {
             if (!Debugger.IsAttached)
                 Thread.Sleep(10000);
@@ -110,7 +109,7 @@ public class MyProduct
                         string d = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                         // Console.WriteLine(d);
                         // var validate = "GPA.3327-4473-3723-15095";
-                        if (d.Contains(orderId))
+                        if (orderId!=null && d.Contains(orderId))
                         {
                             if(d.Contains("successfully charged") || d.Contains("passed all risk checks"))
                             // if (d.Contains(orderId + ":0") || Regex.Match(d, orderId + ".,.2.:..*?,.3.:3").Success)
@@ -123,10 +122,11 @@ public class MyProduct
                                 Controller.LogFile(userid, "canceled " + orderId, LogFiles.purchase);
                                 return false;
                             }
-                            else
-                            {
-                                valid = false;
-                            }
+                        }
+                        else
+                        {
+                            Controller.LogFile(userid, "order id not found " + orderId, LogFiles.purchase);
+                            return false;
                         }
                     }
                 }
@@ -136,13 +136,11 @@ public class MyProduct
                 Controller.LogFile(userid, "error " + orderId + " " + e.Message, LogFiles.purchase);
             }
         }
-        if(!valid)
-            Controller.LogFile(userid, "order canceled id" + orderId, LogFiles.purchase);
-        else
-            Controller.LogFile(userid, "order id not found " + orderId, LogFiles.purchase);
-        return valid;
+        Controller.LogFile(userid, "order canceled id" + orderId, LogFiles.purchase);
+
+        return false;
     }
-    
+
 #endif
   
 }

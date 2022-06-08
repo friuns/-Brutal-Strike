@@ -7,6 +7,12 @@ public static class Math2
     public static Vector3 Devide(Vector3 a, Vector3 b) => 
         new Vector3(a.x / b.x, a.y / b.y, a.z / b.z);
     public static Vector3 Abs(Vector3 a) => new Vector3(Mathf.Abs(a.x), Mathf.Abs(a.y), Mathf.Abs(a.z));
+    public static Vector3 Min(Vector3 a, Vector3 b) => new Vector3(Min(a.x, b.x), Min(a.y, b.y), Min(a.z, b.z));
+    private static float Min(float ax,float bx)
+    {
+        
+        return Mathf.Abs(ax)<Mathf.Abs(bx)?ax:bx;
+    }
     public static Rect rect = new Rect(0,0,1,1);
     public static Vector2 half= new Vector2(.5f,.5f);
     public const float itchToM= 0.0254f; 

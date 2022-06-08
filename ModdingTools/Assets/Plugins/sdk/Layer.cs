@@ -6,7 +6,6 @@ public struct Layer
 {
     public static int ignoreRayCast = 2;
     public static int ui = LayerMask.NameToLayer("UI");
-    public static int Invisible = LayerMask.NameToLayer("Invisible");
     public static int def = LayerMask.NameToLayer("Default");
     public static int transparentFX = LayerMask.NameToLayer("TransparentFX");
     public static int level = LayerMask.NameToLayer("level");
@@ -26,6 +25,7 @@ public struct Layer
     public static int EditorLayer = LayerMask.NameToLayer("EditorLayer");
     public static int ragdoll = LayerMask.NameToLayer("Ragdoll");
     public static int Physics = LayerMask.NameToLayer("Physics");
+    public static int HLOD = LayerMask.NameToLayer("HLOD");
     public static int botVisibility = LayerMask.NameToLayer("botVisibility");
     public static int groundSoundFx= LayerMask.NameToLayer("groundSoundFx");
     public static int enemy= LayerMask.NameToLayer("Enemy");

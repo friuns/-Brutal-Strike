@@ -17,7 +17,10 @@ public class GunInfo
     #if game
     public GunBase gun
     {
-        get { return bs.gunsDict.TryGet(arrayId); }
+        get
+        {
+            return bs.gunsDict.TryGet(arrayId);
+        }
         set
         {
             if (value == null)
@@ -112,7 +115,10 @@ public class GunInfo
 
     public void Write(BinaryWriter bw)
     {
-        bw.Write(gun.id);
+        var gunBase = gun;
+        if (gunBase == null)
+            Debug.LogError("gun id not found " + arrayId);
+        bw.Write(gunBase.id);
         bw.Write(count);
         bw.Write(secondaryCount);
     }
@@ -169,13 +175,13 @@ public class GunInfo
         if (gun is Armor)
         {
             if (b == null)
-                return secondaryCount > gun.secondaryCountDef / 3;
+                return secondaryCount > gun.secondaryCountDef / 3f;
             if (secondaryCount != b.secondaryCount)
                 return secondaryCount > b.secondaryCount;
         }
         if (b == null) return true;
             
-        return gun.IsBetterThan(b?.gun);
+        return gun?.IsBetterThan(b?.gun)==true;
     }
  #endif   
 }

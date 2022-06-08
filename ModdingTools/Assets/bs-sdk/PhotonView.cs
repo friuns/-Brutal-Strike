@@ -10,6 +10,7 @@ public class PhotonView : MonoBehaviour
 
 public class Destructable : ItemBase
 {
+    protected Hook _Die;
 	public int lifeDef = 100;
     public override void Reset()
     {

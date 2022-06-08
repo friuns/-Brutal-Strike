@@ -240,7 +240,7 @@ public partial class Weapon : WeaponBase
     //    bought = 1;  
     //}
 
-    internal bool aiming { get { return pl.aiming && haveScope && !isReloadingOrDraw && (canAimWhileShooting ? true : !isShooting); } }
+    internal bool aiming { get { return  pl.aiming && haveScope && !isReloadingOrDraw && (canAimWhileShooting ? true : !isShooting); } }
     public override void OnDisable2()
     {
         base.OnDisable2();
@@ -377,8 +377,11 @@ public partial class Weapon : WeaponBase
     
     public virtual void Shoot(Vector3 hpos, int plID, Vector3 viewportP)
     {
-            
         if (pl.knocked) return;
+        
+        if (pl.IsMine && userSettings.disablePhysics)
+            Physics.SyncTransforms();
+
         var enemy = ToObject<Player>(plID);
         Vector3 forward = viewportP;
         if (enemy.IsAlive())
