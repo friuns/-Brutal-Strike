@@ -234,7 +234,7 @@ public class RoomSettings : IAutoUpdate,IVarParseDraw, IVarParseValueChanged
     public void OnValueChanged(string key, FieldCache fc)
     {
         Physics.IgnoreLayerCollision(Layer.player, Layer.ignoreRayCast, enablePlayerDrop);
-        if (key.EndsWith(nameof(enableThirdPerson)) && enableThirdPerson && fc.inited)
+        if (key.EndsWithFast(nameof(enableThirdPerson)) && enableThirdPerson && fc.inited)
             ShootThroughWalls = false;
     }
     

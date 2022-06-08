@@ -879,66 +879,6 @@ MonoBehaviour:
         exposed: 0
         indexes:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: AddLife(float colliderDamage)
-        name: AddLife
-        parameters:
-        - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: colliderDamage
-        path: '/carDict Car[]/AddLife(float colliderDamage) '
-        code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: Die()
-        name: Die
-        parameters: []
-        path: '/carDict Car[]/Die() '
-        code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: DieTest()
-        name: DieTest
-        parameters: []
-        path: '/carDict Car[]/DieTest() '
-        code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: FixedUpdate()
-        name: FixedUpdate
-        parameters: []
-        path: '/carDict Car[]/FixedUpdate() '
-        code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: InputGetKey(KeyCode keyCode)
-        name: InputGetKey
-        parameters:
-        - m_type: UnityEngine.KeyCode, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
-          Name: keyCode
-        path: '/carDict Car[]/InputGetKey(KeyCode keyCode) '
-        code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         fullName: Lerp(float SteerValue, int i, float factor)
         name: Lerp
         parameters:
@@ -948,21 +888,7 @@ MonoBehaviour:
           Name: i
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: factor
-        path: '/carDict Car[]/Lerp(float SteerValue, int i, float factor) '
-        code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: OnCollisionEnter(Collision collision)
-        name: OnCollisionEnter
-        parameters:
-        - m_type: UnityEngine.Collision, UnityEngine.PhysicsModule, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          Name: collision
-        path: '/carDict Car[]/OnCollisionEnter(Collision collision) '
+        path: '/carDict CarBase[]/Car/Lerp(float SteerValue, int i, float factor) '
         code: .carDict[{0}]
       - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
@@ -977,7 +903,7 @@ MonoBehaviour:
           Name: pl
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: enter
-        path: '/carDict Car[]/OnEnter(Player pl, bool enter) '
+        path: '/carDict CarBase[]/Car/OnEnter(Player pl, bool enter) '
         code: .carDict[{0}]
       - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
@@ -988,7 +914,7 @@ MonoBehaviour:
         fullName: OnLevelEditorGUI()
         name: OnLevelEditorGUI
         parameters: []
-        path: '/carDict Car[]/OnLevelEditorGUI() '
+        path: '/carDict CarBase[]/Car/OnLevelEditorGUI() '
         code: .carDict[{0}]
       - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
@@ -999,7 +925,7 @@ MonoBehaviour:
         fullName: OnLoadAsset()
         name: OnLoadAsset
         parameters: []
-        path: '/carDict Car[]/OnLoadAsset() '
+        path: '/carDict CarBase[]/Car/OnLoadAsset() '
         code: .carDict[{0}]
       - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
@@ -1007,14 +933,194 @@ MonoBehaviour:
         exposed: 1
         indexes:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnReset()
+        name: OnReset
+        parameters: []
+        path: '/carDict CarBase[]/Car/OnReset() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: ProcessImpact()
+        name: ProcessImpact
+        parameters: []
+        path: '/carDict CarBase[]/Car/ProcessImpact() '
+        code: .carDict[{0}]
+      - m_type: ChobiAssets.PTM.Tank, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Initialize()
+        name: Initialize
+        parameters: []
+        path: '/carDict CarBase[]/Tank/Initialize() '
+        code: .carDict[{0}]
+      - m_type: ChobiAssets.PTM.Tank, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnReset()
+        name: OnReset
+        parameters: []
+        path: '/carDict CarBase[]/Tank/OnReset() '
+        code: .carDict[{0}]
+      - m_type: ChobiAssets.PTM.Tank, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Shoot()
+        name: Shoot
+        parameters: []
+        path: '/carDict CarBase[]/Tank/Shoot() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Die()
+        name: Die
+        parameters: []
+        path: '/carDict CarBase[]/Die() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: DieTest()
+        name: DieTest
+        parameters: []
+        path: '/carDict CarBase[]/DieTest() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: FixedUpdate()
+        name: FixedUpdate
+        parameters: []
+        path: '/carDict CarBase[]/FixedUpdate() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: InitRespawn()
+        name: InitRespawn
+        parameters: []
+        path: '/carDict CarBase[]/InitRespawn() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: InputGetKey(KeyCode keyCode)
+        name: InputGetKey
+        parameters:
+        - m_type: UnityEngine.KeyCode, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: keyCode
+        path: '/carDict CarBase[]/InputGetKey(KeyCode keyCode) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Load(BinaryReader br)
+        name: Load
+        parameters:
+        - m_type: BinaryReader, Assembly-CSharp-firstpass, Version=1.0.9.1, Culture=neutral,
+            PublicKeyToken=null
+          Name: br
+        path: '/carDict CarBase[]/Load(BinaryReader br) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnCollisionEnter(Collision collision)
+        name: OnCollisionEnter
+        parameters:
+        - m_type: UnityEngine.Collision, UnityEngine.PhysicsModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          Name: collision
+        path: '/carDict CarBase[]/OnCollisionEnter(Collision collision) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnEnter(Player pl, bool enter)
+        name: OnEnter
+        parameters:
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: pl
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: enter
+        path: '/carDict CarBase[]/OnEnter(Player pl, bool enter) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnInstanciate(ItemBase prefab)
+        name: OnInstanciate
+        parameters:
+        - m_type: ItemBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: prefab
+        path: '/carDict CarBase[]/OnInstanciate(ItemBase prefab) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnLoadAsset()
+        name: OnLoadAsset
+        parameters: []
+        path: '/carDict CarBase[]/OnLoadAsset() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         fullName: OnOwnerChanged(int id)
         name: OnOwnerChanged
         parameters:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
-        path: '/carDict Car[]/OnOwnerChanged(int id) '
+        path: '/carDict CarBase[]/OnOwnerChanged(int id) '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -1029,10 +1135,10 @@ MonoBehaviour:
         - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: info
-        path: '/carDict Car[]/OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo
+        path: '/carDict CarBase[]/OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo
           info) '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -1047,9 +1153,9 @@ MonoBehaviour:
           Name: other
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: b
-        path: '/carDict Car[]/OnPlayerEnter(Player pl, Trigger other, bool b) '
+        path: '/carDict CarBase[]/OnPlayerEnter(Player pl, Trigger other, bool b) '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -1062,45 +1168,81 @@ MonoBehaviour:
           Name: pl
         - m_type: Trigger, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: other
-        path: '/carDict Car[]/OnPlayerStay(Player pl, Trigger other) '
+        path: '/carDict CarBase[]/OnPlayerStay(Player pl, Trigger other) '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnPlConnected(PhotonPlayer photonPlayer)
+        name: OnPlConnected
+        parameters:
+        - m_type: PhotonPlayer, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: photonPlayer
+        path: '/carDict CarBase[]/OnPlConnected(PhotonPlayer photonPlayer) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 1
         indexes:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         fullName: OnReset()
         name: OnReset
         parameters: []
-        path: '/carDict Car[]/OnReset() '
+        path: '/carDict CarBase[]/OnReset() '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: ProcessImpact()
-        name: ProcessImpact
+        fullName: OnStopDrag()
+        name: OnStopDrag
         parameters: []
-        path: '/carDict Car[]/ProcessImpact() '
+        path: '/carDict CarBase[]/OnStopDrag() '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: RPCDamageAddLife(float damage, int pv, int weapon, HumanBodyBones
+        fullName: Reset()
+        name: Reset
+        parameters: []
+        path: '/carDict CarBase[]/Reset() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: ResetLife()
+        name: ResetLife
+        parameters: []
+        path: '/carDict CarBase[]/ResetLife() '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: RPCDamageAddLife(float damage, Player pv, GunBase weapon, HumanBodyBones
           colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: damage
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pv
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: weapon
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -1108,10 +1250,10 @@ MonoBehaviour:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/carDict Car[]/RPCDamageAddLife(float damage, int pv, int weapon,
-          HumanBodyBones colliderId, Vector3 hitPos) '
+        path: '/carDict CarBase[]/RPCDamageAddLife(float damage, Player pv, GunBase
+          weapon, HumanBodyBones colliderId, Vector3 hitPos) '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 0
@@ -1122,20 +1264,38 @@ MonoBehaviour:
         parameters:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
-        path: '/carDict Car[]/RPCTransferOwnership(int id) '
+        path: '/carDict CarBase[]/RPCTransferOwnership(int id) '
         code: .carDict[{0}]
-      - m_type: BattleRoyale.Car, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Save(BinaryWriter bw)
+        name: Save
+        parameters:
+        - m_type: BinaryWriter, Assembly-CSharp-firstpass, Version=1.0.9.1, Culture=neutral,
+            PublicKeyToken=null
+          Name: bw
+        path: '/carDict CarBase[]/Save(BinaryWriter bw) '
+        code: .carDict[{0}]
+      - m_type: BattleRoyale.CarBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
           PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes:
         - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: SetLife(float nwLife)
+        fullName: SetLife(float nwLife, int plId, int weaponID)
         name: SetLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: nwLife
-        path: '/carDict Car[]/SetLife(float nwLife) '
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plId
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: weaponID
+        path: '/carDict CarBase[]/SetLife(float nwLife, int plId, int weaponID) '
         code: .carDict[{0}]
       - m_type: PlayerClass, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -1698,6 +1858,22 @@ MonoBehaviour:
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: AttachRope(Vector3 point, int viewid, int ropeIndex)
+        name: AttachRope
+        parameters:
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: point
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: viewid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ropeIndex
+        path: '/playerPrefab Player/AttachRope(Vector3 point, int viewid, int ropeIndex) '
+        code: .playerPrefab
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: BotDificultyAndDist(Player enemy)
@@ -2104,19 +2280,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: medkitType
         path: '/playerPrefab Player/GetCast(MedkitType medkitType) '
-        code: .playerPrefab
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: GetCorner(bool top, bool left)
-        name: GetCorner
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: top
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: left
-        path: '/playerPrefab Player/GetCorner(bool top, bool left) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -2750,6 +2913,17 @@ MonoBehaviour:
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RemoteComplete(string s)
+        name: RemoteComplete
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        path: '/playerPrefab Player/RemoteComplete(string s) '
+        code: .playerPrefab
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: RescuePlayer(Player pl)
@@ -2864,24 +3038,24 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos)
+        fullName: RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: deltaLife
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: shooterID
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: weapon
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: gun
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           Name: colliderId
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/playerPrefab Player/RPCDamageAddLife(float deltaLife, int shooterID,
-          int weapon, HumanBodyBones colliderId, Vector3 hitPos) '
+        path: '/playerPrefab Player/RPCDamageAddLife(float deltaLife, Player shooterID,
+          GunBase gun, HumanBodyBones colliderId, Vector3 hitPos) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -2960,31 +3134,29 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos)
+        fullName: RPCReset(bool alive, PosRot pos)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
-        path: '/playerPrefab Player/RPCReset(bool alive, Vector3 pos) '
+        path: '/playerPrefab Player/RPCReset(bool alive, PosRot pos) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos, int playerClassID)
+        fullName: RPCReset(bool alive, PosRot pos, int playerClassID)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: playerClassID
-        path: '/playerPrefab Player/RPCReset(bool alive, Vector3 pos, int playerClassID) '
+        path: '/playerPrefab Player/RPCReset(bool alive, PosRot pos, int playerClassID) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -3205,6 +3377,23 @@ MonoBehaviour:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
         path: '/playerPrefab Player/RPCTransferOwnership(int id) '
+        code: .playerPrefab
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RunEval(string s, string ns, PhotonMessageInfo ms)
+        name: RunEval
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ns
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: ms
+        path: '/playerPrefab Player/RunEval(string s, string ns, PhotonMessageInfo
+          ms) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -3624,6 +3813,19 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
+        fullName: SetPlatform(bool b, int plid)
+        name: SetPlatform
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        path: '/playerPrefab Player/SetPlatform(bool b, int plid) '
+        code: .playerPrefab
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
         fullName: SetPlayerClass(int playerClass)
         name: SetPlayerClass
         parameters:
@@ -3699,6 +3901,19 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: b
         path: '/playerPrefab Player/SetReservedTeam(TeamEnum b) '
+        code: .playerPrefab
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: SetRopeEnabled(bool b, int i)
+        name: SetRopeEnabled
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        path: '/playerPrefab Player/SetRopeEnabled(bool b, int i) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -3816,26 +4031,26 @@ MonoBehaviour:
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
-        exposed: 0
+        exposed: 1
         indexes: []
-        fullName: SetWasdKeys(Vector3 mv)
-        name: SetWasdKeys
+        fullName: SetVeloticy(Vector3 Vel)
+        name: SetVeloticy
         parameters:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
-          Name: mv
-        path: '/playerPrefab Player/SetWasdKeys(Vector3 mv) '
+          Name: Vel
+        path: '/playerPrefab Player/SetVeloticy(Vector3 Vel) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: SHowCarShop(PosRot respawn)
-        name: SHowCarShop
+        fullName: ShowCarSelectWindow(PosRot respawn)
+        name: ShowCarSelectWindow
         parameters:
         - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: respawn
-        path: '/playerPrefab Player/SHowCarShop(PosRot respawn) '
+        path: '/playerPrefab Player/ShowCarSelectWindow(PosRot respawn) '
         code: .playerPrefab
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -6061,15 +6276,15 @@ MonoBehaviour:
         exposed: 0
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: RPCDamageAddLife(float damage, int pv, int weapon, HumanBodyBones
+        fullName: RPCDamageAddLife(float damage, Player pv, GunBase weapon, HumanBodyBones
           collId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: damage
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pv
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: weapon
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -6077,8 +6292,8 @@ MonoBehaviour:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/floorCells FloorCell[]/RPCDamageAddLife(float damage, int pv, int
-          weapon, HumanBodyBones collId, Vector3 hitPos) '
+        path: '/floorCells FloorCell[]/RPCDamageAddLife(float damage, Player pv,
+          GunBase weapon, HumanBodyBones collId, Vector3 hitPos) '
         code: .floorCells[{0}]
       - m_type: FloorCell, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -6144,6 +6359,23 @@ MonoBehaviour:
         name: ApplyDamage
         parameters: []
         path: '/playersAll Player[]/ApplyDamage() '
+        code: .playersAll[{0}]
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: AttachRope(Vector3 point, int viewid, int ropeIndex)
+        name: AttachRope
+        parameters:
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: point
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: viewid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ropeIndex
+        path: '/playersAll Player[]/AttachRope(Vector3 point, int viewid, int ropeIndex) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -6588,20 +6820,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: medkitType
         path: '/playersAll Player[]/GetCast(MedkitType medkitType) '
-        code: .playersAll[{0}]
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes:
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: GetCorner(bool top, bool left)
-        name: GetCorner
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: top
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: left
-        path: '/playersAll Player[]/GetCorner(bool top, bool left) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -7291,6 +7509,18 @@ MonoBehaviour:
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: RemoteComplete(string s)
+        name: RemoteComplete
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        path: '/playersAll Player[]/RemoteComplete(string s) '
+        code: .playersAll[{0}]
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -7416,24 +7646,24 @@ MonoBehaviour:
         exposed: 0
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos)
+        fullName: RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: deltaLife
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: shooterID
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: weapon
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: gun
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           Name: colliderId
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/playersAll Player[]/RPCDamageAddLife(float deltaLife, int shooterID,
-          int weapon, HumanBodyBones colliderId, Vector3 hitPos) '
+        path: '/playersAll Player[]/RPCDamageAddLife(float deltaLife, Player shooterID,
+          GunBase gun, HumanBodyBones colliderId, Vector3 hitPos) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -7518,32 +7748,30 @@ MonoBehaviour:
         exposed: 0
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: RPCReset(bool alive, Vector3 pos)
+        fullName: RPCReset(bool alive, PosRot pos)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
-        path: '/playersAll Player[]/RPCReset(bool alive, Vector3 pos) '
+        path: '/playersAll Player[]/RPCReset(bool alive, PosRot pos) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: RPCReset(bool alive, Vector3 pos, int playerClassID)
+        fullName: RPCReset(bool alive, PosRot pos, int playerClassID)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: playerClassID
-        path: '/playersAll Player[]/RPCReset(bool alive, Vector3 pos, int playerClassID) '
+        path: '/playersAll Player[]/RPCReset(bool alive, PosRot pos, int playerClassID) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -7782,6 +8010,24 @@ MonoBehaviour:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
         path: '/playersAll Player[]/RPCTransferOwnership(int id) '
+        code: .playersAll[{0}]
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: RunEval(string s, string ns, PhotonMessageInfo ms)
+        name: RunEval
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ns
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: ms
+        path: '/playersAll Player[]/RunEval(string s, string ns, PhotonMessageInfo
+          ms) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -8237,6 +8483,20 @@ MonoBehaviour:
         exposed: 1
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: SetPlatform(bool b, int plid)
+        name: SetPlatform
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        path: '/playersAll Player[]/SetPlatform(bool b, int plid) '
+        code: .playersAll[{0}]
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
         fullName: SetPlayerClass(int playerClass)
         name: SetPlayerClass
         parameters:
@@ -8318,6 +8578,20 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: b
         path: '/playersAll Player[]/SetReservedTeam(TeamEnum b) '
+        code: .playersAll[{0}]
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: SetRopeEnabled(bool b, int i)
+        name: SetRopeEnabled
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        path: '/playersAll Player[]/SetRopeEnabled(bool b, int i) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -8445,28 +8719,28 @@ MonoBehaviour:
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
-        exposed: 0
+        exposed: 1
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: SetWasdKeys(Vector3 mv)
-        name: SetWasdKeys
+        fullName: SetVeloticy(Vector3 Vel)
+        name: SetVeloticy
         parameters:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
-          Name: mv
-        path: '/playersAll Player[]/SetWasdKeys(Vector3 mv) '
+          Name: Vel
+        path: '/playersAll Player[]/SetVeloticy(Vector3 Vel) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        fullName: SHowCarShop(PosRot respawn)
-        name: SHowCarShop
+        fullName: ShowCarSelectWindow(PosRot respawn)
+        name: ShowCarSelectWindow
         parameters:
         - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: respawn
-        path: '/playersAll Player[]/SHowCarShop(PosRot respawn) '
+        path: '/playersAll Player[]/ShowCarSelectWindow(PosRot respawn) '
         code: .playersAll[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -17742,6 +18016,22 @@ MonoBehaviour:
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: AttachRope(Vector3 point, int viewid, int ropeIndex)
+        name: AttachRope
+        parameters:
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: point
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: viewid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ropeIndex
+        path: '/lastKilledBy Player/AttachRope(Vector3 point, int viewid, int ropeIndex) '
+        code: .lastKilledBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: BotDificultyAndDist(Player enemy)
@@ -18148,19 +18438,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: medkitType
         path: '/lastKilledBy Player/GetCast(MedkitType medkitType) '
-        code: .lastKilledBy
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: GetCorner(bool top, bool left)
-        name: GetCorner
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: top
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: left
-        path: '/lastKilledBy Player/GetCorner(bool top, bool left) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -18794,6 +19071,17 @@ MonoBehaviour:
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RemoteComplete(string s)
+        name: RemoteComplete
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        path: '/lastKilledBy Player/RemoteComplete(string s) '
+        code: .lastKilledBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: RescuePlayer(Player pl)
@@ -18908,24 +19196,24 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos)
+        fullName: RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: deltaLife
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: shooterID
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: weapon
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: gun
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           Name: colliderId
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/lastKilledBy Player/RPCDamageAddLife(float deltaLife, int shooterID,
-          int weapon, HumanBodyBones colliderId, Vector3 hitPos) '
+        path: '/lastKilledBy Player/RPCDamageAddLife(float deltaLife, Player shooterID,
+          GunBase gun, HumanBodyBones colliderId, Vector3 hitPos) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -19004,31 +19292,29 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos)
+        fullName: RPCReset(bool alive, PosRot pos)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
-        path: '/lastKilledBy Player/RPCReset(bool alive, Vector3 pos) '
+        path: '/lastKilledBy Player/RPCReset(bool alive, PosRot pos) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos, int playerClassID)
+        fullName: RPCReset(bool alive, PosRot pos, int playerClassID)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: playerClassID
-        path: '/lastKilledBy Player/RPCReset(bool alive, Vector3 pos, int playerClassID) '
+        path: '/lastKilledBy Player/RPCReset(bool alive, PosRot pos, int playerClassID) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -19249,6 +19535,23 @@ MonoBehaviour:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
         path: '/lastKilledBy Player/RPCTransferOwnership(int id) '
+        code: .lastKilledBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RunEval(string s, string ns, PhotonMessageInfo ms)
+        name: RunEval
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ns
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: ms
+        path: '/lastKilledBy Player/RunEval(string s, string ns, PhotonMessageInfo
+          ms) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -19668,6 +19971,19 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
+        fullName: SetPlatform(bool b, int plid)
+        name: SetPlatform
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        path: '/lastKilledBy Player/SetPlatform(bool b, int plid) '
+        code: .lastKilledBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
         fullName: SetPlayerClass(int playerClass)
         name: SetPlayerClass
         parameters:
@@ -19743,6 +20059,19 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: b
         path: '/lastKilledBy Player/SetReservedTeam(TeamEnum b) '
+        code: .lastKilledBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: SetRopeEnabled(bool b, int i)
+        name: SetRopeEnabled
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        path: '/lastKilledBy Player/SetRopeEnabled(bool b, int i) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -19860,26 +20189,26 @@ MonoBehaviour:
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
-        exposed: 0
+        exposed: 1
         indexes: []
-        fullName: SetWasdKeys(Vector3 mv)
-        name: SetWasdKeys
+        fullName: SetVeloticy(Vector3 Vel)
+        name: SetVeloticy
         parameters:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
-          Name: mv
-        path: '/lastKilledBy Player/SetWasdKeys(Vector3 mv) '
+          Name: Vel
+        path: '/lastKilledBy Player/SetVeloticy(Vector3 Vel) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: SHowCarShop(PosRot respawn)
-        name: SHowCarShop
+        fullName: ShowCarSelectWindow(PosRot respawn)
+        name: ShowCarSelectWindow
         parameters:
         - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: respawn
-        path: '/lastKilledBy Player/SHowCarShop(PosRot respawn) '
+        path: '/lastKilledBy Player/ShowCarSelectWindow(PosRot respawn) '
         code: .lastKilledBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -20290,6 +20619,23 @@ MonoBehaviour:
         name: ApplyDamage
         parameters: []
         path: '/iMoveController IMovementController/Player/ApplyDamage() '
+        code: .iMoveController
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: AttachRope(Vector3 point, int viewid, int ropeIndex)
+        name: AttachRope
+        parameters:
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: point
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: viewid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ropeIndex
+        path: '/iMoveController IMovementController/Player/AttachRope(Vector3 point,
+          int viewid, int ropeIndex) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -20711,20 +21057,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: medkitType
         path: '/iMoveController IMovementController/Player/GetCast(MedkitType medkitType) '
-        code: .iMoveController
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: GetCorner(bool top, bool left)
-        name: GetCorner
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: top
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: left
-        path: '/iMoveController IMovementController/Player/GetCorner(bool top, bool
-          left) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -21371,6 +21703,18 @@ MonoBehaviour:
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RemoteComplete(string s)
+        name: RemoteComplete
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        path: '/iMoveController IMovementController/Player/RemoteComplete(string
+          s) '
+        code: .iMoveController
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: RescuePlayer(Player pl)
@@ -21485,16 +21829,16 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos)
+        fullName: RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: deltaLife
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: shooterID
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: weapon
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: gun
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           Name: colliderId
@@ -21502,7 +21846,7 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: hitPos
         path: '/iMoveController IMovementController/Player/RPCDamageAddLife(float
-          deltaLife, int shooterID, int weapon, HumanBodyBones colliderId, Vector3
+          deltaLife, Player shooterID, GunBase gun, HumanBodyBones colliderId, Vector3
           hitPos) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -21584,32 +21928,30 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos)
+        fullName: RPCReset(bool alive, PosRot pos)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
-        path: '/iMoveController IMovementController/Player/RPCReset(bool alive, Vector3
+        path: '/iMoveController IMovementController/Player/RPCReset(bool alive, PosRot
           pos) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos, int playerClassID)
+        fullName: RPCReset(bool alive, PosRot pos, int playerClassID)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: playerClassID
-        path: '/iMoveController IMovementController/Player/RPCReset(bool alive, Vector3
+        path: '/iMoveController IMovementController/Player/RPCReset(bool alive, PosRot
           pos, int playerClassID) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -21838,6 +22180,23 @@ MonoBehaviour:
           Name: id
         path: '/iMoveController IMovementController/Player/RPCTransferOwnership(int
           id) '
+        code: .iMoveController
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RunEval(string s, string ns, PhotonMessageInfo ms)
+        name: RunEval
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ns
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: ms
+        path: '/iMoveController IMovementController/Player/RunEval(string s, string
+          ns, PhotonMessageInfo ms) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -22266,6 +22625,20 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
+        fullName: SetPlatform(bool b, int plid)
+        name: SetPlatform
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        path: '/iMoveController IMovementController/Player/SetPlatform(bool b, int
+          plid) '
+        code: .iMoveController
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
         fullName: SetPlayerClass(int playerClass)
         name: SetPlayerClass
         parameters:
@@ -22343,6 +22716,20 @@ MonoBehaviour:
           Name: b
         path: '/iMoveController IMovementController/Player/SetReservedTeam(TeamEnum
           b) '
+        code: .iMoveController
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: SetRopeEnabled(bool b, int i)
+        name: SetRopeEnabled
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        path: '/iMoveController IMovementController/Player/SetRopeEnabled(bool b,
+          int i) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -22463,26 +22850,27 @@ MonoBehaviour:
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
-        exposed: 0
+        exposed: 1
         indexes: []
-        fullName: SetWasdKeys(Vector3 mv)
-        name: SetWasdKeys
+        fullName: SetVeloticy(Vector3 Vel)
+        name: SetVeloticy
         parameters:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
-          Name: mv
-        path: '/iMoveController IMovementController/Player/SetWasdKeys(Vector3 mv) '
+          Name: Vel
+        path: '/iMoveController IMovementController/Player/SetVeloticy(Vector3 Vel) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: SHowCarShop(PosRot respawn)
-        name: SHowCarShop
+        fullName: ShowCarSelectWindow(PosRot respawn)
+        name: ShowCarSelectWindow
         parameters:
         - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: respawn
-        path: '/iMoveController IMovementController/Player/SHowCarShop(PosRot respawn) '
+        path: '/iMoveController IMovementController/Player/ShowCarSelectWindow(PosRot
+          respawn) '
         code: .iMoveController
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -24610,6 +24998,22 @@ MonoBehaviour:
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: AttachRope(Vector3 point, int viewid, int ropeIndex)
+        name: AttachRope
+        parameters:
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: point
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: viewid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ropeIndex
+        path: '/resquedBy Player/AttachRope(Vector3 point, int viewid, int ropeIndex) '
+        code: .resquedBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: BotDificultyAndDist(Player enemy)
@@ -25016,19 +25420,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: medkitType
         path: '/resquedBy Player/GetCast(MedkitType medkitType) '
-        code: .resquedBy
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: GetCorner(bool top, bool left)
-        name: GetCorner
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: top
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: left
-        path: '/resquedBy Player/GetCorner(bool top, bool left) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -25661,6 +26052,17 @@ MonoBehaviour:
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RemoteComplete(string s)
+        name: RemoteComplete
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        path: '/resquedBy Player/RemoteComplete(string s) '
+        code: .resquedBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: RescuePlayer(Player pl)
@@ -25775,24 +26177,24 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos)
+        fullName: RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: deltaLife
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: shooterID
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: weapon
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: gun
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           Name: colliderId
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/resquedBy Player/RPCDamageAddLife(float deltaLife, int shooterID,
-          int weapon, HumanBodyBones colliderId, Vector3 hitPos) '
+        path: '/resquedBy Player/RPCDamageAddLife(float deltaLife, Player shooterID,
+          GunBase gun, HumanBodyBones colliderId, Vector3 hitPos) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -25871,31 +26273,29 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos)
+        fullName: RPCReset(bool alive, PosRot pos)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
-        path: '/resquedBy Player/RPCReset(bool alive, Vector3 pos) '
+        path: '/resquedBy Player/RPCReset(bool alive, PosRot pos) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos, int playerClassID)
+        fullName: RPCReset(bool alive, PosRot pos, int playerClassID)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: playerClassID
-        path: '/resquedBy Player/RPCReset(bool alive, Vector3 pos, int playerClassID) '
+        path: '/resquedBy Player/RPCReset(bool alive, PosRot pos, int playerClassID) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -26116,6 +26516,22 @@ MonoBehaviour:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
         path: '/resquedBy Player/RPCTransferOwnership(int id) '
+        code: .resquedBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RunEval(string s, string ns, PhotonMessageInfo ms)
+        name: RunEval
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ns
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: ms
+        path: '/resquedBy Player/RunEval(string s, string ns, PhotonMessageInfo ms) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -26535,6 +26951,19 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
+        fullName: SetPlatform(bool b, int plid)
+        name: SetPlatform
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        path: '/resquedBy Player/SetPlatform(bool b, int plid) '
+        code: .resquedBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
         fullName: SetPlayerClass(int playerClass)
         name: SetPlayerClass
         parameters:
@@ -26610,6 +27039,19 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: b
         path: '/resquedBy Player/SetReservedTeam(TeamEnum b) '
+        code: .resquedBy
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: SetRopeEnabled(bool b, int i)
+        name: SetRopeEnabled
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        path: '/resquedBy Player/SetRopeEnabled(bool b, int i) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -26727,26 +27169,26 @@ MonoBehaviour:
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
-        exposed: 0
+        exposed: 1
         indexes: []
-        fullName: SetWasdKeys(Vector3 mv)
-        name: SetWasdKeys
+        fullName: SetVeloticy(Vector3 Vel)
+        name: SetVeloticy
         parameters:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
-          Name: mv
-        path: '/resquedBy Player/SetWasdKeys(Vector3 mv) '
+          Name: Vel
+        path: '/resquedBy Player/SetVeloticy(Vector3 Vel) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: SHowCarShop(PosRot respawn)
-        name: SHowCarShop
+        fullName: ShowCarSelectWindow(PosRot respawn)
+        name: ShowCarSelectWindow
         parameters:
         - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: respawn
-        path: '/resquedBy Player/SHowCarShop(PosRot respawn) '
+        path: '/resquedBy Player/ShowCarSelectWindow(PosRot respawn) '
         code: .resquedBy
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -28631,6 +29073,36 @@ MonoBehaviour:
           Name: other
         path: '/trigger TriggerReceiver/OnTriggerExit2(Trigger other) '
         code: .trigger
+      - m_type: Spring, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnDisable()
+        name: OnDisable
+        parameters: []
+        path: '/spring Spring[]/OnDisable() '
+        code: .spring[{0}]
+      - m_type: Spring, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: OnEnable()
+        name: OnEnable
+        parameters: []
+        path: '/spring Spring[]/OnEnable() '
+        code: .spring[{0}]
+      - m_type: Spring, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 0
+        indexes:
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        fullName: Reset()
+        name: Reset
+        parameters: []
+        path: '/spring Spring[]/Reset() '
+        code: .spring[{0}]
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
@@ -28662,6 +29134,22 @@ MonoBehaviour:
         name: ApplyDamage
         parameters: []
         path: '/ApplyDamage() '
+        code: 
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: AttachRope(Vector3 point, int viewid, int ropeIndex)
+        name: AttachRope
+        parameters:
+        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: point
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: viewid
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ropeIndex
+        path: '/AttachRope(Vector3 point, int viewid, int ropeIndex) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -29070,19 +29558,6 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: medkitType
         path: '/GetCast(MedkitType medkitType) '
-        code: 
-      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-        Prefix: _
-        exposed: 0
-        indexes: []
-        fullName: GetCorner(bool top, bool left)
-        name: GetCorner
-        parameters:
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: top
-        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: left
-        path: '/GetCorner(bool top, bool left) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -29712,6 +30187,17 @@ MonoBehaviour:
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RemoteComplete(string s)
+        name: RemoteComplete
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        path: '/RemoteComplete(string s) '
+        code: 
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
         exposed: 0
         indexes: []
         fullName: RescuePlayer(Player pl)
@@ -29824,24 +30310,24 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos)
+        fullName: RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: deltaLife
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: shooterID
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-          Name: weapon
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          Name: gun
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           Name: colliderId
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/RPCDamageAddLife(float deltaLife, int shooterID, int weapon, HumanBodyBones
-          colliderId, Vector3 hitPos) '
+        path: '/RPCDamageAddLife(float deltaLife, Player shooterID, GunBase gun,
+          HumanBodyBones colliderId, Vector3 hitPos) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -29919,31 +30405,29 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos)
+        fullName: RPCReset(bool alive, PosRot pos)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
-        path: '/RPCReset(bool alive, Vector3 pos) '
+        path: '/RPCReset(bool alive, PosRot pos) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 1
         indexes: []
-        fullName: RPCReset(bool alive, Vector3 pos, int playerClassID)
+        fullName: RPCReset(bool alive, PosRot pos, int playerClassID)
         name: RPCReset
         parameters:
         - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: alive
-        - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-            PublicKeyToken=null
+        - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pos
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: playerClassID
-        path: '/RPCReset(bool alive, Vector3 pos, int playerClassID) '
+        path: '/RPCReset(bool alive, PosRot pos, int playerClassID) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -30162,6 +30646,22 @@ MonoBehaviour:
         - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: id
         path: '/RPCTransferOwnership(int id) '
+        code: 
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: RunEval(string s, string ns, PhotonMessageInfo ms)
+        name: RunEval
+        parameters:
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: s
+        - m_type: System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: ns
+        - m_type: PhotonMessageInfo, Assembly-CSharp, Version=1.0.0.0, Culture=neutral,
+            PublicKeyToken=null
+          Name: ms
+        path: '/RunEval(string s, string ns, PhotonMessageInfo ms) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -30580,6 +31080,19 @@ MonoBehaviour:
         Prefix: _
         exposed: 1
         indexes: []
+        fullName: SetPlatform(bool b, int plid)
+        name: SetPlatform
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: plid
+        path: '/SetPlatform(bool b, int plid) '
+        code: 
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
         fullName: SetPlayerClass(int playerClass)
         name: SetPlayerClass
         parameters:
@@ -30655,6 +31168,19 @@ MonoBehaviour:
             PublicKeyToken=null
           Name: b
         path: '/SetReservedTeam(TeamEnum b) '
+        code: 
+      - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Prefix: _
+        exposed: 1
+        indexes: []
+        fullName: SetRopeEnabled(bool b, int i)
+        name: SetRopeEnabled
+        parameters:
+        - m_type: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: b
+        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+          Name: i
+        path: '/SetRopeEnabled(bool b, int i) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -30772,26 +31298,26 @@ MonoBehaviour:
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
-        exposed: 0
+        exposed: 1
         indexes: []
-        fullName: SetWasdKeys(Vector3 mv)
-        name: SetWasdKeys
+        fullName: SetVeloticy(Vector3 Vel)
+        name: SetVeloticy
         parameters:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
-          Name: mv
-        path: '/SetWasdKeys(Vector3 mv) '
+          Name: Vel
+        path: '/SetVeloticy(Vector3 Vel) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: SHowCarShop(PosRot respawn)
-        name: SHowCarShop
+        fullName: ShowCarSelectWindow(PosRot respawn)
+        name: ShowCarSelectWindow
         parameters:
         - m_type: PosRot, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: respawn
-        path: '/SHowCarShop(PosRot respawn) '
+        path: '/ShowCarSelectWindow(PosRot respawn) '
         code: 
       - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
         Prefix: _
@@ -38702,15 +39228,15 @@ MonoBehaviour:
         Prefix: _
         exposed: 0
         indexes: []
-        fullName: RPCDamageAddLife(float damage, int pv, int weapon, HumanBodyBones
+        fullName: RPCDamageAddLife(float damage, Player pv, GunBase weapon, HumanBodyBones
           colliderId, Vector3 hitPos)
         name: RPCDamageAddLife
         parameters:
         - m_type: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           Name: damage
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: Player, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: pv
-        - m_type: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        - m_type: GunBase, Assembly-CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
           Name: weapon
         - m_type: UnityEngine.HumanBodyBones, UnityEngine.AnimationModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -38718,7 +39244,7 @@ MonoBehaviour:
         - m_type: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
             PublicKeyToken=null
           Name: hitPos
-        path: '/RPCDamageAddLife(float damage, int pv, int weapon, HumanBodyBones
+        path: '/RPCDamageAddLife(float damage, Player pv, GunBase weapon, HumanBodyBones
           colliderId, Vector3 hitPos) '
         code: 
     - list:

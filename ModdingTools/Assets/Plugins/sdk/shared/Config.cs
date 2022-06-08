@@ -14,6 +14,8 @@ public class Config
     public int unlockShopPlayTime = 0;
     public string rateGameText = "Write skin code {0} and rate game to unlock skin!";
     public string unlockRateGame = "5star";
+    public string notificationTitle2 = "{0} players currently playing on {1}";
+    public string notificationText2 = "Click to join {0}";
     
     public string notificationTitle = "Skin Code for Brutal Strike is ready! {0}";
     public string notificationText = "Come back and try your new skin code! {0}";
@@ -107,11 +109,9 @@ WWW('https://game2.brutalstrike.net/cs/asp/',f)"
     // };
     public string[] appIds =
     {
-        "d7170d6f-c328-498e-b3ad-5c98a66f3b46", // Counter Attack - Multiplayer FPS
-        "c31227d4-cb80-4777-a712-48605bc9242e", //frag
-        "48afcb98-1b5d-402b-8b7d-6390326ee4b7", //Cops N Robbers 
-        "d49c09b4-6aa6-47c1-b62f-12f43a2a0e16" //mad gunz pixel shooter
-        
+         
+        "d49c09b4-6aa6-47c1-b62f-12f43a2a0e16", //mad gunz pixel shooter
+        "c9459579-dfb8-4e89-9b86-ac16f2db4dde"//my
         
     };
     public string devPC="friuns";

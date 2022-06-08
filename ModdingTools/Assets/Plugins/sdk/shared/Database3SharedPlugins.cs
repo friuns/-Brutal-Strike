@@ -193,6 +193,13 @@ public abstract class NameIDBase //use this for base! to avoid whole supper clas
     }
     // public NameIDBase nameID { get { return new NameIDBase() {id = id, name = name}; } }
 }
+#if !game
+public class DateTime2
+{
+    public static DateTime Now=>DateTime.Now;
+    public static DateTime UtcNow=>DateTime.UtcNow;
+}
+#endif
 
 [Flags]
 public enum GameType

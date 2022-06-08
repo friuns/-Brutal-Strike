@@ -75,7 +75,8 @@ public static class Tag
         mapPrefix = "Map/";
     public const string fortniteBlockTrigger = "fortniteBlockTrigger";
     public static string PlayerMe = "PlayerMe";
-    public static string glbExtension=".fbx";
+    public static string fbxExtension=".fbx";
+    public static string glbExtension=".glb";
 }
 
 

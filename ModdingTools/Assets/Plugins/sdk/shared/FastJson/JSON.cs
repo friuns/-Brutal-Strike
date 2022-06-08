@@ -867,8 +867,11 @@ public static class JSON
         {
             // FEATURE : optimize create enum
 #if !SILVERLIGHT2
+            if (v is int i)
+                return Enum.ToObject(pt, i);
+            
             var value = v.ToString();
-            value = value.Replace("Survival", "BattleRoyale").Replace("RunMode","Racing");
+            value = value == "Survival" ? "BattleRoyale" : value == "RunMode" ? "Racing" : value;
             return Enum.Parse(pt, value);
 #else
             return Enum.Parse(pt, v, true);
