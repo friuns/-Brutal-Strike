@@ -263,9 +263,7 @@ public class Car : CarBase,ISkinBase
         }
         
     }
-    
-#endif
-    public GunBase gunBase { get; set; }
+     public GunBase gunBase { get; set; }
     public Player pl
     {
         get
@@ -275,6 +273,8 @@ public class Car : CarBase,ISkinBase
     }
     public Action resetTextures { get; set; }
     public Bundle skinBundle { get; set; }
+#endif
+   
 }
 }
 

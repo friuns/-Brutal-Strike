@@ -10,6 +10,7 @@ using System.IO;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 #if game
 using Debug = UnityEngine.Debug;
 #endif

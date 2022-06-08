@@ -130,6 +130,7 @@
      <Compile Include="Assets\Plugins\sdk\SerializableDictionary\SerializableDictionary2.cs" />
      <Compile Include="Assets\Plugins\sdk\SubsetList.cs" />
      <Compile Include="Assets\Plugins\sdk\TransformCache.cs" />
+     <Compile Include="Assets\Plugins\sdk\shared\Config.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\Database3SharedPlugins.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\Formatter.cs" />
      <Compile Include="Assets\Plugins\sdk\shared\FastJson\Getters.cs" />
