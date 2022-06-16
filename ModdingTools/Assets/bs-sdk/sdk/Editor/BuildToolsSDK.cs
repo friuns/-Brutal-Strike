@@ -25,15 +25,6 @@ public partial class BuildToolsSDK : EditorWindow
 
 #if !game
    
-    // [InitializeOnLoadMethod]
-    // public static void PreBake()
-    // {
-    //     Lightmapping.bakeStarted+= delegate
-    //     {
-    //         CSGModelManager.BuildLightmapUvs(true);
-    //         EditorSceneManager.MarkAllScenesDirty();    
-    //     }; 
-    // }
     [MenuItem("Brutal Strike/Bake Lightmap", false) ]
     public static void BakeLightmap()
     {
@@ -132,30 +123,7 @@ public partial class BuildToolsSDK : EditorWindow
     public static string menusDir = RootDir.GetPath("Menus");
     public static string skinsDir = RootDir.GetPath("Skins");
     
-    public static BuildTargetGroup ConvertBuildTarget(BuildTarget buildTarget)
-    {
-        switch (buildTarget)
-        {
-            case BuildTarget.iOS:
-                return BuildTargetGroup.iOS;
-            case BuildTarget.Android:
-                return BuildTargetGroup.Android;
-            case BuildTarget.WebGL:
-                return BuildTargetGroup.WebGL;
-            case BuildTarget.WSAPlayer:
-                return BuildTargetGroup.WSA;
-            case BuildTarget.PS4:
-                return BuildTargetGroup.PS4;
-            case BuildTarget.XboxOne:
-                return BuildTargetGroup.XboxOne;
-            case BuildTarget.tvOS:
-                return BuildTargetGroup.tvOS;
-            case BuildTarget.Switch:
-                return BuildTargetGroup.Switch;
-            default:
-                return BuildTargetGroup.Standalone;
-        }
-    }
+    
     [MenuItem("Tools/GenerateChecks", false)]
     public static void GenerateChecks()
     {
@@ -209,7 +177,7 @@ public partial class BuildToolsSDK : EditorWindow
         {
              BuildTarget.Android, 
             BuildTarget.StandaloneWindows,
-             // BuildTarget.WebGL,
+              BuildTarget.iOS,
         };
     } }
     public static void CleanupDir(string dir)
